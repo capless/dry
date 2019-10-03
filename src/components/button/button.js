@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { Button } from "react-md";
 import withDisabledInk from "hocs/withDisabledInk";
 
-function ButtonComponent(props) {
+function DryButton(props) {
   const {
     flat,
     className,
@@ -57,7 +57,7 @@ function ButtonComponent(props) {
   }
 }
 
-ButtonComponent.defaultProps = {
+DryButton.defaultProps = {
   className: "",
   flat: true,
   disabled: false,
@@ -69,7 +69,7 @@ ButtonComponent.defaultProps = {
   onMouseLeave: () => {},
 };
 
-ButtonComponent.propTypes = {
+DryButton.propTypes = {
   className: Proptypes.string,
   flat: Proptypes.bool,
   disabled: Proptypes.bool,
@@ -81,8 +81,8 @@ ButtonComponent.propTypes = {
   onMouseLeave: Proptypes.func,
 };
 
-const ButtonComponentWithDisabledInk = withDisabledInk(ButtonComponent);
-const StyledButton = styled(ButtonComponentWithDisabledInk)`
+const DryButtonWithDisabledInk = withDisabledInk(DryButton);
+const StyledButton = styled(DryButtonWithDisabledInk)`
   text-transform: none;
 
   // from figma
