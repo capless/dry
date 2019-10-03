@@ -1,14 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import omit from "lodash/omit";
 import { Avatar } from "react-md";
+
+const excludeProps = [
+  "bordered",
+];
 
 function DryAvatar(props) {
   const { role, ...restProps } = props;
   return (
     <Avatar
       role={role}
-      {...restProps}
+      {...(omit(restProps, excludeProps))}
     />
   );
 }
