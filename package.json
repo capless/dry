@@ -14,10 +14,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "clsx": "^1.0.4",
     "prop-types": "^15.7.2",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
-    "react-md": "^1.12.3"
+    "react-md": "^1.12.3",
+    "styled-components": "^4.4.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.2",
