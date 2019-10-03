@@ -20,7 +20,8 @@ module.exports = {
   rules: {
     quotes: [2, "double", { allowTemplateLiterals: true, avoidEscape: true }],
     "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
-    "react/button-has-type": [0],
+    "react/button-has-type": 0,
+    "linebreak-style": 0,
     "import/no-extraneous-dependencies": [
       "error",
       {
