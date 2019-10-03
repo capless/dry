@@ -7,37 +7,53 @@ import withDisabledInk from "hocs/withDisabledInk";
 
 function ButtonComponent(props) {
   const {
-    className, flat, primary, secondary, disabled, onMouseDown, onMouseUp,
+    flat,
+    className,
+    primary,
+    tertiary,
+    secondary,
+    disabled,
+    onMouseUp,
+    onMouseDown,
+    onMouseLeave,
+    ...restProps
   } = props;
   const [pressed, setPressed] = useState();
   const clsxName = clsx(className, {
     "md-btn-primary": primary,
     "md-btn-secondary": secondary,
+    "md-btn-tertiary": tertiary,
     "md-btn--pressed": pressed,
     "md-btn--disabled": disabled,
   });
 
   return (
     <Button
-      {...props}
+      {...restProps}
       flat={flat}
       primary={primary}
-      secondary={secondary}
+      secondary={secondary || tertiary}
       disabled={disabled}
       className={clsxName}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseLeave}
     />
   );
 
-  function handleMouseDown(e) {
+  function handleMouseDown(...args) {
     setPressed(true);
-    onMouseDown(e);
+    onMouseDown(...args);
   }
 
-  function handleMouseUp(e) {
+  function handleMouseUp(...args) {
     setPressed(false);
-    onMouseUp(e);
+    onMouseUp(...args);
+  }
+
+  function handleMouseLeave(...args) {
+    setPressed(false);
+    onMouseLeave(...args);
   }
 }
 
@@ -47,8 +63,10 @@ ButtonComponent.defaultProps = {
   disabled: false,
   primary: false,
   secondary: false,
+  tertiary: false,
   onMouseDown: () => {},
   onMouseUp: () => {},
+  onMouseLeave: () => {},
 };
 
 ButtonComponent.propTypes = {
@@ -57,8 +75,10 @@ ButtonComponent.propTypes = {
   disabled: Proptypes.bool,
   primary: Proptypes.bool,
   secondary: Proptypes.bool,
+  tertiary: Proptypes.bool,
   onMouseDown: Proptypes.func,
   onMouseUp: Proptypes.func,
+  onMouseLeave: Proptypes.func,
 };
 
 const ButtonComponentWithDisabledInk = withDisabledInk(ButtonComponent);
@@ -120,6 +140,26 @@ const StyledButton = styled(ButtonComponentWithDisabledInk)`
       &--disabled {
         color: #C2CFE0;
         border: 1px solid #C2CFE0;
+      }
+    }
+  }
+
+  // tertiary color
+  &.md-btn-tertiary {
+    color: #CF33F2;
+    background-color: transparent;
+    
+    &.md-btn {
+      &--hover {
+        color: #9871CB;
+      }
+
+      &--pressed {
+        color: #791FD2;
+      }
+
+      &--disabled {
+        color: #C2CFE0;
       }
     }
   }
