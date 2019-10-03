@@ -7,14 +7,38 @@ export default {
   title: "Button",
 };
 
-export const withText = () => (
-  <Button onClick={action("clicked")}>Hello Button</Button>
+export const flatDefault = () => (
+  <Button flat onClick={action("click")}>
+    Hello, World!
+  </Button>
 );
 
-export const withEmoji = () => (
-  <Button onClick={action("clicked")}>
-    <span role="img" aria-label="so cool">
-      😀 😎 👍 💯
-    </span>
+export const flatPrimary = () => (
+  <Button flat primary onClick={action("click")}>
+    Hello, World!
+  </Button>
+);
+
+export const flatSecondary = () => (
+  <Button flat secondary onClick={action("click")}>
+    Hello, World!
+  </Button>
+);
+
+export const raisedDefault = () => (
+  <Button raised onClick={action("click")}>
+    Hello, World!
+  </Button>
+);
+
+export const raisedPrimary = () => (
+  <Button raised primary onClick={action("click")}>
+    Hello, World!
+  </Button>
+);
+
+export const raisedSecondary = () => (
+  <Button raised secondary onClick={action("click")}>
+    Hello, World!
   </Button>
 );
