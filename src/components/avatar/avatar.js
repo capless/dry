@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import omit from "lodash/omit";
 import styled, { css } from "styled-components";
-import Avatar from "@material-ui/core/Avatar";
+import { Avatar } from "@material-ui/core";
 
 const excludeProps = ["bordered", "showBackdrop", "backdropImage"];
 
