@@ -12,18 +12,6 @@ export const primaryDefault = () => (
   </Button>
 );
 
-export const primaryHover = () => (
-  <Button color="primary" variant="contained" onClick={action("click")}>
-    Accent button
-  </Button>
-);
-
-export const primaryPressed = () => (
-  <Button color="primary" variant="contained" onClick={action("click")}>
-    Accent button
-  </Button>
-);
-
 export const primaryDisabled = () => (
   <Button
     color="primary"

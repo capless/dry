@@ -12,18 +12,6 @@ export const secondaryDefault = () => (
   </Button>
 );
 
-export const secondaryHover = () => (
-  <Button color="secondary" variant="outlined" onClick={action("click")}>
-    Secondary button
-  </Button>
-);
-
-export const secondaryPressed = () => (
-  <Button color="secondary" variant="outlined" onClick={action("click")}>
-    Secondary button
-  </Button>
-);
-
 export const secondaryDisabled = () => (
   <Button
     color="secondary"
