@@ -7,25 +7,11 @@ export default {
 };
 
 export const tertiaryDefault = () => (
-  <Button tertiary onClick={action("click")}>
-    Tertiary button
-  </Button>
-);
-
-export const tertiaryHover = () => (
-  <Button tertiary onClick={action("click")}>
-    Tertiary button
-  </Button>
-);
-
-export const tertiaryPressed = () => (
-  <Button tertiary onClick={action("click")}>
-    Tertiary button
-  </Button>
+  <Button onClick={action("click")}>Tertiary button</Button>
 );
 
 export const tertiaryDisabled = () => (
-  <Button tertiary disabled onClick={action("click")}>
+  <Button disabled onClick={action("click")}>
     Tertiary button
   </Button>
 );

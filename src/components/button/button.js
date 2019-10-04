@@ -2,17 +2,13 @@ import React, { useState } from "react";
 import Proptypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import { Button } from "react-md";
-import withDisabledInk from "hocs/withDisabledInk";
+import Button from "@material-ui/core/Button";
 
 function DryButton(props) {
   const {
-    flat,
     className,
-    primary,
-    tertiary,
-    secondary,
     disabled,
+    disableRipple,
     onMouseUp,
     onMouseDown,
     onMouseLeave,
@@ -20,19 +16,14 @@ function DryButton(props) {
   } = props;
   const [pressed, setPressed] = useState();
   const clsxName = clsx(className, {
-    "md-btn-primary": primary,
-    "md-btn-secondary": secondary,
-    "md-btn-tertiary": tertiary,
-    "md-btn--pressed": pressed,
-    "md-btn--disabled": disabled,
+    "MuiButton--pressed": pressed,
+    "MuiButton--disabled": disabled,
   });
 
   return (
     <Button
       {...restProps}
-      flat={flat}
-      primary={primary}
-      secondary={secondary || tertiary}
+      disableRipple={disableRipple}
       disabled={disabled}
       className={clsxName}
       onMouseDown={handleMouseDown}
@@ -59,11 +50,8 @@ function DryButton(props) {
 
 DryButton.defaultProps = {
   className: "",
-  flat: true,
   disabled: false,
-  primary: false,
-  secondary: false,
-  tertiary: false,
+  disableRipple: true,
   onMouseDown: () => {},
   onMouseUp: () => {},
   onMouseLeave: () => {},
@@ -71,96 +59,97 @@ DryButton.defaultProps = {
 
 DryButton.propTypes = {
   className: Proptypes.string,
-  flat: Proptypes.bool,
   disabled: Proptypes.bool,
-  primary: Proptypes.bool,
-  secondary: Proptypes.bool,
-  tertiary: Proptypes.bool,
+  disableRipple: Proptypes.bool,
   onMouseDown: Proptypes.func,
   onMouseUp: Proptypes.func,
   onMouseLeave: Proptypes.func,
 };
 
-const DryButtonWithDisabledInk = withDisabledInk(DryButton);
-const StyledButton = styled(DryButtonWithDisabledInk)`
-  text-transform: none;
+const StyledButton = styled(DryButton)`
+  &.MuiButtonBase-root {
+    text-transform: none;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+    letter-spacing: 0.01em;
+  }
 
-  // from figma
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 15px;
-  line-height: 18px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: 0.01em;
-  border-radius: 4px;
+  &.MuiButton-contained {
+    box-shadow: none;
 
-  // primary color
-  &.md-btn-primary {
-    color: #FFFFFF;
-    background-color: #CF33F2;
+    &:hover,
+    &:active {
+      box-shadow: none;
+    }
+  }
+  
+  /* primary color */
+  &.MuiButton-containedPrimary {
+    color: #ffffff;
+    background-color: #cf33f2;
 
-    &.md-btn {
-      &--hover {
-        background-color: #9871CB;
-      }
+    &:hover {
+      background-color: #9871cb;
+    }
 
-      &--pressed {
-        background-color: #791FD2;
-      }
+    &.MuiButton--pressed {
+      background-color: #791fd2;
+    }
 
-      &--disabled {
-        background-color: #C2CFE0;
-      }
+    &.MuiButton--disabled {
+      background-color: #c2cfe0;
+      color: #FFFFFF;
+      opacity: 0.8;
     }
   }
 
-  // secondary color
-  &.md-btn-secondary {
+  /* secondary color */
+  &.MuiButton-outlinedSecondary {
     color: #CF33F2;
-    border: 1px solid #CF33F2;
     background-color: #FFFFFF;
-    
-    // from figma
+    border: 1px solid #CF33F2;
     box-sizing: border-box;
 
-    &.md-btn {
-      &--hover {
-        color: #9871CB;
-        border: 1px solid #9871CB;
-      }
+    &:hover {
+      color: #9871CB;
+      background-color: #FFFFFF;
+      border: 1px solid #9871CB;
+    }
 
-      &--pressed {
-        color: #791FD2;
-        border: 1px solid #791FD2;
-      }
+    &.MuiButton--pressed {
+      color: #791FD2;
+      background-color: #FFFFFF;
+      border: 1px solid #791FD2;
+    }
 
-      &--disabled {
-        color: #C2CFE0;
-        border: 1px solid #C2CFE0;
-      }
+    &.MuiButton--disabled {
+      color: #C2CFE0;
+      background-color: #FFFFFF;
+      border: 1px solid #C2CFE0;
     }
   }
 
-  // tertiary color
-  &.md-btn-tertiary {
+  /* tertiary / default color */
+  &.MuiButton-text {
     color: #CF33F2;
     background-color: transparent;
-    
-    &.md-btn {
-      &--hover {
-        color: #9871CB;
-      }
 
-      &--pressed {
-        color: #791FD2;
-      }
+    &:hover {
+      color: #9871CB;
+      background-color: transparent;
+    }
 
-      &--disabled {
-        color: #C2CFE0;
-      }
+    &.MuiButton--pressed {
+      color: #791FD2;
+      background-color: transparent;
+    }
+
+    &.MuiButton--disabled {
+      color: #C2CFE0;
+      background-color: transparent;
     }
   }
 `;
