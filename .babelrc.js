@@ -27,6 +27,6 @@ module.exports = {
         'camel2DashComponentName': false
       },
       'icons'
-    ]
+    ],
   ],
 };

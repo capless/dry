@@ -6,9 +6,9 @@ export default {
 };
 
 export const Default = () => (
-  <Avatar width="24px" height="24px" src="https://picsum.photos/24/24" />
+  <Avatar width="24px" height="24px" src="/images/avatar-small.jpg" />
 );
 
 export const withBorder = () => (
-  <Avatar width="24px" height="24px" bordered src="https://picsum.photos/24/24" />
+  <Avatar width="24px" height="24px" bordered src="/images/avatar-small.jpg" />
 );

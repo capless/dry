@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import omit from "lodash/omit";
 import styled, { css } from "styled-components";
 import { Avatar } from "@material-ui/core";
+import { avatarBackdropSVG } from "./sub-components/avatar-backdrop";
 
 const excludeProps = ["bordered", "showBackdrop", "backdropImage"];
 
@@ -14,7 +15,7 @@ function DryAvatar(props) {
 DryAvatar.defaultProps = {
   role: "presentation",
   showBackdrop: false,
-  backdropImage: "/images/avatar-backdrop-image.png",
+  backdropImage: avatarBackdropSVG,
 };
 
 DryAvatar.propTypes = {
@@ -35,6 +36,7 @@ const StyledDryAvatar = styled(DryAvatar)`
     &.MuiAvatar-root:before {
         content: "";
         background-color: black;
+        background-position: center;
         opacity: 0;
         -webkit-transition: all .3s;
         transition: all .3s;
@@ -43,9 +45,10 @@ const StyledDryAvatar = styled(DryAvatar)`
       &.MuiAvatar-root:hover:before {
         content: "";
         background-image: url(${({ backdropImage }) => backdropImage});
-        display: block;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 25%;
         position: absolute;
-        background-size: contain;
         border-radius: 100%;
         width: 100%;
         height: 100%;
