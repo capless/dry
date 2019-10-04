@@ -9,8 +9,7 @@
     "storybook": "start-storybook -p 6006 -s ./public",
     "dev": "yarn storybook",
     "build-storybook": "build-storybook",
-    "build-components": "cross-env NODE_ENV=production babel src --out-dir dist",
-    "build-scss": "node-sass-chokidar ./src -o ./build"
+    "build-components": "cross-env NODE_ENV=production babel src --out-dir dist"
   },
   "keywords": [],
   "author": "",
