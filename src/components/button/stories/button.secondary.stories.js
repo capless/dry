@@ -7,25 +7,30 @@ export default {
 };
 
 export const secondaryDefault = () => (
-  <Button secondary onClick={action("click")}>
+  <Button color="secondary" variant="outlined" onClick={action("click")}>
     Secondary button
   </Button>
 );
 
 export const secondaryHover = () => (
-  <Button secondary onClick={action("click")}>
+  <Button color="secondary" variant="outlined" onClick={action("click")}>
     Secondary button
   </Button>
 );
 
 export const secondaryPressed = () => (
-  <Button secondary onClick={action("click")}>
+  <Button color="secondary" variant="outlined" onClick={action("click")}>
     Secondary button
   </Button>
 );
 
 export const secondaryDisabled = () => (
-  <Button secondary disabled onClick={action("click")}>
+  <Button
+    color="secondary"
+    variant="outlined"
+    disabled
+    onClick={action("click")}
+  >
     Secondary button
   </Button>
 );

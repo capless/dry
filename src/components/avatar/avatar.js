@@ -2,20 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import omit from "lodash/omit";
-import { Avatar } from "react-md";
+import Avatar from "@material-ui/core/Avatar";
 
-const excludeProps = [
-  "bordered",
-];
+const excludeProps = ["bordered"];
 
 function DryAvatar(props) {
   const { role, ...restProps } = props;
-  return (
-    <Avatar
-      role={role}
-      {...(omit(restProps, excludeProps))}
-    />
-  );
+  return <Avatar role={role} {...omit(restProps, excludeProps)} />;
 }
 
 DryAvatar.defaultProps = {

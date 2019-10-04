@@ -7,25 +7,30 @@ export default {
 };
 
 export const primaryDefault = () => (
-  <Button primary onClick={action("click")}>
-      Accent button
+  <Button color="primary" variant="contained" onClick={action("click")}>
+    Accent button
   </Button>
 );
 
 export const primaryHover = () => (
-  <Button primary onClick={action("click")}>
+  <Button color="primary" variant="contained" onClick={action("click")}>
     Accent button
   </Button>
 );
 
 export const primaryPressed = () => (
-  <Button primary onClick={action("click")}>
+  <Button color="primary" variant="contained" onClick={action("click")}>
     Accent button
   </Button>
 );
 
 export const primaryDisabled = () => (
-  <Button primary disabled onClick={action("click")}>
+  <Button
+    color="primary"
+    variant="contained"
+    disabled
+    onClick={action("click")}
+  >
     Accent button
   </Button>
 );
