@@ -4,13 +4,12 @@
   "description": "",
   "main": "dist",
   "scripts": {
-    "lint": "yarn eslint **/*.js --ignore-pattern node_modules/",
+    "lint": "yarn eslint src/",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006 -s ./public",
     "dev": "yarn storybook",
-    "build-storybook": "build-storybook",
-    "build-components": "cross-env NODE_ENV=production babel src --out-dir dist",
-    "build-scss": "node-sass-chokidar ./src -o ./build"
+    "build-storybook": "build-storybook -s ./public",
+    "build-components": "cross-env NODE_ENV=production babel src --out-dir dist"
   },
   "keywords": [],
   "author": "",
@@ -37,6 +36,7 @@
     "@storybook/react": "^5.2.1",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
+    "babel-plugin-import": "^1.12.2",
     "babel-plugin-module-resolver": "^3.2.0",
     "cross-env": "^6.0.3",
     "eslint": "^6.5.1",

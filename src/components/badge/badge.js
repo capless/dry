@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Badge from "@material-ui/core/Badge";
+import { Badge } from "@material-ui/core";
 
 function DryBadge(props) {
   return <Badge {...props} />;

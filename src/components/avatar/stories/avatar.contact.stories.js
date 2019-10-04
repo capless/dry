@@ -32,7 +32,7 @@ export const withEditBadge = () => (
     <Avatar
       width="104px"
       height="104px"
-      src="https://picsum.photos/104/104"
+      src="/images/avatar.jpg"
       onClick={action("click [Avatar]")}
     />
   </Badge>
@@ -61,7 +61,7 @@ export const withCheckBadge = () => (
     <Avatar
       width="104px"
       height="104px"
-      src="https://picsum.photos/104/104"
+      src="/images/avatar.jpg"
       onClick={action("click [Avatar]")}
     />
   </Badge>
@@ -91,7 +91,7 @@ export const withAvatarShowBackdrop = () => (
       showBackdrop
       width="104px"
       height="104px"
-      src="https://picsum.photos/104/104"
+      src="/images/avatar.jpg"
       onClick={action("click [Avatar]")}
     />
   </Badge>

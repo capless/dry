@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Proptypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import Button from "@material-ui/core/Button";
+import { Button } from "@material-ui/core";
 
 function DryButton(props) {
   const {
