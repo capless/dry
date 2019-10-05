@@ -55,8 +55,8 @@ const StyledDryAvatar = styled(DryAvatar)`
         border-radius: 100%;
         width: 100%;
         height: 100%;
-        opacity: .5;
-        background-color: black;
+        opacity: .4;
+        background-color: #192A3E;
       }
   `}
 `;
