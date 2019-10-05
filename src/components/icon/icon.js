@@ -11,17 +11,18 @@ function DryIcon(props) {
 }
 
 DryIcon.propTypes = {
-  component: PropTypes.shape({
-    type: PropTypes.shape({
-      render: PropTypes.func,
+  component: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      type: PropTypes.shape({
+        render: PropTypes.func,
+      }),
     }),
-  }).isRequired,
+  ]).isRequired,
 };
 
 const StyledDryIcon = styled(DryIcon)`
   &.MuiSvgIcon-root {
-    width: ${({ width }) => width};
-    height: ${({ height }) => height};
     color: ${({ color }) => color};
     cursor: ${({ onClick }) => (onClick ? "pointer" : "auto")};
   }

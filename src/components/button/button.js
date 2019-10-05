@@ -3,6 +3,7 @@ import Proptypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { Button } from "@material-ui/core";
+import { withTheme } from "theme";
 
 function DryButton(props) {
   const {
@@ -68,12 +69,15 @@ DryButton.propTypes = {
 
 const StyledButton = styled(DryButton)`
   &.MuiButtonBase-root {
+    min-width: 160px;
+    min-height: 42px;
     text-transform: none;
-    font-family: Roboto;
+    font-family: ${({ theme }) => theme.typography.fontFamily};
+    font-weight: ${({ theme }) => theme.typography.fontWeightBold};
     font-style: normal;
-    font-weight: bold;
     font-size: 15px;
     text-align: center;
+    line-height: 18px;
     letter-spacing: 0.01em;
   }
 
@@ -88,70 +92,73 @@ const StyledButton = styled(DryButton)`
   
   /* primary color */
   &.MuiButton-containedPrimary {
-    color: #ffffff;
-    background-color: #cf33f2;
+    color: ${({ theme }) => theme.colors.white};
+    background-color: ${({ theme }) => theme.colors.deepPink};
+    box-shadow: 0px 8px 10px rgba(92, 198, 76, 0.13);
 
     &:hover {
-      background-color: #9871cb;
+      background-color: ${({ theme }) => theme.colors.lavender};
+      box-shadow: 0px 8px 10px rgba(91, 214, 73, 0.13);
     }
 
     &.MuiButton--pressed {
-      background-color: #791fd2;
+      background-color: ${({ theme }) => theme.colors.violet};
+      box-shadow: 0px 2px 10px rgba(72, 180, 56, 0.13);
     }
 
     &.MuiButton--disabled {
-      background-color: #c2cfe0;
-      color: #FFFFFF;
+      background-color: ${({ theme }) => theme.colors.iconGray};
+      color: ${({ theme }) => theme.colors.white};
       opacity: 0.8;
     }
   }
 
   /* secondary color */
   &.MuiButton-outlinedSecondary {
-    color: #CF33F2;
-    background-color: #FFFFFF;
-    border: 1px solid #CF33F2;
+    color: ${({ theme }) => theme.colors.deepPink};
+    background-color: ${({ theme }) => theme.colors.white};
+    border: ${({ theme }) => `1px solid ${theme.colors.deepPink}`};
     box-sizing: border-box;
 
     &:hover {
-      color: #9871CB;
-      background-color: #FFFFFF;
-      border: 1px solid #9871CB;
+      color: ${({ theme }) => theme.colors.lavender};
+      background-color: ${({ theme }) => theme.colors.white};
+      border: ${({ theme }) => `1px solid ${theme.colors.lavender}`};
     }
 
     &.MuiButton--pressed {
-      color: #791FD2;
-      background-color: #FFFFFF;
-      border: 1px solid #791FD2;
+      color: ${({ theme }) => theme.colors.violet};
+      background-color: ${({ theme }) => theme.colors.white};
+      border: ${({ theme }) => `1px solid ${theme.colors.violet}`};
     }
 
     &.MuiButton--disabled {
-      color: #C2CFE0;
-      background-color: #FFFFFF;
-      border: 1px solid #C2CFE0;
+      color: ${({ theme }) => theme.colors.iconGray};
+      background-color: ${({ theme }) => theme.colors.white};
+      border: ${({ theme }) => `1px solid ${theme.colors.iconGray}`};
     }
   }
 
   /* tertiary / default color */
   &.MuiButton-text {
-    color: #CF33F2;
+    color: ${({ theme }) => theme.colors.deepPink};
     background-color: transparent;
 
     &:hover {
-      color: #9871CB;
+      color: ${({ theme }) => theme.colors.lavender};
       background-color: transparent;
     }
 
     &.MuiButton--pressed {
-      color: #791FD2;
+      color: ${({ theme }) => theme.colors.violet};
       background-color: transparent;
     }
 
     &.MuiButton--disabled {
-      color: #C2CFE0;
+      color: ${({ theme }) => theme.colors.iconGray};
       background-color: transparent;
     }
   }
 `;
 
-export default StyledButton;
+export default withTheme(StyledButton);

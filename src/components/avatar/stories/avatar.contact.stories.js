@@ -22,9 +22,6 @@ export const withEditBadge = () => (
     badgeContent={(
       <Icon
         component={Edit}
-        width="12px"
-        height="12px"
-        color="#334D6E"
         onClick={action("click [Icon]")}
       />
     )}
@@ -51,9 +48,6 @@ export const withCheckBadge = () => (
     badgeContent={(
       <Icon
         component={Check}
-        width="12px"
-        height="12px"
-        color="#109CF1"
         onClick={action("click [Icon]")}
       />
     )}
@@ -80,9 +74,6 @@ export const withAvatarShowBackdrop = () => (
     badgeContent={(
       <Icon
         component={Check}
-        width="12px"
-        height="12px"
-        color="#109CF1"
         onClick={action("click [Icon]")}
       />
     )}
