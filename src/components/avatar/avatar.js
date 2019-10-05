@@ -41,8 +41,8 @@ const StyledDryAvatar = styled(DryAvatar)`
         height: 100%;
         opacity: 0;
 
-        -webkit-transition: all 1s;
-        transition: all 1s;
+        -webkit-transition: all .5s;
+        transition: all .5s;
       }
 
       &.MuiAvatar-root:hover::before {
