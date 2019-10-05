@@ -33,16 +33,19 @@ const StyledDryAvatar = styled(DryAvatar)`
   }
 
   ${({ showBackdrop }) => showBackdrop && css`
-    &.MuiAvatar-root:before {
-        content: "";
-        background-color: black;
+    &.MuiAvatar-root::before {
+      content: "";
         background-position: center;
+        position: absolute;
+        width: 100%;
+        height: 100%;
         opacity: 0;
-        -webkit-transition: all .3s;
-        transition: all .3s;
+
+        -webkit-transition: all 1s;
+        transition: all 1s;
       }
 
-      &.MuiAvatar-root:hover:before {
+      &.MuiAvatar-root:hover::before {
         content: "";
         background-image: url(${({ backdropImage }) => backdropImage});
         background-position: center;
