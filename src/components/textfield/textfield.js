@@ -26,13 +26,14 @@ function DryTextField(props) {
 
 DryTextField.defaultProps = {
   className: "",
-  valueSize: "",
+  valueSize: "normal",
 
 };
 
 DryTextField.propTypes = {
   className: Proptypes.string,
   valueSize: Proptypes.oneOf([
+    "normal",
     "large",
   ]),
 };
@@ -51,6 +52,7 @@ const StyledTextField = styled(DryTextField)`
   .MuiInputBase-input {
     padding-top: 8px;
     padding-bottom: 9px;
+    color: #707683;
   }
 
   /* large input value */
@@ -95,10 +97,8 @@ const StyledTextField = styled(DryTextField)`
       background: #EBEFF2;
     }
 
-    &.MuiInput-underline {
-      &::after {
-        border-bottom: 1px solid #818E9B;
-      }
+    &.MuiInput-underline::after {
+      border-bottom: 1px solid #818E9B;
     }
   }
 `;
