@@ -11,11 +11,11 @@ import Box from "@material-ui/core/Box";
 
 
 export default {
-  title: "Library|TextFields/Default",
+  title: "Library|Inputs/Default",
 };
 
 export const all = () => (
-  <Grid container spacing={6}>
+  <Grid container spacing={6} className="storybook-adjusted">
     <Grid item xs={12}>
       <TextField
         id="id"
@@ -38,7 +38,7 @@ export const all = () => (
 
     <Grid item xs={12}>
       <Select
-        label="Title"
+        label="Associated with"
         value="Lindsey Stroud"
         onChange={() => {}}
         renderValue={(value) => (
@@ -78,28 +78,4 @@ export const all = () => (
       />
     </Grid>
   </Grid>
-);
-
-export const TitleWithIconOnRight = () => (
-  <TextField
-    id="id"
-    label="Title"
-    defaultValue="Office meet-up"
-    InputProps={{
-      endAdornment: (
-        <InputAdornment position="start">
-          <Calendar />
-        </InputAdornment>
-      ),
-    }}
-  />
-);
-
-export const Title = () => (
-  <TextField
-    id="id"
-    label="Title"
-    defaultValue="Name"
-    valueSize="large"
-  />
 );

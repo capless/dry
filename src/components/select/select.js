@@ -49,11 +49,24 @@ const StyledSelect = styled(DrySelect)`
     color: #AEAEAE;
   }
 
+  /* label */
+  .MuiFormLabel-root {
+    color: ${({ theme }) => theme.colors.gray};
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 13px;
+  }
+
   /* input */
   .MuiSelect-root {
     padding-top: 8px;
     padding-bottom: 9px;
     color: #707683;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
   }
 
   /* input underline */
@@ -88,7 +101,12 @@ const StyledSelect = styled(DrySelect)`
     align-items: center;
 
     .MuiFormLabel-root {
+      color: #707683;
       margin: 0 5px;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 16px;
     }
   }
 `;

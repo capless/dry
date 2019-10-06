@@ -46,6 +46,10 @@ const StyledTextField = styled(DryTextField)`
   /* label */
   .MuiFormLabel-root {
     color: ${({ theme }) => theme.colors.gray};
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 13px;
   }
 
   /* normal input */
@@ -53,13 +57,16 @@ const StyledTextField = styled(DryTextField)`
     padding-top: 8px;
     padding-bottom: 9px;
     color: #707683;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
   }
 
   /* large input value */
   &.MuiInput-input--large {
     .MuiInputBase-input {
       padding-bottom: 6px;
-      font-family: Roboto;
       font-style: normal;
       font-weight: bold;
       font-size: 18px;
