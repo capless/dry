@@ -5,9 +5,9 @@ import Select from "components/select";
 import Grid from "components/grid";
 import InputAdornment from "components/input-adornment";
 import Avatar from "components/avatar";
-import MenuItem from "@material-ui/core/MenuItem";
+import Box from "components/box";
+import MenuItem from "components/menu-item";
 import { InputLabel } from "@material-ui/core";
-import Box from "@material-ui/core/Box";
 
 
 export default {
