@@ -9,10 +9,12 @@ function DryTextField(props) {
   const {
     className,
     valueSize,
+    textVariant,
     ...restProps
   } = props;
   const clsxName = clsx(className, {
     [`MuiInput-input--${valueSize}`]: valueSize,
+    [`MuiInput-input--${textVariant}`]: textVariant,
   });
 
   return (
@@ -27,7 +29,7 @@ function DryTextField(props) {
 DryTextField.defaultProps = {
   className: "",
   valueSize: "normal",
-
+  textVariant: "normal",
 };
 
 DryTextField.propTypes = {
@@ -35,6 +37,10 @@ DryTextField.propTypes = {
   valueSize: Proptypes.oneOf([
     "normal",
     "large",
+  ]),
+  textVariant: Proptypes.oneOf([
+    "normal",
+    "naked",
   ]),
 };
 
@@ -69,6 +75,7 @@ const StyledTextField = styled(DryTextField)`
     }
   }
 
+  /* with icons */
   .MuiInputAdornment-root {
     width: 36px;
     height: 100%;
@@ -99,6 +106,37 @@ const StyledTextField = styled(DryTextField)`
 
     &.MuiInput-underline::after {
       border-bottom: 1px solid #818E9B;
+    }
+  }
+
+  /* naked input */
+  &.MuiInput-input--naked {
+    /* remove underline */
+    .MuiInput-underline {
+      &::before, &::after {
+        border: none;
+      }
+
+      &:hover:not(.Mui-disabled):before {
+        border: none;
+      }
+    }
+
+    /* naked - edit mode */
+    .Mui-focused {
+      color: ${({ theme }) => theme.colors.gray};
+
+      .MuiInputBase-input {
+        background: transparent;
+      }
+
+      .MuiInputAdornment-root {
+        background: transparent;
+      }
+
+      &.MuiInput-underline::after {
+        border: none;
+      }
     }
   }
 `;
