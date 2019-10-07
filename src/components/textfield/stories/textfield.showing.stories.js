@@ -7,7 +7,7 @@ import InputAdornment from "components/input-adornment";
 import Avatar from "components/avatar";
 import Box from "components/box";
 import MenuItem from "components/menu-item";
-import { InputLabel } from "@material-ui/core";
+import InputLabel from "components/input-label";
 
 export default {
   title: "Library|Inputs/Showing",
