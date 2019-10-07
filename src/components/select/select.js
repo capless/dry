@@ -54,8 +54,6 @@ const StyledSelect = styled(DrySelect)`
     color: ${({ theme }) => theme.colors.gray};
     font-style: normal;
     font-weight: normal;
-    font-size: 11px;
-    line-height: 13px;
   }
 
   /* input */
@@ -65,8 +63,6 @@ const StyledSelect = styled(DrySelect)`
     color: #707683;
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
   }
 
   /* input underline */
@@ -105,8 +101,6 @@ const StyledSelect = styled(DrySelect)`
       margin: 0 5px;
       font-style: normal;
       font-weight: normal;
-      font-size: 14px;
-      line-height: 16px;
     }
   }
 `;

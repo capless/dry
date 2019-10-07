@@ -48,8 +48,6 @@ const StyledTextField = styled(DryTextField)`
     color: ${({ theme }) => theme.colors.gray};
     font-style: normal;
     font-weight: normal;
-    font-size: 11px;
-    line-height: 13px;
   }
 
   /* normal input */
@@ -59,8 +57,6 @@ const StyledTextField = styled(DryTextField)`
     color: #707683;
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
   }
 
   /* large input value */
@@ -69,9 +65,6 @@ const StyledTextField = styled(DryTextField)`
       padding-bottom: 6px;
       font-style: normal;
       font-weight: bold;
-      font-size: 18px;
-      line-height: 21px;
-      letter-spacing: 0.01em;
       color: #192A3E;
     }
   }
