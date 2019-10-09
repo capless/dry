@@ -47,7 +47,8 @@ DrySelect.propTypes = {
 
 const StyledSelect = styled(DrySelect)`
   &.MuiFormControl-root {
-    min-width: 25%;
+    min-width: ${({ width }) => !width && "25%"};
+    width: ${({ width }) => width};
     color: #707683;
   }
 
