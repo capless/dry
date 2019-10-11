@@ -1,11 +1,11 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import Proptypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { MenuItem } from "@material-ui/core";
 import { withTheme } from "theme";
 
-function DryMenuItem(props) {
+const DryMenuItem = forwardRef((props, ref) => {
   const {
     className,
     ...restProps
@@ -17,10 +17,11 @@ function DryMenuItem(props) {
   return (
     <MenuItem
       {...restProps}
+      ref={ref}
       className={clsxName}
     />
   );
-}
+});
 
 DryMenuItem.defaultProps = {
   className: "",

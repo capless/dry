@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState, useRef } from "react";
+import { ArrowDropDown } from "icons";
 import Select from "components/select";
+import Menu from "@material-ui/core/Menu";
 import MenuItem from "components/menu-item";
-import InputLabel from "@material-ui/core/InputLabel";
-import FormControl from "@material-ui/core/FormControl";
-
+import InputLabel from "components/input-label";
 
 export default {
   title: "Library|Selects/Default",
@@ -38,19 +38,50 @@ export const withoutLabel = () => (
   </Select>
 );
 
-export const sortOnTop = () => (
-  <>
-    <InputLabel>
-      Sort: New on Top
-    </InputLabel>
-    <Select
-      displayEmpty
-      value={10}
-      width="200px"
-      onChange={() => {}}
-    >
-      <MenuItem value={10}>New on Top</MenuItem>
-      <MenuItem value={20}>Oldest to Newest</MenuItem>
-    </Select>
-  </>
-);
+export const sortOnTop = () => {
+  const inputRef = useRef();
+  const [value, setValue] = useState("New on top");
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleOpen = () => {
+    setAnchorEl(inputRef.current);
+  };
+
+  const handleSelectItem = (item) => {
+    setValue(item);
+    setAnchorEl(null);
+  };
+
+  return (
+    <>
+      <InputLabel
+        ref={inputRef}
+        label="Sort:"
+        value={value}
+        onClick={handleOpen}
+        rightIcon={<ArrowDropDown onClick={handleOpen} />}
+      />
+      <Menu
+        keepMounted
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+        {["New on Top", "Oldest to Newest"].map((item) => (
+          <MenuItem
+            key={item}
+            value={item}
+            selected={item === value}
+            onClick={() => handleSelectItem(item)}
+          >
+            {item}
+          </MenuItem>
+        ))}
+      </Menu>
+    </>
+  );
+};
