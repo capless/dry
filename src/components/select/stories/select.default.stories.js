@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { ArrowDropDown } from "icons";
 import Select from "components/select";
-import Menu from "@material-ui/core/Menu";
+import Menu from "components/menu";
 import MenuItem from "components/menu-item";
 import InputLabel from "components/input-label";
 
