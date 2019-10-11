@@ -9,9 +9,8 @@ import Box from "components/box";
 import MenuItem from "components/menu-item";
 import InputLabel from "components/input-label";
 
-
 export default {
-  title: "Library|Inputs/Default",
+  title: "Library|Inputs/Showing",
 };
 
 export const all = () => (
@@ -21,25 +20,24 @@ export const all = () => (
         id="id"
         label="First name"
         defaultValue="Jane"
+        textVariant="naked"
       />
     </Grid>
 
     <Grid item xs={12}>
-      <Select
+      <TextField
+        id="id"
         label="Title"
-        value={10}
-        onChange={() => {}}
-      >
-        <MenuItem value={10}>Office meet-up</MenuItem>
-        <MenuItem value={20}>Twenty</MenuItem>
-        <MenuItem value={30}>Thirty</MenuItem>
-      </Select>
+        defaultValue="Office meet-up"
+        textVariant="naked"
+      />
     </Grid>
 
     <Grid item xs={12}>
       <Select
         label="Associated with"
         value="Lindsey Stroud"
+        textVariant="naked"
         onChange={() => {}}
         renderValue={(value) => (
           <Box>
@@ -59,6 +57,7 @@ export const all = () => (
         id="id"
         label="Title"
         defaultValue="Office meet-up"
+        textVariant="naked"
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
@@ -75,7 +74,9 @@ export const all = () => (
         label="Title"
         defaultValue="Name"
         valueSize="large"
+        textVariant="naked"
       />
     </Grid>
+
   </Grid>
 );

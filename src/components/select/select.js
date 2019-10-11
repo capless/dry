@@ -11,10 +11,11 @@ function DrySelect(props) {
   const {
     className,
     label,
+    textVariant,
     ...restProps
   } = props;
   const clsxName = clsx(className, {
-
+    [`MuiSelect-select--${textVariant}`]: textVariant,
   });
 
   return (
@@ -32,16 +33,22 @@ function DrySelect(props) {
 DrySelect.defaultProps = {
   className: "",
   label: "",
+  textVariant: "normal",
 };
 
 DrySelect.propTypes = {
   className: Proptypes.string,
   label: Proptypes.string,
+  textVariant: Proptypes.oneOf([
+    "normal",
+    "naked",
+  ]),
 };
 
 const StyledSelect = styled(DrySelect)`
   &.MuiFormControl-root {
-    min-width: 25%;
+    min-width: ${({ width }) => !width && "25%"};
+    width: ${({ width }) => width};
     color: #707683;
   }
 
@@ -54,8 +61,6 @@ const StyledSelect = styled(DrySelect)`
     color: ${({ theme }) => theme.colors.gray};
     font-style: normal;
     font-weight: normal;
-    font-size: 11px;
-    line-height: 13px;
   }
 
   /* input */
@@ -65,8 +70,6 @@ const StyledSelect = styled(DrySelect)`
     color: #707683;
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
   }
 
   /* input underline */
@@ -105,8 +108,37 @@ const StyledSelect = styled(DrySelect)`
       margin: 0 5px;
       font-style: normal;
       font-weight: normal;
-      font-size: 14px;
-      line-height: 16px;
+    }
+  }
+
+  /* naked input */
+  &.MuiSelect-select--naked {
+    /* remove underline */
+    .MuiInput-underline {
+      &::before, &::after {
+        border: none;
+      }
+
+      &:hover:not(.Mui-disabled):before {
+        border: none;
+      }
+    }
+
+    /* naked - edit mode */
+    .Mui-focused {
+      color: ${({ theme }) => theme.colors.gray};
+
+      .MuiInputBase-input {
+        background: transparent;
+      }
+
+      .MuiInputAdornment-root {
+        background: transparent;
+      }
+
+      &.MuiInput-underline::after {
+        border: none;
+      }
     }
   }
 `;
