@@ -1,11 +1,11 @@
-import React, { forwardRef } from "react";
+import React from "react";
 import Proptypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import { MenuItem } from "@material-ui/core";
+import { Menu } from "@material-ui/core";
 import { withTheme } from "theme";
 
-const DryMenuItem = forwardRef((props, ref) => {
+function DryMenu(props) {
   const {
     className,
     ...restProps
@@ -15,26 +15,25 @@ const DryMenuItem = forwardRef((props, ref) => {
   });
 
   return (
-    <MenuItem
+    <Menu
       {...restProps}
-      ref={ref}
       className={clsxName}
     />
   );
-});
+}
 
-DryMenuItem.defaultProps = {
+DryMenu.defaultProps = {
   className: "",
 
 };
 
-DryMenuItem.propTypes = {
+DryMenu.propTypes = {
   className: Proptypes.string,
 
 };
 
-const StyledMenuItem = styled(DryMenuItem)`
+const StyledMenu = styled(DryMenu)`
  
 `;
 
-export default withTheme(StyledMenuItem);
+export default withTheme(StyledMenu);
