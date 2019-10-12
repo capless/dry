@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import omit from "lodash/omit";
 import styled, { css } from "styled-components";
 import { Avatar } from "@material-ui/core";
-import { avatarBackdropSVG } from "./sub-components/avatar-backdrop";
+import toSvgString from "utils/toSvgString";
+import AvatarBackdrop from "./assets/avatar-backdrop";
 
 const excludeProps = ["bordered", "showBackdrop", "backdropImage"];
 
@@ -15,7 +16,7 @@ function DryAvatar(props) {
 DryAvatar.defaultProps = {
   role: "presentation",
   showBackdrop: false,
-  backdropImage: avatarBackdropSVG,
+  backdropImage: toSvgString(AvatarBackdrop),
 };
 
 DryAvatar.propTypes = {

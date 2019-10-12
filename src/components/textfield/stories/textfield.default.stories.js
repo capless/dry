@@ -9,7 +9,6 @@ import Box from "components/box";
 import MenuItem from "components/menu-item";
 import InputLabel from "components/input-label";
 
-
 export default {
   title: "Library|Inputs/Default",
 };

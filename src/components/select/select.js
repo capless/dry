@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Proptypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
@@ -6,16 +6,47 @@ import { Select } from "@material-ui/core";
 import { withTheme } from "theme";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(() => ({
+  paper: {
+    border: "1px solid #EBEFF2",
+    borderRadius: 0,
+  },
+}));
 
 function DrySelect(props) {
   const {
     className,
     label,
     textVariant,
+    fullWidth,
     ...restProps
   } = props;
+
+  const classes = useStyles();
+  const selectRef = useRef();
+  const [anchorEl, setAnchorEl] = useState();
+  const menuProps = {
+    PopoverClasses: classes,
+    anchorEl,
+    elevation: 0,
+    marginThreshold: 0,
+    anchorReference: "anchorEl",
+    anchorOrigin: {
+      vertical: "bottom",
+      horizontal: "left",
+    },
+    getContentAnchorEl: null,
+  };
+
+  useEffect(() => {
+    setAnchorEl(selectRef.current);
+  }, []);
+
   const clsxName = clsx(className, {
     [`MuiSelect-select--${textVariant}`]: textVariant,
+    [`MuiSelect-select--fullWidth`]: fullWidth,
   });
 
   return (
@@ -25,6 +56,8 @@ function DrySelect(props) {
       </InputLabel>
       <Select
         {...restProps}
+        ref={selectRef}
+        MenuProps={menuProps}
       />
     </FormControl>
   );
@@ -34,11 +67,13 @@ DrySelect.defaultProps = {
   className: "",
   label: "",
   textVariant: "normal",
+  fullWidth: false,
 };
 
 DrySelect.propTypes = {
   className: Proptypes.string,
   label: Proptypes.string,
+  fullWidth: Proptypes.bool,
   textVariant: Proptypes.oneOf([
     "normal",
     "naked",
@@ -61,6 +96,10 @@ const StyledSelect = styled(DrySelect)`
     color: ${({ theme }) => theme.colors.gray};
     font-style: normal;
     font-weight: normal;
+    font-size: 12px;
+
+    /* by default, the label is positioned at the top */
+    transform: translate(0, 1.5px) !important; 
   }
 
   /* input */
@@ -140,6 +179,11 @@ const StyledSelect = styled(DrySelect)`
         border: none;
       }
     }
+  }
+
+  /* fullWidth  */
+  &.MuiSelect-select--fullWidth {
+    width: 100%;
   }
 `;
 

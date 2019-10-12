@@ -34,7 +34,10 @@ DryMenuItem.propTypes = {
 };
 
 const StyledMenuItem = styled(DryMenuItem)`
- 
+  &.MuiListItem-root.Mui-selected,
+  &.MuiListItem-root.Mui-selected:hover {
+    background-color: #EBEFF2;
+  }
 `;
 
 export default withTheme(StyledMenuItem);
