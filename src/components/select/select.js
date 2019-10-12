@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Proptypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
@@ -6,6 +6,14 @@ import { Select } from "@material-ui/core";
 import { withTheme } from "theme";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(() => ({
+  paper: {
+    border: "1px solid #EBEFF2",
+    borderRadius: 0,
+  },
+}));
 
 function DrySelect(props) {
   const {
@@ -14,6 +22,27 @@ function DrySelect(props) {
     textVariant,
     ...restProps
   } = props;
+
+  const classes = useStyles();
+  const selectRef = useRef();
+  const [anchorEl, setAnchorEl] = useState();
+  const menuProps = {
+    PopoverClasses: classes,
+    anchorEl,
+    elevation: 0,
+    marginThreshold: 0,
+    anchorReference: "anchorEl",
+    anchorOrigin: {
+      vertical: "bottom",
+      horizontal: "left",
+    },
+    getContentAnchorEl: null,
+  };
+
+  useEffect(() => {
+    setAnchorEl(selectRef.current);
+  }, []);
+
   const clsxName = clsx(className, {
     [`MuiSelect-select--${textVariant}`]: textVariant,
   });
@@ -25,6 +54,8 @@ function DrySelect(props) {
       </InputLabel>
       <Select
         {...restProps}
+        ref={selectRef}
+        MenuProps={menuProps}
       />
     </FormControl>
   );
