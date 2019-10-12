@@ -54,6 +54,10 @@ const StyledTextField = styled(DryTextField)`
     color: ${({ theme }) => theme.colors.gray};
     font-style: normal;
     font-weight: normal;
+    font-size: 12px;
+
+    /* by default, the label is positioned at the top */
+    transform: translate(0, 1.5px) !important; 
   }
 
   /* normal input */

@@ -20,6 +20,7 @@ function DrySelect(props) {
     className,
     label,
     textVariant,
+    fullWidth,
     ...restProps
   } = props;
 
@@ -45,6 +46,7 @@ function DrySelect(props) {
 
   const clsxName = clsx(className, {
     [`MuiSelect-select--${textVariant}`]: textVariant,
+    [`MuiSelect-select--fullWidth`]: fullWidth,
   });
 
   return (
@@ -65,11 +67,13 @@ DrySelect.defaultProps = {
   className: "",
   label: "",
   textVariant: "normal",
+  fullWidth: false,
 };
 
 DrySelect.propTypes = {
   className: Proptypes.string,
   label: Proptypes.string,
+  fullWidth: Proptypes.bool,
   textVariant: Proptypes.oneOf([
     "normal",
     "naked",
@@ -92,6 +96,10 @@ const StyledSelect = styled(DrySelect)`
     color: ${({ theme }) => theme.colors.gray};
     font-style: normal;
     font-weight: normal;
+    font-size: 12px;
+
+    /* by default, the label is positioned at the top */
+    transform: translate(0, 1.5px) !important; 
   }
 
   /* input */
@@ -171,6 +179,11 @@ const StyledSelect = styled(DrySelect)`
         border: none;
       }
     }
+  }
+
+  /* fullWidth  */
+  &.MuiSelect-select--fullWidth {
+    width: 100%;
   }
 `;
 
