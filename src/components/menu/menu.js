@@ -33,13 +33,12 @@ function DryMenu(props) {
   };
 
   const clsxName = clsx(className, {
-
   });
 
   return (
     <Menu
-      {...restProps}
       {...menuProps}
+      {...restProps}
       className={clsxName}
     />
   );

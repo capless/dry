@@ -40,7 +40,7 @@ export const withoutLabel = () => (
 
 export const sortOnTop = () => {
   const inputRef = useRef();
-  const [value, setValue] = useState("New on top");
+  const [value, setValue] = useState("New on Top");
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClose = () => {
@@ -56,20 +56,31 @@ export const sortOnTop = () => {
     setAnchorEl(null);
   };
 
+  const popOverProps = {
+    anchorOrigin: {
+      vertical: "bottom",
+      horizontal: "right",
+    },
+    transformOrigin: {
+      vertical: "top",
+      horizontal: "right",
+    },
+  };
+
   return (
     <>
       <InputLabel
-        ref={inputRef}
         label="Sort:"
         value={value}
         onClick={handleOpen}
-        rightIcon={<ArrowDropDown onClick={handleOpen} />}
+        rightIcon={<ArrowDropDown ref={inputRef} onClick={handleOpen} />}
       />
       <Menu
         keepMounted
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}
         onClose={handleClose}
+        {...popOverProps}
       >
         {["New on Top", "Oldest to Newest"].map((item) => (
           <MenuItem
