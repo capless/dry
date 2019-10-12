@@ -1,7 +1,7 @@
 import React from "react";
 import Checkbox from "components/checkbox";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import { FormGroup } from "@material-ui/core";
+import FormControlLabel from "components/form-control-label";
+import FormGroup from "components/form-group";
 
 export default {
   title: "Library|Checkboxes/Default",

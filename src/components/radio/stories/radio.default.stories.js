@@ -1,8 +1,8 @@
 import React from "react";
 import Radio from "components/radio";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import { FormGroup } from "@material-ui/core";
-import RadioGroup from "@material-ui/core/RadioGroup";
+import FormControlLabel from "components/form-control-label";
+import FormGroup from "components/form-group";
+import RadioGroup from "components/radio-group";
 
 export default {
   title: "Library|Radio Buttons/Default",
