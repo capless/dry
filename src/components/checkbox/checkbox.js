@@ -91,14 +91,6 @@ const StyledCheckbox = styled(DryCheckbox)`
       background-color: transparent;
     }
   }
-  /* &.MuiCheckbox-root {
-    color: #D5D5D5;
-
-    &.Mui-checked {
-      color: #5CC64C;
-      background-color: transparent;
-    }
-  } */
 `;
 
 export default withTheme(StyledCheckbox);

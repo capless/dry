@@ -7,7 +7,7 @@ export default {
   title: "Library|Checkboxes/Default",
 };
 
-export const withLabel = () => (
+export const all = () => (
   <FormGroup>
     <FormControlLabel
       label="Sample Item 1"
@@ -20,6 +20,10 @@ export const withLabel = () => (
     <FormControlLabel
       label="Sample Item 3"
       control={<Checkbox />}
+    />
+    <FormControlLabel
+      label="Sample Item 4"
+      control={<Checkbox disabled />}
     />
   </FormGroup>
 );
