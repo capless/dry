@@ -8,8 +8,15 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(() => ({
   paper: {
-    border: "1px solid #EBEFF2",
     borderRadius: 0,
+    border: "1px solid #EBEFF2",
+    overflowX: "inherit",
+    overflowY: "inherit",
+  },
+
+  list: {
+    width: ({ width = "100%" }) => `${width} !important`,
+    padding: "0 !important",
   },
 }));
 
@@ -21,7 +28,8 @@ function DryMenu(props) {
 
   const classes = useStyles();
   const menuProps = {
-    PopoverClasses: classes,
+    classes: { list: classes.list },
+    PopoverClasses: { paper: classes.paper },
     elevation: 0,
     marginThreshold: 0,
     anchorReference: "anchorEl",
