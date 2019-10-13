@@ -56,6 +56,15 @@ const StyledText = styled(DryText)`
     line-height: 21px;
     color: #334D6E;
   }
+
+  &.p {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #707683;
+  }
 `;
 
 export default withTheme(StyledText);

@@ -39,6 +39,7 @@ const StyledSlider = styled(DrySlider)`
     .MuiSlider-rail {
       height: 5px;
       color: #E3E3E3;
+      border-radius: 5px;
     }
 
     .MuiSlider-track {
@@ -55,6 +56,19 @@ const StyledSlider = styled(DrySlider)`
 
       &.MuiSlider-active {
         box-shadow: 0px 0px 0px 10px rgba(47, 162, 30, 0.2);
+      }
+    }
+
+    &.Mui-disabled {
+      color: #C2CFE0;
+
+      .MuiSlider-rail {
+        color: #E3E3E3;
+      }
+
+      .MuiSlider-thumb {
+        margin-top: -5px;
+        margin-left: -6px;
       }
     }
   }
