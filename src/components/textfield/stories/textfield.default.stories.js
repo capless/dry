@@ -8,6 +8,8 @@ import Avatar from "components/avatar";
 import Box from "components/box";
 import MenuItem from "components/menu-item";
 import InputLabel from "components/input-label";
+import FormControl from "components/form-control";
+import Button from "components/button";
 
 export default {
   title: "Library|Inputs/Default",
@@ -21,6 +23,19 @@ export const all = () => (
         label="First name"
         defaultValue="Jane"
       />
+      <FormControl>
+        <TextField
+          disabled
+          hiddenLabel
+          variant="outlined"
+        />
+        <Button
+          color="primary"
+          variant="contained"
+        >
+          Accent button
+        </Button>
+      </FormControl>
     </Grid>
 
     <Grid item xs={12}>

@@ -1,7 +1,7 @@
 export default {
   colors: {
     darkViolet: "#392774",
-    violet: "#791FD2",
+    green: "#48B438",
     lavender: "#5BD649",
     deepPink: "#5CC64C",
     darkBlue: "#334D6E",
