@@ -25,7 +25,7 @@ const useStyles = makeStyles({
       outlineOffset: 2,
     },
     "input:hover ~ &": {
-      backgroundColor: "#ebf1f5",
+      backgroundColor: "rgba(92,198,76,.2)",
     },
     "input:disabled ~ &": {
       boxShadow: "none",
@@ -89,6 +89,10 @@ const StyledCheckbox = styled(DryCheckbox)`
 
     &.Mui-checked:hover {
       background-color: transparent;
+    }
+
+    input:disabled ~ span {
+      background: transparent !important;
     }
   }
 `;
