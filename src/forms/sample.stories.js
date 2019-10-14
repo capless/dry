@@ -2,7 +2,10 @@ import React from "react";
 import TextField from "components/textfield";
 import Grid from "components/grid";
 import Text from "components/text";
-import InputLabel from "components/input-label";
+import Checkbox from "components/checkbox";
+import FormControlLabel from "components/form-control-label";
+import FormGroup from "components/form-group";
+import FormLabel from "components/form-label";
 
 export default {
   title: "Forms|Sample/Default",
@@ -73,10 +76,21 @@ export const all = () => (
 
         {/* Communication */}
         <Grid item xs={12}>
-          <InputLabel
-            label="Communication:"
-          />
-
+          <FormLabel variant="small">Communication:</FormLabel>
+          <FormGroup row style={{ margin: "8px 0" }}>
+            <FormControlLabel
+              label="Email"
+              control={<Checkbox />}
+            />
+            <FormControlLabel
+              label="SMS"
+              control={<Checkbox />}
+            />
+            <FormControlLabel
+              label="Phone"
+              control={<Checkbox />}
+            />
+          </FormGroup>
         </Grid>
       </Grid>
     </Grid>
