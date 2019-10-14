@@ -28,7 +28,7 @@ export const withoutLabel = () => (
   <Select
     displayEmpty
     value={10}
-    width="50px"
+    width="60px"
     onChange={() => {}}
   >
     <MenuItem value={10}>10</MenuItem>

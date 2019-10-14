@@ -2,6 +2,7 @@ import React from "react";
 import TextField from "components/textfield";
 import Grid from "components/grid";
 import Text from "components/text";
+import InputLabel from "components/input-label";
 
 export default {
   title: "Forms|Sample/Default",
@@ -68,6 +69,14 @@ export const all = () => (
             id="address2"
             label="Address 2"
           />
+        </Grid>
+
+        {/* Communication */}
+        <Grid item xs={12}>
+          <InputLabel
+            label="Communication:"
+          />
+
         </Grid>
       </Grid>
     </Grid>
