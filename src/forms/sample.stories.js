@@ -1,8 +1,14 @@
 import React from "react";
+import { action } from "@storybook/addon-actions";
+import Button from "components/button";
 import TextField from "components/textfield";
 import Grid from "components/grid";
 import Text from "components/text";
-import InputLabel from "components/input-label";
+import Checkbox from "components/checkbox";
+import FormControlLabel from "components/form-control-label";
+import FormGroup from "components/form-group";
+import FormLabel from "components/form-label";
+import Editor from "components/editor";
 
 export default {
   title: "Forms|Sample/Default",
@@ -73,10 +79,37 @@ export const all = () => (
 
         {/* Communication */}
         <Grid item xs={12}>
-          <InputLabel
-            label="Communication:"
-          />
+          <FormLabel variant="small">Communication:</FormLabel>
+          <FormGroup row style={{ marginTop: "8px" }}>
+            <FormControlLabel
+              label="Email"
+              control={<Checkbox />}
+            />
+            <FormControlLabel
+              label="SMS"
+              control={<Checkbox />}
+            />
+            <FormControlLabel
+              label="Phone"
+              control={<Checkbox />}
+            />
+          </FormGroup>
+        </Grid>
 
+        {/* Message */}
+        <Grid item xs={12}>
+          <FormLabel variant="small">Message:</FormLabel>
+          <Editor />
+          <Grid container justify="flex-end">
+            <Button
+              color="primary"
+              variant="contained"
+              onClick={action("click")}
+              style={{ margin: "8px 0" }}
+            >
+              Submit
+            </Button>
+          </Grid>
         </Grid>
       </Grid>
     </Grid>
