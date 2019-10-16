@@ -102,7 +102,7 @@ const StyledButton = styled(DryButton)`
     }
 
     &.MuiButton--pressed {
-      background-color: ${({ theme }) => theme.colors.violet};
+      background-color: ${({ theme }) => theme.colors.green};
       box-shadow: 0px 2px 10px rgba(72, 180, 56, 0.13);
     }
 
@@ -127,9 +127,9 @@ const StyledButton = styled(DryButton)`
     }
 
     &.MuiButton--pressed {
-      color: ${({ theme }) => theme.colors.violet};
+      color: ${({ theme }) => theme.colors.green};
       background-color: ${({ theme }) => theme.colors.white};
-      border: ${({ theme }) => `1px solid ${theme.colors.violet}`};
+      border: ${({ theme }) => `1px solid ${theme.colors.green}`};
     }
 
     &.MuiButton--disabled {
@@ -150,7 +150,7 @@ const StyledButton = styled(DryButton)`
     }
 
     &.MuiButton--pressed {
-      color: ${({ theme }) => theme.colors.violet};
+      color: ${({ theme }) => theme.colors.green};
       background-color: transparent;
     }
 

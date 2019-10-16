@@ -1,5 +1,4 @@
 import React from "react";
-import { renderToStaticMarkup } from "react-dom/server";
 
 function AvatarBackdrop() {
   return (
@@ -9,7 +8,4 @@ function AvatarBackdrop() {
   );
 }
 
-const svgString = encodeURIComponent(renderToStaticMarkup(<AvatarBackdrop />));
-
-export const avatarBackdropSVG = `data:image/svg+xml,${svgString}`;
 export default AvatarBackdrop;
