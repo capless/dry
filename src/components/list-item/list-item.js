@@ -35,18 +35,6 @@ DryListItem.propTypes = {
 };
 
 const StyledListItem = styled(DryListItem)`
-  &.MuiListItem-root {
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 15px;
-    letter-spacing: 0.01em;
-    color: #334D6E;
-
-    &.Mui-selected {
-      color: #5CC64C;
-      background-color: transparent;
-    }
-  }
 `;
 
 export default withTheme(StyledListItem);
