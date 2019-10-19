@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import List from "components/list";
 import ListItem from "components/list-item";
 import ListItemText from "components/list-item-text";
+import Divider from "components/divider";
 
 export default {
   title: "Library|Lists/Default",
@@ -47,6 +48,13 @@ export const withDefault = () => {
         onClick={() => handleClick("Sales")}
       >
         <ListItemText primary="Sales" />
+      </ListItem>
+      <Divider />
+      <ListItem
+        selected={selected === "Settings"}
+        onClick={() => handleClick("Settings")}
+      >
+        <ListItemText primary="Settings" />
       </ListItem>
     </List>
   );

@@ -2,10 +2,10 @@ import React from "react";
 import Proptypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import { ListItem } from "@material-ui/core";
+import { Divider } from "@material-ui/core";
 import { withTheme } from "theme";
 
-function DryListItem(props) {
+function DryDivider(props) {
   const {
     className,
     ...restProps
@@ -15,26 +15,25 @@ function DryListItem(props) {
   });
 
   return (
-    <ListItem
+    <Divider
       {...restProps}
       className={clsxName}
     />
   );
 }
 
-DryListItem.defaultProps = {
+DryDivider.defaultProps = {
   className: "",
-  button: true,
-  disableRipple: true,
+
 };
 
-DryListItem.propTypes = {
+DryDivider.propTypes = {
   className: Proptypes.string,
-  button: Proptypes.bool,
-  disableRipple: Proptypes.bool,
+
 };
 
-const StyledListItem = styled(DryListItem)`
+const StyledDivider = styled(DryDivider)`
+ 
 `;
 
-export default withTheme(StyledListItem);
+export default withTheme(StyledDivider);
