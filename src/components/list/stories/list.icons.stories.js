@@ -12,7 +12,7 @@ import List from "components/list";
 import ListItem from "components/list-item";
 import ListItemIcon from "components/list-item-icon";
 import ListItemText from "components/list-item-text";
-import { Divider } from "@material-ui/core";
+import Divider from "components/divider";
 
 export default {
   title: "Library|Lists/Icons",
