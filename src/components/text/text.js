@@ -12,17 +12,28 @@ function DryText(props) {
   } = props;
   const clsxName = clsx(className, component, {
   });
+  let element = null;
 
   switch (component) {
     case "h1":
-      return <h1 className={clsxName}>{children}</h1>;
+      element = <h1 className={clsxName}>{children}</h1>;
+      break;
     case "h2":
-      return <h2 className={clsxName}>{children}</h2>;
+      element = <h2 className={clsxName}>{children}</h2>;
+      break;
     case "h3":
-      return <h3 className={clsxName}>{children}</h3>;
+      element = <h3 className={clsxName}>{children}</h3>;
+      break;
     default:
-      return <p className={clsxName}>{children}</p>;
+      element = <p className={clsxName}>{children}</p>;
+      break;
   }
+
+  return (
+    <div className={clsxName}>
+      {element}
+    </div>
+  );
 }
 
 DryText.defaultProps = {
@@ -39,7 +50,7 @@ DryText.propTypes = {
 };
 
 const StyledText = styled(DryText)`
-  &.form-title {
+  h1 {
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
@@ -48,7 +59,7 @@ const StyledText = styled(DryText)`
     color: #334D6E;
   }
 
-  &.form-sub-title {
+  h2 {
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
