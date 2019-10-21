@@ -1,7 +1,7 @@
 import React from "react";
 import Proptypes from "prop-types";
 import clsx from "clsx";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { withTheme } from "theme";
 
 function DryText(props) {
@@ -50,6 +50,20 @@ DryText.propTypes = {
 };
 
 const StyledText = styled(DryText)`
+  /* overrides */
+  ${({ margin }) => margin && css`
+    margin: ${margin} !important;
+  `}
+  ${({ fontSize }) => fontSize && css`
+    font-size: ${fontSize} !important;
+  `}
+  ${({ fontWeight }) => fontWeight && css`
+    font-weight: ${fontWeight} !important;
+  `}
+  ${({ color }) => color && css`
+    color: ${color} !important;
+  `}
+
   h1 {
     font-family: Roboto;
     font-style: normal;

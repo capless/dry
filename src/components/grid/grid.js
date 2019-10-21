@@ -8,10 +8,11 @@ import { withTheme } from "theme";
 function DryGrid(props) {
   const {
     className,
+    textAlign,
     ...restProps
   } = props;
   const clsxName = clsx(className, {
-
+    textAlign,
   });
 
   return (
@@ -24,16 +25,18 @@ function DryGrid(props) {
 
 DryGrid.defaultProps = {
   className: "",
-
+  textAlign: "",
 };
 
 DryGrid.propTypes = {
   className: Proptypes.string,
-
+  textAlign: Proptypes.string,
 };
 
 const StyledGrid = styled(DryGrid)`
- 
+  &.MuiGrid-root {
+    text-align: ${({ textAlign }) => textAlign};
+  }
 `;
 
 export default withTheme(StyledGrid);
