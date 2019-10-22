@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import makeStyles from "utils/makeStyles";
 import Grid from "components/grid";
 import Table from "components/table";
@@ -6,7 +6,6 @@ import TableBody from "components/table-body";
 import TableCell from "components/table-cell";
 import TableHead from "components/table-head";
 import TableRow from "components/table-row";
-import Paper from "components/paper";
 
 export default {
   title: "Library|Tables/Default",
@@ -49,20 +48,18 @@ export const withDefault = () => {
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Name</TableCell>
-              <TableCell>Email</TableCell>
-              <TableCell>Company Name</TableCell>
-              <TableCell>Role</TableCell>
-              <TableCell>Forecast</TableCell>
-              <TableCell align="right">Recent Activity</TableCell>
+              <TableCell><span>Name</span></TableCell>
+              <TableCell><span>Email</span></TableCell>
+              <TableCell><span>Company Name</span></TableCell>
+              <TableCell><span>Role</span></TableCell>
+              <TableCell><span>Forecast</span></TableCell>
+              <TableCell align="right"><span>Recent Activity</span></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {rows.map((row) => (
               <TableRow key={row.name}>
-                <TableCell component="th" scope="row">
-                  {row.name}
-                </TableCell>
+                <TableCell>{row.name}</TableCell>
                 <TableCell>{row.email}</TableCell>
                 <TableCell>{row.companyName}</TableCell>
                 <TableCell>{row.role}</TableCell>
