@@ -52,18 +52,18 @@ export const withDefault = () => {
               <TableCell><span>Email</span></TableCell>
               <TableCell><span>Company Name</span></TableCell>
               <TableCell><span>Role</span></TableCell>
-              <TableCell><span>Forecast</span></TableCell>
+              <TableCell align="right"><span>Forecast</span></TableCell>
               <TableCell align="right"><span>Recent Activity</span></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {rows.map((row) => (
               <TableRow key={row.name}>
-                <TableCell>{row.name}</TableCell>
+                <TableCell className="mainCell">{row.name}</TableCell>
                 <TableCell>{row.email}</TableCell>
                 <TableCell>{row.companyName}</TableCell>
                 <TableCell>{row.role}</TableCell>
-                <TableCell>{row.forecast}</TableCell>
+                <TableCell align="right">{row.forecast}</TableCell>
                 <TableCell align="right">{row.recentActivity}</TableCell>
               </TableRow>
             ))}
