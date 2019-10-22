@@ -7,6 +7,7 @@ import TableCell from "components/table-cell";
 import TableHead from "components/table-head";
 import TableRow from "components/table-row";
 import Checkbox from "components/checkbox";
+import Avatar from "components/avatar";
 
 export default {
   title: "Library|Tables/Selectable",
@@ -42,7 +43,7 @@ const rows = [
 
 export const withDefault = () => {
   const classes = useStyles();
-  const [selected, setSelected] = useState(["11"]);
+  const [selected, setSelected] = useState([]);
   const rowIds = rows.map((r) => r.id);
   const isAllSelected = rowIds.filter((r) => selected.some((s) => s === r)).length === rows.length;
 
@@ -80,6 +81,164 @@ export const withDefault = () => {
                     />
                   </TableCell>
                   <TableCell className="mainCell">{row.name}</TableCell>
+                  <TableCell>{row.email}</TableCell>
+                  <TableCell>{row.companyName}</TableCell>
+                  <TableCell>{row.role}</TableCell>
+                  <TableCell align="right">{row.forecast}</TableCell>
+                  <TableCell align="right">{row.recentActivity}</TableCell>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </Table>
+      </Grid>
+    </Grid>
+  );
+
+  function handleChangeCheckbox(evt) {
+    const { id } = evt.target;
+
+    if (id === "all") {
+      setSelected(isAllSelected ? [] : rowIds);
+      return;
+    }
+
+    if (selected.includes(id)) {
+      setSelected(selected.filter((e) => e !== id));
+    } else {
+      setSelected([...selected, id]);
+    }
+  }
+};
+
+export const withAvatar = () => {
+  const classes = useStyles();
+  const [selected, setSelected] = useState([]);
+  const rowIds = rows.map((r) => r.id);
+  const isAllSelected = rowIds.filter((r) => selected.some((s) => s === r)).length === rows.length;
+
+  return (
+    <Grid container className={classes.grid}>
+      <Grid item xs={12}>
+        <Table className={classes.table} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>
+                <Checkbox
+                  id="all"
+                  checked={isAllSelected}
+                  onClick={handleChangeCheckbox}
+                />
+              </TableCell>
+              <TableCell><span>Name</span></TableCell>
+              <TableCell><span>Email</span></TableCell>
+              <TableCell><span>Company Name</span></TableCell>
+              <TableCell><span>Role</span></TableCell>
+              <TableCell align="right"><span>Forecast</span></TableCell>
+              <TableCell align="right"><span>Recent Activity</span></TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => {
+              const isRowSelected = selected.includes(row.id);
+              return (
+                <TableRow key={row.id} className={isRowSelected ? "selected" : ""}>
+                  <TableCell>
+                    <Checkbox
+                      id={row.id}
+                      onClick={handleChangeCheckbox}
+                      checked={isRowSelected}
+                    />
+                  </TableCell>
+                  <TableCell className="mainCell">
+                    <Grid container spacing={4} alignItems="center">
+                      <Grid item xs={2}>
+                        <Avatar width="24px" height="24px" src={`https://picsum.photos/25?random=${row.id}`} />
+                      </Grid>
+                      <Grid item xs={10}>
+                        <span>{row.name}</span>
+                      </Grid>
+                    </Grid>
+                  </TableCell>
+                  <TableCell>{row.email}</TableCell>
+                  <TableCell>{row.companyName}</TableCell>
+                  <TableCell>{row.role}</TableCell>
+                  <TableCell align="right">{row.forecast}</TableCell>
+                  <TableCell align="right">{row.recentActivity}</TableCell>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </Table>
+      </Grid>
+    </Grid>
+  );
+
+  function handleChangeCheckbox(evt) {
+    const { id } = evt.target;
+
+    if (id === "all") {
+      setSelected(isAllSelected ? [] : rowIds);
+      return;
+    }
+
+    if (selected.includes(id)) {
+      setSelected(selected.filter((e) => e !== id));
+    } else {
+      setSelected([...selected, id]);
+    }
+  }
+};
+
+export const withActionButtons = () => {
+  const classes = useStyles();
+  const [selected, setSelected] = useState([]);
+  const rowIds = rows.map((r) => r.id);
+  const isAllSelected = rowIds.filter((r) => selected.some((s) => s === r)).length === rows.length;
+
+  return (
+    <Grid container className={classes.grid}>
+      <Grid item xs={12}>
+        <Table className={classes.table} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>
+                <Checkbox
+                  id="all"
+                  checked={isAllSelected}
+                  onClick={handleChangeCheckbox}
+                />
+              </TableCell>
+              <TableCell><span>Name</span></TableCell>
+              <TableCell><span>Email</span></TableCell>
+              <TableCell><span>Company Name</span></TableCell>
+              <TableCell><span>Role</span></TableCell>
+              <TableCell align="right"><span>Forecast</span></TableCell>
+              <TableCell align="right"><span>Recent Activity</span></TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => {
+              const isRowSelected = selected.includes(row.id);
+              return (
+                <TableRow key={row.id} className={isRowSelected ? "selected" : ""}>
+                  <TableCell>
+                    <Checkbox
+                      id={row.id}
+                      onClick={handleChangeCheckbox}
+                      checked={isRowSelected}
+                    />
+                  </TableCell>
+                  <TableCell className="mainCell">
+                    <Grid container spacing={4} alignItems="center">
+                      <Grid item xs={2}>
+                        <Avatar width="24px" height="24px" src={`https://picsum.photos/25?random=${row.id}`} />
+                      </Grid>
+                      <Grid item xs={10}>
+                        <span>{row.name}</span>
+                      </Grid>
+                    </Grid>
+                  </TableCell>
                   <TableCell>{row.email}</TableCell>
                   <TableCell>{row.companyName}</TableCell>
                   <TableCell>{row.role}</TableCell>
