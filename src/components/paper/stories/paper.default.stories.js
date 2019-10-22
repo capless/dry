@@ -1,40 +1,61 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from "utils/makeStyles";
 import Grid from "components/grid";
 import Paper from "components/paper";
 import Text from "components/text";
 import Icon from "components/icon";
-import PeopleIcon from "@material-ui/icons/People";
-import AssignmentTurnedInIcon from "@material-ui/icons/AssignmentTurnedIn";
-import NotificationsIcon from "@material-ui/icons/Notifications";
-import ErrorIcon from "@material-ui/icons/Error";
+import {
+  People, AssignmentTurnedIn, Notifications, Error,
+} from "icons";
 
 export default {
   title: "Library|Papers/Default",
 };
 
-export const withDefault = () => (
-  <Paper>
-    <Text component="h1">
-      This is a Paper.
-    </Text>
-    <Text component="p">
-      Paper can be used to build surface or other elements for your application.
-    </Text>
-  </Paper>
-);
-
 const useStyles = makeStyles(() => ({
   root: {
-    color: "red !important",
+    backgroundColor: "#E5E5E5",
+    height: "90vh",
+    padding: "1rem",
 
-    "& .MuiGrid-item:hover": {
+    "& .MuiPaper-root:hover": {
       "& svg, h1, p": {
         color: "white !important",
       },
+
+      background: "#5CC64C",
+      boxShadow: "2px 2px 20px rgba(0, 0, 0, 0.32)",
+      borderRadius: "4px",
+      transition: "box-shadow 1s",
+      "-webkit-transition": "box-shadow 1s",
     },
   },
+
+  grid: {
+    backgroundColor: "#E5E5E5",
+    height: "90vh",
+    padding: "1rem",
+  },
 }));
+
+export const withDefault = () => {
+  const classes = useStyles();
+
+  return (
+    <Grid container spacing={6} className={classes.grid}>
+      <Grid item xs={12}>
+        <Paper>
+          <Text component="h1">
+          This is a Paper.
+          </Text>
+          <Text component="p">
+          Paper can be used to build surface or other elements for your application.
+          </Text>
+        </Paper>
+      </Grid>
+    </Grid>
+  );
+};
 
 export const withStatuses = () => {
   const classes = useStyles();
@@ -46,7 +67,7 @@ export const withStatuses = () => {
         <Paper>
           <Grid container justify="center" textAlign="center">
             <Grid item xs={12}>
-              <Icon component={PeopleIcon} fontSize="xlarge" color="#C2CFE0" />
+              <Icon component={People} fontSize="xlarge" color="#C2CFE0" />
             </Grid>
             <Grid item xs={12}>
               <Text component="h1" fontSize="24px" fontWeight="bold" margin="4px">
@@ -67,7 +88,7 @@ export const withStatuses = () => {
         <Paper>
           <Grid container justify="center" textAlign="center">
             <Grid item xs={12}>
-              <Icon component={AssignmentTurnedInIcon} fontSize="xlarge" color="#C2CFE0" />
+              <Icon component={AssignmentTurnedIn} fontSize="xlarge" color="#C2CFE0" />
             </Grid>
             <Grid item xs={12}>
               <Text component="h1" fontSize="24px" fontWeight="bold" margin="4px">
@@ -88,7 +109,7 @@ export const withStatuses = () => {
         <Paper>
           <Grid container justify="center" textAlign="center">
             <Grid item xs={12}>
-              <Icon component={NotificationsIcon} fontSize="xlarge" color="#C2CFE0" />
+              <Icon component={Notifications} fontSize="xlarge" color="#C2CFE0" />
             </Grid>
             <Grid item xs={12}>
               <Text component="h1" fontSize="24px" fontWeight="bold" margin="4px">
@@ -109,7 +130,7 @@ export const withStatuses = () => {
         <Paper>
           <Grid container justify="center" textAlign="center">
             <Grid item xs={12}>
-              <Icon component={ErrorIcon} fontSize="xlarge" color="#C2CFE0" />
+              <Icon component={Error} fontSize="xlarge" color="#C2CFE0" />
             </Grid>
             <Grid item xs={12}>
               <Text component="h1" fontSize="24px" fontWeight="bold" margin="4px">

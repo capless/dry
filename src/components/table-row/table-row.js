@@ -2,10 +2,10 @@ import React from "react";
 import Proptypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import { Paper } from "@material-ui/core";
+import { TableRow } from "@material-ui/core";
 import { withTheme } from "theme";
 
-function DryPaper(props) {
+function DryTableRow(props) {
   const {
     className,
     ...restProps
@@ -15,30 +15,25 @@ function DryPaper(props) {
   });
 
   return (
-    <Paper
+    <TableRow
       {...restProps}
       className={clsxName}
     />
   );
 }
 
-DryPaper.defaultProps = {
+DryTableRow.defaultProps = {
   className: "",
 
 };
 
-DryPaper.propTypes = {
+DryTableRow.propTypes = {
   className: Proptypes.string,
 
 };
 
-const StyledPaper = styled(DryPaper)`
-  &.MuiPaper-root {
-    padding: 1rem;
-    background: #FFFFFF;
-    box-shadow: 11px 14px 50px rgba(0, 0, 0, 0.05);
-    border-radius: 10px;
-  }
+const StyledTableRow = styled(DryTableRow)`
+ 
 `;
 
-export default withTheme(StyledPaper);
+export default withTheme(StyledTableRow);

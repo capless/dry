@@ -10,3 +10,7 @@ export { ViewAgendaOutlined } from "@material-ui/icons";
 export { PersonOutlineOutlined } from "@material-ui/icons";
 export { ChatBubbleOutlineOutlined } from "@material-ui/icons";
 export { MoreHoriz } from "@material-ui/icons";
+export { People } from "@material-ui/icons";
+export { AssignmentTurnedIn } from "@material-ui/icons";
+export { Notifications } from "@material-ui/icons";
+export { Error } from "@material-ui/icons";
