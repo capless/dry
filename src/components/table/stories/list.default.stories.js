@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import makeStyles from "utils/makeStyles";
+import Grid from "components/grid";
 import Table from "components/table";
 import TableBody from "components/table-body";
 import TableCell from "components/table-cell";
@@ -12,58 +13,66 @@ export default {
 };
 
 const useStyles = makeStyles({
-  root: {
-    width: "100%",
-    overflowX: "auto",
+  grid: {
+    backgroundColor: "#E5E5E5",
+    height: "90vh",
   },
   table: {
-    minWidth: 650,
+    margin: "1rem",
+    width: "calc(100% - 2rem)",
   },
 });
 
-function createData(name, calories, fat, carbs, protein) {
+function createData(name, email, companyName, role, forecast, recentActivity) {
   return {
-    name, calories, fat, carbs, protein,
+    name, email, companyName, role, forecast, recentActivity,
   };
 }
 
 const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
+  createData("Lindsey Stroud", "lindsey.stroud@gmail.com", "Hatchbuck", "Manager", "50%", "5 Minutes ago"),
+  createData("Nicci Troiani", "nicci.troiani@gmail.com", "Slack", "Manager", "75%", "14 Minutes ago"),
+  createData("George Fields", "george.fields@gmail.com", "Clockify", "CEO", "10%", "6 Hours ago"),
+  createData("Rebecca Moore", "rebecca.moore@gmail.com", "Upwork", "Manager", "25%", "Dec 14, 2018"),
+  createData("Jane Doe", "jane.doe@gmail.com", "Trello", "Engineer", "30%", "Dec 12, 2018"),
+  createData("Jones Dermot", "dermot.jones@gmail.com", "Slack", "Developer", "40%", "Dec 11, 2018"),
+  createData("Martin Merces", "martin.merces@gmail.com", "Google", "Manager", "60%", "Dec 9, 2018"),
+  createData("Franz Ferdinand", "franz.ferdinan@gmail.com", "Facebook", "Manger", "100%", "Dec 6, 2018"),
 ];
 
 export const withDefault = () => {
   const classes = useStyles();
 
   return (
-    <Paper className={classes.root}>
-      <Table className={classes.table} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.name}>
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+    <Grid container className={classes.grid}>
+      <Grid item xs={12}>
+        <Table className={classes.table} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Name</TableCell>
+              <TableCell>Email</TableCell>
+              <TableCell>Company Name</TableCell>
+              <TableCell>Role</TableCell>
+              <TableCell>Forecast</TableCell>
+              <TableCell align="right">Recent Activity</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </Paper>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => (
+              <TableRow key={row.name}>
+                <TableCell component="th" scope="row">
+                  {row.name}
+                </TableCell>
+                <TableCell>{row.email}</TableCell>
+                <TableCell>{row.companyName}</TableCell>
+                <TableCell>{row.role}</TableCell>
+                <TableCell>{row.forecast}</TableCell>
+                <TableCell align="right">{row.recentActivity}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </Grid>
+    </Grid>
   );
 };

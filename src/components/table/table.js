@@ -33,7 +33,9 @@ DryTable.propTypes = {
 };
 
 const StyledTable = styled(DryTable)`
- 
+  &.MuiTable-root {
+    background-color: #FFFFFF;
+  }
 `;
 
 export default withTheme(StyledTable);

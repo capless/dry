@@ -12,28 +12,17 @@ export default {
   title: "Library|Papers/Default",
 };
 
-export const withDefault = () => (
-  <Paper>
-    <Text component="h1">
-      This is a Paper.
-    </Text>
-    <Text component="p">
-      Paper can be used to build surface or other elements for your application.
-    </Text>
-  </Paper>
-);
-
 const useStyles = makeStyles(() => ({
   root: {
-    color: "red !important",
+    backgroundColor: "#E5E5E5",
+    height: "90vh",
+    padding: "1rem",
 
-    "& .MuiGrid-item:hover": {
+    "& .MuiPaper-root:hover": {
       "& svg, h1, p": {
         color: "white !important",
       },
-    },
 
-    "& .MuiPaper-root:hover": {
       background: "#5CC64C",
       boxShadow: "2px 2px 20px rgba(0, 0, 0, 0.32)",
       borderRadius: "4px",
@@ -41,7 +30,32 @@ const useStyles = makeStyles(() => ({
       "-webkit-transition": "box-shadow 1s",
     },
   },
+
+  grid: {
+    backgroundColor: "#E5E5E5",
+    height: "90vh",
+    padding: "1rem",
+  },
 }));
+
+export const withDefault = () => {
+  const classes = useStyles();
+
+  return (
+    <Grid container spacing={6} className={classes.grid}>
+      <Grid item xs={12}>
+        <Paper>
+          <Text component="h1">
+          This is a Paper.
+          </Text>
+          <Text component="p">
+          Paper can be used to build surface or other elements for your application.
+          </Text>
+        </Paper>
+      </Grid>
+    </Grid>
+  );
+};
 
 export const withStatuses = () => {
   const classes = useStyles();
