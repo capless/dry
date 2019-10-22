@@ -38,20 +38,6 @@ const StyledPaper = styled(DryPaper)`
     background: #FFFFFF;
     box-shadow: 11px 14px 50px rgba(0, 0, 0, 0.05);
     border-radius: 10px;
-
-    /* animation */
-    -webkit-transition: background .5s;
-    transition: background .5s;
-
-    &:hover {
-      background: #5CC64C;
-      box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.32);
-      border-radius: 4px;
-
-      /* animation */
-      -webkit-transition: background .5s;
-      transition: background .5s;
-    }
   }
 `;
 

@@ -32,6 +32,14 @@ const useStyles = makeStyles(() => ({
         color: "white !important",
       },
     },
+
+    "& .MuiPaper-root:hover": {
+      background: "#5CC64C",
+      boxShadow: "2px 2px 20px rgba(0, 0, 0, 0.32)",
+      borderRadius: "4px",
+      transition: "box-shadow 1s",
+      "-webkit-transition": "box-shadow 1s",
+    },
   },
 }));
 
