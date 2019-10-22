@@ -43,20 +43,11 @@ const StyledTable = styled(DryTable)`
     border-bottom-right-radius: 10px;
   }
 
-  tr td:first-child {
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 16px;
-    letter-spacing: 0.01em;
-    color: #334D6E;
-  }
-
   &.MuiTable-root {
     /* Table Head (th) */
     .MuiTableHead-root {
       .MuiTableCell-root {
-        span {
+        span:not([class]) {
           font-style: normal;
           font-weight: normal;
           font-size: 13px;
@@ -75,6 +66,21 @@ const StyledTable = styled(DryTable)`
 
     /* Table Cell (td) */
     .MuiTableCell-root {
+      &.mainCell {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 16px;
+        letter-spacing: 0.01em;
+        color: #334D6E;
+      }
+    }
+
+    /* Table Body (tbody) */
+    .MuiTableBody-root {
+      .MuiTableRow-root.selected, .MuiTableRow-root:hover {
+        background: #EBEFF2;
+      }
     }
   }
 `;
