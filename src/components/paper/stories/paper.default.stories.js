@@ -1,13 +1,12 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from "utils/makeStyles";
 import Grid from "components/grid";
 import Paper from "components/paper";
 import Text from "components/text";
 import Icon from "components/icon";
-import PeopleIcon from "@material-ui/icons/People";
-import AssignmentTurnedInIcon from "@material-ui/icons/AssignmentTurnedIn";
-import NotificationsIcon from "@material-ui/icons/Notifications";
-import ErrorIcon from "@material-ui/icons/Error";
+import {
+  People, AssignmentTurnedIn, Notifications, Error,
+} from "icons";
 
 export default {
   title: "Library|Papers/Default",
@@ -46,7 +45,7 @@ export const withStatuses = () => {
         <Paper>
           <Grid container justify="center" textAlign="center">
             <Grid item xs={12}>
-              <Icon component={PeopleIcon} fontSize="xlarge" color="#C2CFE0" />
+              <Icon component={People} fontSize="xlarge" color="#C2CFE0" />
             </Grid>
             <Grid item xs={12}>
               <Text component="h1" fontSize="24px" fontWeight="bold" margin="4px">
@@ -67,7 +66,7 @@ export const withStatuses = () => {
         <Paper>
           <Grid container justify="center" textAlign="center">
             <Grid item xs={12}>
-              <Icon component={AssignmentTurnedInIcon} fontSize="xlarge" color="#C2CFE0" />
+              <Icon component={AssignmentTurnedIn} fontSize="xlarge" color="#C2CFE0" />
             </Grid>
             <Grid item xs={12}>
               <Text component="h1" fontSize="24px" fontWeight="bold" margin="4px">
@@ -88,7 +87,7 @@ export const withStatuses = () => {
         <Paper>
           <Grid container justify="center" textAlign="center">
             <Grid item xs={12}>
-              <Icon component={NotificationsIcon} fontSize="xlarge" color="#C2CFE0" />
+              <Icon component={Notifications} fontSize="xlarge" color="#C2CFE0" />
             </Grid>
             <Grid item xs={12}>
               <Text component="h1" fontSize="24px" fontWeight="bold" margin="4px">
@@ -109,7 +108,7 @@ export const withStatuses = () => {
         <Paper>
           <Grid container justify="center" textAlign="center">
             <Grid item xs={12}>
-              <Icon component={ErrorIcon} fontSize="xlarge" color="#C2CFE0" />
+              <Icon component={Error} fontSize="xlarge" color="#C2CFE0" />
             </Grid>
             <Grid item xs={12}>
               <Text component="h1" fontSize="24px" fontWeight="bold" margin="4px">
