@@ -57,6 +57,10 @@ const StyledTable = styled(DryTable)`
           opacity: 0.5;
         }
       }
+
+      .MuiTableCell-alignRight {
+        flex-direction: row;
+      }
     }
     
     /* Table Row (tr) */
