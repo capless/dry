@@ -24,6 +24,7 @@
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
     "react-draft-wysiwyg": "^1.13.2",
+    "recharts": "^1.8.5",
     "styled-components": "^4.4.0"
   },
   "devDependencies": {
