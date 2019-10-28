@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 import React from "react";
 import Proptypes from "prop-types";
 import clsx from "clsx";
@@ -6,6 +7,7 @@ import { withTheme } from "theme";
 
 function DryText(props) {
   const {
+    style,
     className,
     children,
     component,
@@ -16,16 +18,22 @@ function DryText(props) {
 
   switch (component) {
     case "h1":
-      element = <h1 className={clsxName}>{children}</h1>;
+      element = <h1 style={style} className={clsxName}>{children}</h1>;
       break;
     case "h2":
-      element = <h2 className={clsxName}>{children}</h2>;
+      element = <h2 style={style} className={clsxName}>{children}</h2>;
       break;
     case "h3":
-      element = <h3 className={clsxName}>{children}</h3>;
+      element = <h3 style={style} className={clsxName}>{children}</h3>;
+      break;
+    case "div":
+      element = <div style={style} className={clsxName}>{children}</div>;
+      break;
+    case "span":
+      element = <span style={style} className={clsxName}>{children}</span>;
       break;
     default:
-      element = <p className={clsxName}>{children}</p>;
+      element = <p style={style} className={clsxName}>{children}</p>;
       break;
   }
 
@@ -39,18 +47,23 @@ function DryText(props) {
 DryText.defaultProps = {
   className: "",
   component: "p",
+  style: null,
 };
 
 DryText.propTypes = {
   className: Proptypes.string,
+  style: Proptypes.object,
   children: Proptypes.node.isRequired,
   component: Proptypes.oneOf([
-    "h1", "h2", "h3", "p",
+    "h1", "h2", "h3", "p", "div", "span",
   ]),
 };
 
 const StyledText = styled(DryText)`
   /* overrides */
+  ${({ display }) => display && css`
+    display: ${display} !important;
+  `}
   ${({ margin }) => margin && css`
     margin: ${margin} !important;
   `}

@@ -24,7 +24,7 @@ function DryIcon(props) {
 }
 
 function isCustomFontSize(fontSize) {
-  return ["xlarge", "xxlarge"].includes(fontSize);
+  return !["inherit", "default", "small", "large"].includes(fontSize);
 }
 
 DryIcon.defaultProps = {
@@ -35,7 +35,7 @@ DryIcon.defaultProps = {
 DryIcon.propTypes = {
   className: PropTypes.string,
   fontSize: PropTypes.oneOf([
-    "inherit", "default", "small", "large", "xlarge", "xxlarge",
+    "inherit", "default", "xxsmall", "xsmall", "small", "large", "xlarge", "xxlarge",
   ]),
   component: PropTypes.oneOfType([
     PropTypes.func,
@@ -51,6 +51,14 @@ const StyledDryIcon = styled(DryIcon)`
   &.MuiSvgIcon-root {
     color: ${({ color }) => color};
     cursor: ${({ onClick }) => (onClick ? "pointer" : "auto")};
+
+    &.xxsmall {
+      font-size: .75rem;
+    }
+
+    &.xsmall {
+      font-size: 1rem;
+    }
 
     &.xlarge {
       font-size: 2.5rem;
