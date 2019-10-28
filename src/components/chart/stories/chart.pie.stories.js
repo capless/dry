@@ -21,9 +21,20 @@ export default {
 };
 
 const data = [
-  { name: "Active", value: 30 },
-  { name: "Completed", value: 60 },
-  { name: "Ended", value: 10 },
+  { name: "Active", value: 30, fill: "#FFB946" },
+  { name: "Completed", value: 60, fill: "#5CC64C" },
+  { name: "Ended", value: 10, fill: "#F7685B" },
+];
+const monthData = [
+  { name: "Ended", value: 10, fill: "#F7685B" },
+  { name: "Total", value: 100, fill: "#DDDDDD" },
+];
+const quarterData = [
+  { name: "Active", value: 32.3, fill: "#FFB946" },
+  { name: "Total", value: 100, fill: "#DDDDDD" },
+];
+const annualData = [
+  { name: "Completed", value: 100, fill: "#5CC64C" },
 ];
 const COLORS = [
   "#FFB946",
@@ -66,10 +77,171 @@ const useStyles = makeStyles(() => ({
   divider: {
     margin: ".5rem auto 1rem auto",
   },
-
 }));
 
 export const Default = () => {
+  const classes = useStyles();
+
+  return (
+    <Grid container spacing={6} className={classes.grid}>
+      {/* Month Revenue */}
+      <Grid item xs={4}>
+        <ResponsiveContainer width="100%" height={200}>
+          <PieChart>
+            <Pie
+              data={monthData}
+              dataKey="value"
+              innerRadius="90%"
+              outerRadius="100%"
+            >
+              <Label
+                width={30}
+                position="center"
+                content={renderLabel}
+                value="10%"
+              />
+              {monthData.map((entry) => (
+                <Cell
+                  key={entry.value}
+                  fill={entry.fill}
+                  stroke="transparent"
+                />
+              ))}
+            </Pie>
+          </PieChart>
+        </ResponsiveContainer>
+        <Text
+          component="h2"
+          style={{
+            marginBottom: "6px",
+            fontSize: "20px",
+            fontWeight: "bold",
+            color: "#334D6E",
+            textAlign: "center",
+          }}
+        >
+          $10,002.00
+        </Text>
+        <Text
+          component="p"
+          style={{
+            margin: "0",
+            fontSize: "12px",
+            color: "#99A6B7",
+            textAlign: "center",
+          }}
+        >
+          Month Revenue
+        </Text>
+      </Grid>
+
+      {/* Quarter Revenue */}
+      <Grid item xs={4} className={classes.gridItem}>
+        <ResponsiveContainer width="100%" height={200}>
+          <PieChart>
+            <Pie
+              data={quarterData}
+              dataKey="value"
+              innerRadius="90%"
+              outerRadius="100%"
+            >
+              <Label
+                width={30}
+                position="center"
+                content={renderLabel}
+                value="32.3%"
+              />
+              {quarterData.map((entry) => (
+                <Cell
+                  key={entry.value}
+                  fill={entry.fill}
+                  stroke="transparent"
+                />
+              ))}
+            </Pie>
+          </PieChart>
+        </ResponsiveContainer>
+        <Text
+          component="h2"
+          style={{
+            marginBottom: "6px",
+            fontSize: "20px",
+            fontWeight: "bold",
+            color: "#334D6E",
+            textAlign: "center",
+          }}
+        >
+          $32,000.00
+        </Text>
+        <Text
+          component="p"
+          style={{
+            margin: "0",
+            fontSize: "12px",
+            color: "#99A6B7",
+            textAlign: "center",
+          }}
+        >
+          Quarter Revenue
+        </Text>
+      </Grid>
+
+      {/* Annual Revenue */}
+      <Grid item xs={4} className={classes.gridItem}>
+        <ResponsiveContainer width="100%" height={200}>
+          <PieChart>
+            <Pie
+              data={annualData}
+              dataKey="value"
+              innerRadius="90%"
+              outerRadius="100%"
+            >
+              <Label
+                width={30}
+                position="center"
+                content={renderLabel}
+                value="100%"
+              />
+              {annualData.map((entry) => (
+                <Cell
+                  key={entry.value}
+                  fill={entry.fill}
+                  stroke="transparent"
+                />
+              ))}
+            </Pie>
+          </PieChart>
+        </ResponsiveContainer>
+        <Text
+          component="h2"
+          style={{
+            marginBottom: "6px",
+            fontSize: "20px",
+            fontWeight: "bold",
+            color: "#334D6E",
+            textAlign: "center",
+          }}
+        >
+          $112,024.00
+        </Text>
+        <Text
+          component="p"
+          style={{
+            margin: "0",
+            fontSize: "12px",
+            color: "#99A6B7",
+            textAlign: "center",
+          }}
+        >
+          Annual Revenue
+        </Text>
+      </Grid>
+    </Grid>
+  );
+};
+
+
+export const WithPaper = () => {
   const classes = useStyles();
 
   return (
@@ -111,18 +283,20 @@ export const Default = () => {
                   <Pie
                     data={data}
                     dataKey="value"
-                    innerRadius="87%"
+                    innerRadius="90%"
                     outerRadius="100%"
                   >
                     <Label
                       width={30}
                       position="center"
                       content={renderLabel}
+                      value="60%"
                     />
-                    {data.map((entry, index) => (
+                    {data.map((entry) => (
                       <Cell
-                        key={entry}
-                        fill={COLORS[index % COLORS.length]}
+                        key={entry.value}
+                        fill={entry.fill}
+                        stroke="transparent"
                       />
                     ))}
                   </Pie>
@@ -135,6 +309,7 @@ export const Default = () => {
     </Grid>
   );
 };
+
 
 function ShowDate() {
   const classes = useStyles();
@@ -199,7 +374,7 @@ function ShowDate() {
 }
 
 function renderLabel(props) {
-  const { viewBox } = props;
+  const { viewBox, value } = props;
   const { cx, cy } = viewBox;
 
   return (
@@ -216,7 +391,7 @@ function renderLabel(props) {
         fontSize="45"
         fontWeight="bold"
       >
-        60%
+        {value}
       </tspan>
     </text>
   );
