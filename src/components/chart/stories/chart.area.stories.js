@@ -88,7 +88,7 @@ const useStyles = makeStyles(() => ({
 
 }));
 
-export const Default = () => {
+export const WithPaper = () => {
   const classes = useStyles();
 
   return (
