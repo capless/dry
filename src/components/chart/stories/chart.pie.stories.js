@@ -230,8 +230,7 @@ function renderLegend(props) {
       {payload.map((entry, index) => (
         <div
           key={`item-${entry.value}`}
-          style={{ margin: "10px 0" }}
-          fontSize="10px"
+          style={{ fontSize: "10px", margin: "10px 0" }}
         >
           <Icon
             component={TripOrigin}
