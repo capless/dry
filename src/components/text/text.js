@@ -60,6 +60,9 @@ DryText.propTypes = {
 };
 
 const StyledText = styled(DryText)`
+  /* defaults */
+  font-family: Roboto;
+
   /* overrides */
   ${({ display }) => display && css`
     display: ${display} !important;
@@ -76,9 +79,11 @@ const StyledText = styled(DryText)`
   ${({ color }) => color && css`
     color: ${color} !important;
   `}
+  ${({ textAlign }) => textAlign && css`
+    text-align: ${textAlign} !important;
+  `}
 
   h1 {
-    font-family: Roboto;
     font-style: normal;
     font-weight: 500;
     font-size: 30px;
@@ -87,7 +92,6 @@ const StyledText = styled(DryText)`
   }
 
   h2 {
-    font-family: Roboto;
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
@@ -96,7 +100,6 @@ const StyledText = styled(DryText)`
   }
 
   &.p {
-    font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;

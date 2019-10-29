@@ -33,7 +33,13 @@ DryListItemText.propTypes = {
 };
 
 const StyledListItemText = styled(DryListItemText)`
- 
+  .MuiTypography-colorTextSecondary {
+    font-weight: normal !important;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.4px;
+    color: #99A6B7;
+  }
 `;
 
 export default withTheme(StyledListItemText);

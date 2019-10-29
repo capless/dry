@@ -15,3 +15,5 @@ export { AssignmentTurnedIn } from "@material-ui/icons";
 export { Notifications } from "@material-ui/icons";
 export { Error } from "@material-ui/icons";
 export { TripOrigin } from "@material-ui/icons";
+export { MoreVert } from "@material-ui/icons";
+export { Mail } from "@material-ui/icons";
