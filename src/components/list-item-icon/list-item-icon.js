@@ -1,7 +1,7 @@
 import React from "react";
 import Proptypes from "prop-types";
 import clsx from "clsx";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { ListItemIcon } from "@material-ui/core";
 import { withTheme } from "theme";
 
@@ -33,7 +33,11 @@ DryListItemIcon.propTypes = {
 };
 
 const StyledListItemIcon = styled(DryListItemIcon)`
- 
+  &.MuiListItemIcon-root {
+    ${({ margin }) => margin && css`
+      margin: ${margin};
+    `}
+  }
 `;
 
 export default withTheme(StyledListItemIcon);
