@@ -2,41 +2,39 @@ import React from "react";
 import Proptypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import { Grid } from "@material-ui/core";
+import { ListItem } from "@material-ui/core";
 import { withTheme } from "theme";
 
-function DryGrid(props) {
+function DryListItem(props) {
   const {
     className,
-    textAlign,
     ...restProps
   } = props;
   const clsxName = clsx(className, {
-    textAlign,
+
   });
 
   return (
-    <Grid
+    <ListItem
       {...restProps}
       className={clsxName}
     />
   );
 }
 
-DryGrid.defaultProps = {
+DryListItem.defaultProps = {
   className: "",
-  textAlign: "",
+  button: true,
+  disableRipple: true,
 };
 
-DryGrid.propTypes = {
+DryListItem.propTypes = {
   className: Proptypes.string,
-  textAlign: Proptypes.string,
+  button: Proptypes.bool,
+  disableRipple: Proptypes.bool,
 };
 
-const StyledGrid = styled(DryGrid)`
-  &.MuiGrid-root {
-    text-align: ${({ textAlign }) => textAlign};
-  }
+const StyledListItem = styled(DryListItem)`
 `;
 
-export default withTheme(StyledGrid);
+export default withTheme(StyledListItem);

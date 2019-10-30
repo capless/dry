@@ -2,41 +2,38 @@ import React from "react";
 import Proptypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import { Grid } from "@material-ui/core";
+import { TableRow } from "@material-ui/core";
 import { withTheme } from "theme";
 
-function DryGrid(props) {
+function DryTableRow(props) {
   const {
     className,
-    textAlign,
     ...restProps
   } = props;
   const clsxName = clsx(className, {
-    textAlign,
+
   });
 
   return (
-    <Grid
+    <TableRow
       {...restProps}
       className={clsxName}
     />
   );
 }
 
-DryGrid.defaultProps = {
+DryTableRow.defaultProps = {
   className: "",
-  textAlign: "",
+
 };
 
-DryGrid.propTypes = {
+DryTableRow.propTypes = {
   className: Proptypes.string,
-  textAlign: Proptypes.string,
+
 };
 
-const StyledGrid = styled(DryGrid)`
-  &.MuiGrid-root {
-    text-align: ${({ textAlign }) => textAlign};
-  }
+const StyledTableRow = styled(DryTableRow)`
+ 
 `;
 
-export default withTheme(StyledGrid);
+export default withTheme(StyledTableRow);

@@ -2,41 +2,43 @@ import React from "react";
 import Proptypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import { Grid } from "@material-ui/core";
+import { Paper } from "@material-ui/core";
 import { withTheme } from "theme";
 
-function DryGrid(props) {
+function DryPaper(props) {
   const {
     className,
-    textAlign,
     ...restProps
   } = props;
   const clsxName = clsx(className, {
-    textAlign,
+
   });
 
   return (
-    <Grid
+    <Paper
       {...restProps}
       className={clsxName}
     />
   );
 }
 
-DryGrid.defaultProps = {
+DryPaper.defaultProps = {
   className: "",
-  textAlign: "",
+
 };
 
-DryGrid.propTypes = {
+DryPaper.propTypes = {
   className: Proptypes.string,
-  textAlign: Proptypes.string,
+
 };
 
-const StyledGrid = styled(DryGrid)`
-  &.MuiGrid-root {
-    text-align: ${({ textAlign }) => textAlign};
+const StyledPaper = styled(DryPaper)`
+  &.MuiPaper-root {
+    padding: 1rem;
+    background: #FFFFFF;
+    box-shadow: 11px 14px 50px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
   }
 `;
 
-export default withTheme(StyledGrid);
+export default withTheme(StyledPaper);
