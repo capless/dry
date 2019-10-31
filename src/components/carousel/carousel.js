@@ -36,7 +36,12 @@ DryCarousel.propTypes = {
 };
 
 const StyledCarousel = styled(DryCarousel)`
- 
+  margin: ${({ margin }) => margin};
+
+  /* next & prev arrows */
+  .slick-arrow::before {
+    color: #000;
+  }
 `;
 
 export default withTheme(StyledCarousel);
