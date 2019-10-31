@@ -42,6 +42,10 @@ const StyledCarousel = styled(DryCarousel)`
   .slick-arrow::before {
     color: #000;
   }
+
+  .slick-dots {
+    position: unset;
+  }
 `;
 
 export default withTheme(StyledCarousel);
