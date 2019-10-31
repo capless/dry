@@ -79,6 +79,9 @@ const StyledText = styled(DryText)`
   ${({ color }) => color && css`
     color: ${color} !important;
   `}
+  ${({ background }) => background && css`
+  background: ${background} !important;
+  `}
   ${({ textAlign }) => textAlign && css`
     text-align: ${textAlign} !important;
   `}
