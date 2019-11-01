@@ -24,6 +24,7 @@
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
     "react-draft-wysiwyg": "^1.13.2",
+    "react-image": "^2.2.1",
     "react-slick": "^0.25.2",
     "recharts": "^1.8.5",
     "slick-carousel": "^1.8.1",
