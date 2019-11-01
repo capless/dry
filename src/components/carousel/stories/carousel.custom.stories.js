@@ -11,25 +11,22 @@ export default {
 };
 
 const useStyles = makeStyles(() => ({
-  root: {
-    display: "flex",
-    height: "200px",
-    color: "#FFF",
-    background: "#5CC64C",
-    alignItems: "center",
-    alignContent: "center",
-  },
-
   img: {
     maxWidth: "100%",
     maxHeight: "100%",
     cursor: "pointer",
+    border: "2px solid #C2CFE0",
+    boxSizing: "border-box",
+
+    "&.slick-active": {
+      border: "2px solid #5CC64C",
+    },
   },
 }));
 
 export const withImages = () => {
   const classes = useStyles();
-  const imageUrls = new Array(5).fill().map((e, i) => `https://picsum.photos/600/300?ramdom=${i}`);
+  const imageUrls = new Array(5).fill().map((e, i) => `https://picsum.photos/600/280?ramdom=${i}`);
 
   const settings = {
     margin: "2rem",
@@ -40,13 +37,13 @@ export const withImages = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     appendDots: (dots) => (
-      <Grid container direction="row" className={classes.root}>
+      <Grid container direction="row">
         {dots.map((dot, i) => (
           <Grid key={i} item xs={3}>
             <img
               src={imageUrls[i]}
               alt={i}
-              className={classes.img}
+              className={`${classes.img} ${dot.props.className}`}
               onClick={dot.props.children.props.onClick}
             />
           </Grid>
