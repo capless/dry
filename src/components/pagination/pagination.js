@@ -25,7 +25,7 @@ function DryPagination(props) {
 
   return (
     <div className={clsxName}>
-      <div className="goto-first rc-pagination-item">
+      <div title="First Page" className="goto-first rc-pagination-item">
         <a
           href="#"
           className="rc-pagination-item-link"
@@ -38,7 +38,7 @@ function DryPagination(props) {
         pageSize={pageSize}
         onChange={handlePageChange}
       />
-      <div className="goto-last rc-pagination-item">
+      <div title="Last Page" className="goto-last rc-pagination-item">
         <a
           href="#"
           className="rc-pagination-item-link"
