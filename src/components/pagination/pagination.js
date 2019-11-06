@@ -15,6 +15,7 @@ function DryPagination(props) {
   const {
     className,
     total,
+    current,
     pageSize,
     onChange,
     ...restProps
@@ -23,35 +24,59 @@ function DryPagination(props) {
 
   });
 
+  const lastPage = Math.ceil(total / pageSize);
+  const firstPage = 1;
+  const isLastPage = current === lastPage;
+  const isFirstPage = current === firstPage;
+
   return (
     <div className={clsxName}>
-      <div title="First Page" className="goto-first rc-pagination-item">
+      <div
+        title="First Page"
+        className={clsx("pagination goto-first rc-pagination-item", isFirstPage && "rc-pagination-disabled")}
+      >
         <a
           href="#"
           className="rc-pagination-item-link"
-          onClick={(evt) => handlePageChange(1, evt)}
+          onClick={gotoFirst}
         />
       </div>
       <Pagination
         {...restProps}
         total={total}
+        current={current}
         pageSize={pageSize}
         onChange={handlePageChange}
       />
-      <div title="Last Page" className="goto-last rc-pagination-item">
+      <div
+        title="Last Page"
+        className={clsx("pagination goto-last rc-pagination-item", isLastPage && "rc-pagination-disabled")}
+      >
         <a
           href="#"
           className="rc-pagination-item-link"
-          onClick={(evt) => handlePageChange(total / pageSize, evt)}
+          onClick={gotoLast}
+          disabled
         />
       </div>
     </div>
   );
 
-  function handlePageChange(newPage, evt) {
-    if (evt && evt.preventDefault) {
-      evt.preventDefault();
+  function gotoLast(evt) {
+    evt.preventDefault();
+    if (!isLastPage) {
+      handlePageChange(lastPage);
     }
+  }
+
+  function gotoFirst(evt) {
+    evt.preventDefault();
+    if (!isFirstPage) {
+      handlePageChange(firstPage);
+    }
+  }
+
+  function handlePageChange(newPage) {
     onChange(newPage);
   }
 }
@@ -60,11 +85,13 @@ DryPagination.defaultProps = {
   className: "",
   locale: enLocale,
   pageSize: 10,
+  current: 1,
 };
 
 DryPagination.propTypes = {
   className: Proptypes.string,
   locale: Proptypes.object,
+  current: Proptypes.number,
   pageSize: Proptypes.number,
   total: Proptypes.number.isRequired,
   onChange: Proptypes.func.isRequired,
@@ -78,10 +105,18 @@ const StyledPagination = styled(DryPagination)`
   }
   .rc-pagination-prev, .rc-pagination-next {
     background: #FFFFFF;
+
+    .rc-pagination-item-link a:after {
+      cursor: pointer;
+    }
   }
 
   .goto-first {
     margin-left: 0;
+
+    &:hover {
+      border-color: #D9D9D9;
+    }
 
     a:after {
       margin-top: -1px;
@@ -93,11 +128,31 @@ const StyledPagination = styled(DryPagination)`
   .goto-last {
     margin-left: 8px;
     margin-right: 0;
+
+    &:hover {
+      border-color: #D9D9D9;
+    }
     
     a:after {
       margin-top: -1px;
       content: "››";
       display: block;
+    }
+  }
+
+  .pagination {
+    &.rc-pagination-disabled {
+      &:hover {
+        border-color: transparent;
+      }
+
+      .rc-pagination-item-link {
+        color: #CCC;
+
+        &:after {
+          cursor: not-allowed;
+        }
+      }
     }
   }
 `;

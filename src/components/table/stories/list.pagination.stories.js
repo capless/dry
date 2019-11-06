@@ -57,7 +57,7 @@ lodashTimes(100, (iteration) => {
 export const withDefault = () => {
   const classes = useStyles();
   const [selected, setSelected] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(80);
 
   const rowsPerPage = 10;
   const startIndex = (currentPage * rowsPerPage) - rowsPerPage;
