@@ -105,6 +105,8 @@ const StyledPagination = styled(DryPagination)`
   }
   .rc-pagination-prev, .rc-pagination-next {
     background: #FFFFFF;
+    border: none;
+    outline: none;
 
     .rc-pagination-item-link a:after {
       cursor: pointer;
