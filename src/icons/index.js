@@ -21,3 +21,4 @@ export { Search } from "@material-ui/icons";
 export { Menu } from "@material-ui/icons";
 export { Directions } from "@material-ui/icons";
 export { NotificationsNone } from "@material-ui/icons";
+export { NotificationsNoneTwoTone } from "@material-ui/icons";
