@@ -17,3 +17,7 @@ export { Error } from "@material-ui/icons";
 export { TripOrigin } from "@material-ui/icons";
 export { MoreVert } from "@material-ui/icons";
 export { Mail } from "@material-ui/icons";
+export { Search } from "@material-ui/icons";
+export { Menu } from "@material-ui/icons";
+export { Directions } from "@material-ui/icons";
+export { NotificationsNone } from "@material-ui/icons";
