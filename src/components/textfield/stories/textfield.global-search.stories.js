@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
     "&.MuiPaper-root": {
       background: "#EDEDED",
       borderRadius: 0,
+      padding: ".5rem",
     },
   },
   input: {
