@@ -29,6 +29,11 @@ const useStyles = makeStyles(() => ({
       transition: "box-shadow 1s",
       "-webkit-transition": "box-shadow 1s",
     },
+
+    "&.MuiGrid-container": {
+
+      alignContent: "flex-start !important",
+    },
   },
 
   grid: {
@@ -58,6 +63,117 @@ export const withDefault = () => {
 };
 
 export const withStatuses = () => {
+  const classes = useStyles();
+
+  return (
+    <Grid container spacing={6} className={classes.root}>
+      <Grid item xs={4}>
+        <Paper>
+          <Grid container justify="center" textAlign="left">
+            <Grid item xs={12}>
+              <Text component="p" fontSize="12px" margin="4px" color="#99A6B7">
+                Inventory Count
+              </Text>
+            </Grid>
+            <Grid item xs={12}>
+              <Text component="h1" fontSize="24px" fontWeight="bold" margin="4px">
+               20
+              </Text>
+            </Grid>
+          </Grid>
+        </Paper>
+      </Grid>
+
+      <Grid item xs={4}>
+        <Paper>
+          <Grid container justify="center" textAlign="left">
+            <Grid item xs={12}>
+              <Text component="p" fontSize="12px" margin="4px" color="#99A6B7">
+                In-repair Inventory
+              </Text>
+            </Grid>
+            <Grid item xs={12}>
+              <Text component="h1" fontSize="24px" fontWeight="bold" margin="4px">
+               5
+              </Text>
+            </Grid>
+          </Grid>
+        </Paper>
+      </Grid>
+
+      <Grid item xs={4}>
+        <Paper>
+          <Grid container justify="center" textAlign="left">
+            <Grid item xs={12}>
+              <Text component="p" fontSize="12px" margin="4px" color="#99A6B7">
+                On-sale Inventory
+              </Text>
+            </Grid>
+            <Grid item xs={12}>
+              <Text component="h1" fontSize="24px" fontWeight="bold" margin="4px">
+               8
+              </Text>
+            </Grid>
+          </Grid>
+        </Paper>
+      </Grid>
+
+      <Grid item xs={4}>
+        <Paper>
+          <Grid container justify="center" textAlign="left">
+            <Grid item xs={12}>
+              <Text component="p" fontSize="12px" margin="4px" color="#99A6B7">
+                Month Sales
+              </Text>
+            </Grid>
+            <Grid item xs={12}>
+              <Text component="h1" fontSize="24px" fontWeight="bold" margin="4px">
+               20
+              </Text>
+            </Grid>
+          </Grid>
+        </Paper>
+      </Grid>
+
+      <Grid item xs={4}>
+        <Paper>
+          <Grid container justify="center" textAlign="left">
+            <Grid item xs={12}>
+              <Text component="p" fontSize="12px" margin="4px" color="#99A6B7">
+                Quarter Sales
+              </Text>
+            </Grid>
+            <Grid item xs={12}>
+              <Text component="h1" fontSize="24px" fontWeight="bold" margin="4px">
+               4
+              </Text>
+            </Grid>
+          </Grid>
+        </Paper>
+      </Grid>
+
+      <Grid item xs={4}>
+        <Paper>
+          <Grid container justify="center" textAlign="left">
+            <Grid item xs={12}>
+              <Text component="p" fontSize="12px" margin="4px" color="#99A6B7">
+                Annual Sales
+              </Text>
+            </Grid>
+            <Grid item xs={12}>
+              <Text component="h1" fontSize="24px" fontWeight="bold" margin="4px">
+               80
+              </Text>
+            </Grid>
+          </Grid>
+        </Paper>
+      </Grid>
+    </Grid>
+  );
+};
+
+
+export const withStatusesAndIcons = () => {
   const classes = useStyles();
 
   return (
