@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import lodashOrderBy from "lodash/orderBy";
 import makeStyles from "utils/makeStyles";
@@ -10,6 +11,8 @@ import TableRow from "components/table-row";
 import Checkbox from "components/checkbox";
 import Avatar from "components/avatar";
 import TableSortLabel from "components/table-sortable-label";
+import ImageLoader from "components/image-loader";
+import Link from "components/link";
 
 export default {
   title: "Library|Tables/Selectable",
@@ -23,6 +26,18 @@ const useStyles = makeStyles({
   table: {
     margin: "1rem",
     width: "calc(100% - 2rem)",
+  },
+
+  gridPhotos: {
+    textAlign: "center",
+
+    "& img": {
+      width: "100%",
+    },
+  },
+
+  link: {
+    cursor: "pointer",
   },
 });
 
@@ -310,6 +325,170 @@ export const withSortable = () => {
       </Grid>
     </Grid>
   );
+
+  function handleChangeCheckbox(evt) {
+    const { id } = evt.target;
+
+    if (id === "all") {
+      setSelected(isAllSelected ? [] : rowIds);
+      return;
+    }
+
+    if (selected.includes(id)) {
+      setSelected(selected.filter((e) => e !== id));
+    } else {
+      setSelected([...selected, id]);
+    }
+  }
+
+  function createSortHandler(property) {
+    return () => {
+      const isDesc = orderBy === property && order === "desc";
+      setOrder(isDesc ? "asc" : "desc");
+      setOrderBy(property);
+    };
+  }
+};
+
+export const withRowPhotos = () => {
+  const classes = useStyles();
+  const [selected, setSelected] = useState([]);
+  const [order, setOrder] = useState("asc");
+  const [orderBy, setOrderBy] = useState("name");
+
+  const rows = lodashOrderBy(staticRows, [orderBy], [order]);
+  const rowIds = rows.map((r) => r.id);
+  const isAllSelected = rowIds.filter((r) => selected.some((s) => s === r)).length === rows.length;
+
+  return (
+    <Grid container className={classes.grid}>
+      <Grid item xs={12}>
+        <Table className={classes.table} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>
+                <Checkbox
+                  id="all"
+                  checked={isAllSelected}
+                  onClick={handleChangeCheckbox}
+                />
+              </TableCell>
+              <TableCell />
+              <TableCell>
+                <TableSortLabel
+                  active={orderBy === "name"}
+                  direction={orderBy === "name" ? order : undefined}
+                  onClick={createSortHandler("name")}
+                >
+                  <span>Name</span>
+                </TableSortLabel>
+              </TableCell>
+              <TableCell>
+                <TableSortLabel
+                  active={orderBy === "email"}
+                  direction={orderBy === "email" ? order : undefined}
+                  onClick={createSortHandler("email")}
+                >
+                  <span>Email</span>
+                </TableSortLabel>
+              </TableCell>
+              <TableCell>
+                <TableSortLabel
+                  active={orderBy === "companyName"}
+                  direction={orderBy === "companyName" ? order : undefined}
+                  onClick={createSortHandler("companyName")}
+                >
+                  <span>Company Name</span>
+                </TableSortLabel>
+              </TableCell>
+              <TableCell>
+                <TableSortLabel
+                  active={orderBy === "role"}
+                  direction={orderBy === "role" ? order : undefined}
+                  onClick={createSortHandler("role")}
+                >
+                  <span>Role</span>
+                </TableSortLabel>
+              </TableCell>
+              <TableCell align="right">
+                <TableSortLabel
+                  active={orderBy === "forecast"}
+                  direction={orderBy === "forecast" ? order : undefined}
+                  onClick={createSortHandler("forecast")}
+                >
+                  <span>Forecast</span>
+                </TableSortLabel>
+              </TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => {
+              const isRowSelected = selected.includes(row.id);
+              return (
+                <TableRow key={row.id} className={isRowSelected ? "selected" : ""}>
+                  <TableCell>
+                    <Checkbox
+                      id={row.id}
+                      onClick={handleChangeCheckbox}
+                      checked={isRowSelected}
+                    />
+                  </TableCell>
+                  <TableCell>
+                    {renderPhotos()}
+                  </TableCell>
+                  <TableCell className="mainCell">
+                    <Grid container spacing={4} alignItems="center">
+                      <Grid item xs={2}>
+                        <Avatar width="24px" height="24px" src={`https://picsum.photos/25?random=${row.id}`} />
+                      </Grid>
+                      <Grid item xs={10}>
+                        <span>{row.name}</span>
+                      </Grid>
+                    </Grid>
+                  </TableCell>
+                  <TableCell>{row.email}</TableCell>
+                  <TableCell>{row.companyName}</TableCell>
+                  <TableCell>{row.role}</TableCell>
+                  <TableCell align="right">{row.forecast}</TableCell>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </Table>
+      </Grid>
+    </Grid>
+  );
+
+  function renderPhotos() {
+    const imageUrls = new Array(3).fill().map((e, i) => `https://picsum.photos/80/60?ramdom=${i}`);
+    return (
+      <Grid
+        container
+        spacing={1}
+        justify="center"
+        alignItems="center"
+        className={classes.gridPhotos}
+      >
+        {imageUrls.map((url) => (
+          <Grid key={url} item xs={3}>
+            <ImageLoader
+              src={url}
+              alt={url}
+              loader="..."
+            />
+          </Grid>
+        ))}
+        <Grid item xs={3} className="grid-item-link">
+          <Link
+            onClick={() => {}}
+            className={classes.link}
+          >
+            View All Photos
+          </Link>
+        </Grid>
+      </Grid>
+    );
+  }
 
   function handleChangeCheckbox(evt) {
     const { id } = evt.target;
