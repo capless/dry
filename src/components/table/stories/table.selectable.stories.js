@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import lodashOrderBy from "lodash/orderBy";
 import makeStyles from "utils/makeStyles";
@@ -23,6 +24,18 @@ const useStyles = makeStyles({
   table: {
     margin: "1rem",
     width: "calc(100% - 2rem)",
+  },
+
+  gridPhotos: {
+    textAlign: "center",
+
+    "& img": {
+      width: "100%",
+    },
+  },
+
+  link: {
+    cursor: "pointer",
   },
 });
 
