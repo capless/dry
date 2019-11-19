@@ -198,6 +198,6 @@ const StyledSelect = styled(DrySelect)`
 
 const ThemedStyledSelect = withTheme(StyledSelect);
 
-setPropTypes("DrySelect", Select, ThemedStyledSelect);
+setPropTypes("DrySelect", [Select, DrySelect], ThemedStyledSelect);
 
 export default ThemedStyledSelect;

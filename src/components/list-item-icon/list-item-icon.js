@@ -43,6 +43,6 @@ const StyledListItemIcon = styled(DryListItemIcon)`
 
 const ThemedStyledListItemIcon = withTheme(StyledListItemIcon);
 
-setPropTypes("DryListItemIcon", DryListItemIcon, ThemedStyledListItemIcon);
+setPropTypes("DryListItemIcon", [ListItemIcon, DryListItemIcon], ThemedStyledListItemIcon);
 
 export default ThemedStyledListItemIcon;

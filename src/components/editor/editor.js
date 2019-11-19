@@ -58,6 +58,6 @@ const StyledEditor = styled(DryEditor)`
 
 const ThemedStyledEditor = withTheme(StyledEditor);
 
-setPropTypes("DryEditor", Editor, ThemedStyledEditor);
+setPropTypes("DryEditor", [Editor, DryEditor], ThemedStyledEditor);
 
 export default ThemedStyledEditor;

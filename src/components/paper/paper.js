@@ -44,6 +44,6 @@ const StyledPaper = styled(DryPaper)`
 
 const ThemedStyledPaper = withTheme(StyledPaper);
 
-setPropTypes("DryPaper", Paper, ThemedStyledPaper);
+setPropTypes("DryPaper", [Paper, DryPaper], ThemedStyledPaper);
 
 export default ThemedStyledPaper;

@@ -39,6 +39,6 @@ const StyledListItemSecondaryAction = styled(DryListItemSecondaryAction)`
 
 const ThemedStyledListItemSecondaryAction = withTheme(StyledListItemSecondaryAction);
 
-setPropTypes("DryListItemSecondaryAction", DryListItemSecondaryAction, ThemedStyledListItemSecondaryAction);
+setPropTypes("DryListItemSecondaryAction", [ListItemSecondaryAction, DryListItemSecondaryAction], ThemedStyledListItemSecondaryAction);
 
 export default ThemedStyledListItemSecondaryAction;

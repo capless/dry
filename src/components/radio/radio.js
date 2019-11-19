@@ -56,6 +56,6 @@ const StyledRadio = styled(DryRadio)`
 
 const ThemedStyledRadio = withTheme(StyledRadio);
 
-setPropTypes("DryRadio", Radio, ThemedStyledRadio);
+setPropTypes("DryRadio", [Radio, DryRadio], ThemedStyledRadio);
 
 export default ThemedStyledRadio;

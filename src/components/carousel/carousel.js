@@ -4,10 +4,10 @@ import clsx from "clsx";
 import styled from "styled-components";
 import Carousel from "react-slick";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import setPropTypes from "utils/setPropTypes";
 
 function DryCarousel(props) {
   const {
@@ -51,6 +51,6 @@ const StyledCarousel = styled(DryCarousel)`
 
 const ThemedStyledCarousel = withTheme(StyledCarousel);
 
-setPropTypes("DryCarousel", DryCarousel, ThemedStyledCarousel);
+setPropTypes("DryCarousel", [Carousel, DryCarousel], ThemedStyledCarousel);
 
 export default ThemedStyledCarousel;

@@ -39,6 +39,6 @@ const StyledFormGroup = styled(DryFormGroup)`
 
 const ThemedStyledFormGroup = withTheme(StyledFormGroup);
 
-setPropTypes("DryFormGroup", FormGroup, ThemedStyledFormGroup);
+setPropTypes("DryFormGroup", [FormGroup, DryFormGroup], ThemedStyledFormGroup);
 
 export default ThemedStyledFormGroup;

@@ -81,6 +81,6 @@ const StyledList = styled(DryList)`
 
 const ThemedStyledList = withTheme(StyledList);
 
-setPropTypes("DryList", List, ThemedStyledList);
+setPropTypes("DryList", [List, DryList], ThemedStyledList);
 
 export default ThemedStyledList;

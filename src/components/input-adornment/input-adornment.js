@@ -39,6 +39,6 @@ const StyledInputAdornment = styled(DryInputAdornment)`
 
 const ThemedStyledInputAdornment = withTheme(StyledInputAdornment);
 
-setPropTypes("DryInputAdornment", DryInputAdornment, ThemedStyledInputAdornment);
+setPropTypes("DryInputAdornment", [InputAdornment, DryInputAdornment], ThemedStyledInputAdornment);
 
 export default ThemedStyledInputAdornment;

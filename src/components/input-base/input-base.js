@@ -39,6 +39,6 @@ const StyledInputBase = styled(DryInputBase)`
 
 const ThemedStyledInputBase = withTheme(StyledInputBase);
 
-setPropTypes("DryInputBase", DryInputBase, ThemedStyledInputBase);
+setPropTypes("DryInputBase", [InputBase, DryInputBase], ThemedStyledInputBase);
 
 export default ThemedStyledInputBase;

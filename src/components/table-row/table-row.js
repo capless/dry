@@ -39,6 +39,6 @@ const StyledTableRow = styled(DryTableRow)`
 
 const ThemedStyledTableRow = withTheme(StyledTableRow);
 
-setPropTypes("DryTableRow", TableRow, ThemedStyledTableRow);
+setPropTypes("DryTableRow", [TableRow, DryTableRow], ThemedStyledTableRow);
 
 export default ThemedStyledTableRow;

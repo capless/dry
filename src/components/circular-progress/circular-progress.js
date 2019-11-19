@@ -39,6 +39,6 @@ const StyledCircularProgress = styled(DryCircularProgress)`
 
 const ThemedStyledCircularProgress = withTheme(StyledCircularProgress);
 
-setPropTypes("DryCircularProgress", DryCircularProgress, ThemedStyledCircularProgress);
+setPropTypes("DryCircularProgress", [CircularProgress, DryCircularProgress], ThemedStyledCircularProgress);
 
 export default ThemedStyledCircularProgress;

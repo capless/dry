@@ -162,6 +162,6 @@ const StyledPagination = styled(DryPagination)`
 
 const ThemedStyledPagination = withTheme(StyledPagination);
 
-setPropTypes("DryPagination", DryPagination, ThemedStyledPagination);
+setPropTypes("DryPagination", [Pagination, DryPagination], ThemedStyledPagination);
 
 export default ThemedStyledPagination;

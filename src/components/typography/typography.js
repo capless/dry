@@ -39,6 +39,6 @@ const StyledTypography = styled(DryTypography)`
 
 const ThemedStyledTypography = withTheme(StyledTypography);
 
-setPropTypes("DryTypography", Typography, ThemedStyledTypography);
+setPropTypes("DryTypography", [Typography, DryTypography], ThemedStyledTypography);
 
 export default ThemedStyledTypography;

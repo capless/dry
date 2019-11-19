@@ -39,6 +39,6 @@ const StyledRadioGroup = styled(DryRadioGroup)`
 
 const ThemedStyledRadioGroup = withTheme(StyledRadioGroup);
 
-setPropTypes("DryRadioGroup", RadioGroup, ThemedStyledRadioGroup);
+setPropTypes("DryRadioGroup", [RadioGroup, DryRadioGroup], ThemedStyledRadioGroup);
 
 export default ThemedStyledRadioGroup;

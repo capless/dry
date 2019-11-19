@@ -4,6 +4,7 @@ import clsx from "clsx";
 import styled from "styled-components";
 import { Grid } from "@material-ui/core";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 function DryGrid(props) {
   const {
@@ -36,4 +37,8 @@ const StyledGrid = styled(DryGrid)`
  
 `;
 
-export default withTheme(StyledGrid);
+const ThemedStyledGrid = withTheme(StyledGrid);
+
+setPropTypes("DryGrid", [Grid, DryGrid], ThemedStyledGrid);
+
+export default ThemedStyledGrid;

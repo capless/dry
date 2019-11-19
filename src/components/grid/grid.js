@@ -42,6 +42,6 @@ const StyledGrid = styled(DryGrid)`
 
 const ThemedStyledGrid = withTheme(StyledGrid);
 
-setPropTypes("DryGrid", Grid, ThemedStyledGrid);
+setPropTypes("DryGrid", [Grid, DryGrid], ThemedStyledGrid);
 
 export default ThemedStyledGrid;

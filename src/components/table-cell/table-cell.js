@@ -39,6 +39,6 @@ const StyledTableCell = styled(DryTableCell)`
 
 const ThemedStyledTableCell = withTheme(StyledTableCell);
 
-setPropTypes("DryTableCell", TableCell, ThemedStyledTableCell);
+setPropTypes("DryTableCell", [TableCell, DryTableCell], ThemedStyledTableCell);
 
 export default ThemedStyledTableCell;

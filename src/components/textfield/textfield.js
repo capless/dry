@@ -148,6 +148,6 @@ const StyledTextField = styled(DryTextField)`
 
 const ThemedStyledTextField = withTheme(StyledTextField);
 
-setPropTypes("DryTextField", TextField, ThemedStyledTextField);
+setPropTypes("DryTextField", [TextField, DryTextField], ThemedStyledTextField);
 
 export default ThemedStyledTextField;

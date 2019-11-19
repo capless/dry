@@ -39,6 +39,6 @@ const StyledBox = styled(DryBox)`
 
 const ThemedStyledBox = withTheme(StyledBox);
 
-setPropTypes("DryBox", Box, ThemedStyledBox);
+setPropTypes("DryBox", [Box, DryBox], ThemedStyledBox);
 
 export default ThemedStyledBox;

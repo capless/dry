@@ -146,6 +146,6 @@ const StyledUpload = styled(DryUpload)`
 
 const ThemedStyledUpload = withTheme(StyledUpload);
 
-setPropTypes("DryUpload", DryUpload, ThemedStyledUpload);
+setPropTypes("DryUpload", [DryUpload], ThemedStyledUpload);
 
 export default ThemedStyledUpload;

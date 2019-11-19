@@ -39,6 +39,6 @@ const StyledBreadcrumbs = styled(DryBreadcrumbs)`
 
 const ThemedDryBreadcrumbs = withTheme(StyledBreadcrumbs);
 
-setPropTypes("DryBreadcrumbs", Breadcrumbs, ThemedDryBreadcrumbs);
+setPropTypes("DryBreadcrumbs", [Breadcrumbs, DryBreadcrumbs], ThemedDryBreadcrumbs);
 
 export default ThemedDryBreadcrumbs;

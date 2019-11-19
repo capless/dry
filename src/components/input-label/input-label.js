@@ -66,6 +66,6 @@ const StyledInputLabel = styled(DryInputLabel)`
 
 const ThemedStyledInputLabel = withTheme(StyledInputLabel);
 
-setPropTypes("DryInputLabel", DryInputLabel, ThemedStyledInputLabel);
+setPropTypes("DryInputLabel", [InputLabel, DryInputLabel], ThemedStyledInputLabel);
 
 export default ThemedStyledInputLabel;

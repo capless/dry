@@ -39,6 +39,6 @@ const StyledImageLoader = styled(DryImageLoader)`
 
 const ThemedStyledImageLoader = withTheme(StyledImageLoader);
 
-setPropTypes("DryImageLoader", ImageLoader, ThemedStyledImageLoader);
+setPropTypes("DryImageLoader", [ImageLoader, DryImageLoader], ThemedStyledImageLoader);
 
 export default ThemedStyledImageLoader;
