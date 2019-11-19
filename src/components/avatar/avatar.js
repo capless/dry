@@ -4,6 +4,7 @@ import omit from "lodash/omit";
 import styled, { css } from "styled-components";
 import { Avatar } from "@material-ui/core";
 import toSvgString from "utils/toSvgString";
+import setPropTypes from "utils/setPropTypes";
 import AvatarBackdrop from "./assets/avatar-backdrop";
 
 const excludeProps = ["bordered", "showBackdrop", "backdropImage"];
@@ -62,7 +63,6 @@ const StyledDryAvatar = styled(DryAvatar)`
   `}
 `;
 
-StyledDryAvatar.defaultProps = DryAvatar.defaultProps;
-StyledDryAvatar.propTypes = DryAvatar.propTypes;
+setPropTypes("DryAvatar", [Avatar, DryAvatar], StyledDryAvatar);
 
 export default StyledDryAvatar;

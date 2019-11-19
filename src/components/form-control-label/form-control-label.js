@@ -1,9 +1,10 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { FormControlLabel } from "@material-ui/core";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 function DryFormControlLabel(props) {
   const {
@@ -28,7 +29,7 @@ DryFormControlLabel.defaultProps = {
 };
 
 DryFormControlLabel.propTypes = {
-  className: Proptypes.string,
+  className: PropTypes.string,
 
 };
 
@@ -36,4 +37,8 @@ const StyledFormControlLabel = styled(DryFormControlLabel)`
  
 `;
 
-export default withTheme(StyledFormControlLabel);
+const ThemedStyledFormControlLabel = withTheme(StyledFormControlLabel);
+
+setPropTypes("DryFormControlLabel", [FormControlLabel, DryFormControlLabel], ThemedStyledFormControlLabel);
+
+export default ThemedStyledFormControlLabel;

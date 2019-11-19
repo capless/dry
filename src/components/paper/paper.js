@@ -1,9 +1,10 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { Paper } from "@material-ui/core";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 function DryPaper(props) {
   const {
@@ -28,7 +29,7 @@ DryPaper.defaultProps = {
 };
 
 DryPaper.propTypes = {
-  className: Proptypes.string,
+  className: PropTypes.string,
 
 };
 
@@ -41,4 +42,8 @@ const StyledPaper = styled(DryPaper)`
   }
 `;
 
-export default withTheme(StyledPaper);
+const ThemedStyledPaper = withTheme(StyledPaper);
+
+setPropTypes("DryPaper", [Paper, DryPaper], ThemedStyledPaper);
+
+export default ThemedStyledPaper;

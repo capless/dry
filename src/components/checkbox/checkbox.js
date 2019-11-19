@@ -1,11 +1,12 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { Checkbox } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { withTheme } from "theme";
 import toSvgString from "utils/toSvgString";
+import setPropTypes from "utils/setPropTypes";
 import Check from "./assets/check";
 
 const useStyles = makeStyles({
@@ -77,8 +78,8 @@ DryCheckbox.defaultProps = {
 };
 
 DryCheckbox.propTypes = {
-  className: Proptypes.string,
-  disableRipple: Proptypes.bool,
+  className: PropTypes.string,
+  disableRipple: PropTypes.bool,
 };
 
 const StyledCheckbox = styled(DryCheckbox)`
@@ -97,4 +98,8 @@ const StyledCheckbox = styled(DryCheckbox)`
   }
 `;
 
-export default withTheme(StyledCheckbox);
+const ThemedStyledCheckbox = withTheme(StyledCheckbox);
+
+setPropTypes("DryCheckbox", [Checkbox, DryCheckbox], ThemedStyledCheckbox);
+
+export default ThemedStyledCheckbox;

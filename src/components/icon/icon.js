@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import clsx from "clsx";
 import omit from "lodash/omit";
 import styled from "styled-components";
+import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 const excludeProps = ["color"];
 
@@ -47,7 +49,7 @@ DryIcon.propTypes = {
   ]).isRequired,
 };
 
-const StyledDryIcon = styled(DryIcon)`
+const StyledIcon = styled(DryIcon)`
   &.MuiSvgIcon-root {
     color: ${({ color }) => color};
     cursor: ${({ onClick }) => (onClick ? "pointer" : "auto")};
@@ -70,4 +72,8 @@ const StyledDryIcon = styled(DryIcon)`
   }
 `;
 
-export default StyledDryIcon;
+const ThemedStyledIcon = withTheme(StyledIcon);
+
+setPropTypes("DryIcon", DryIcon, ThemedStyledIcon);
+
+export default ThemedStyledIcon;

@@ -1,10 +1,11 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { TableSortLabel } from "@material-ui/core";
 import { withTheme } from "theme";
 import { ArrowDropDown } from "icons";
+import setPropTypes from "utils/setPropTypes";
 
 function DryTableSortLabel(props) {
   const {
@@ -29,8 +30,8 @@ DryTableSortLabel.defaultProps = {
 };
 
 DryTableSortLabel.propTypes = {
-  className: Proptypes.string,
-  IconComponent: Proptypes.elementType,
+  className: PropTypes.string,
+  IconComponent: PropTypes.elementType,
 };
 
 const StyledTableSortLabel = styled(DryTableSortLabel)`
@@ -50,4 +51,8 @@ const StyledTableSortLabel = styled(DryTableSortLabel)`
   }
 `;
 
-export default withTheme(StyledTableSortLabel);
+const ThemedStyledTableSortableLabel = withTheme(StyledTableSortLabel);
+
+setPropTypes("DryTableSortableLabel", [TableSortLabel, DryTableSortLabel], ThemedStyledTableSortableLabel);
+
+export default ThemedStyledTableSortableLabel;

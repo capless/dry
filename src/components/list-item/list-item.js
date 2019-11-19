@@ -1,9 +1,10 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { ListItem } from "@material-ui/core";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 function DryListItem(props) {
   const {
@@ -29,12 +30,16 @@ DryListItem.defaultProps = {
 };
 
 DryListItem.propTypes = {
-  className: Proptypes.string,
-  button: Proptypes.bool,
-  disableRipple: Proptypes.bool,
+  className: PropTypes.string,
+  button: PropTypes.bool,
+  disableRipple: PropTypes.bool,
 };
 
 const StyledListItem = styled(DryListItem)`
 `;
 
-export default withTheme(StyledListItem);
+const ThemedStyledListItem = withTheme(StyledListItem);
+
+setPropTypes("DryListItem", [ListItem, DryListItem], ThemedStyledListItem);
+
+export default ThemedStyledListItem;

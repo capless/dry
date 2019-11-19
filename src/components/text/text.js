@@ -1,9 +1,10 @@
 /* eslint-disable react/forbid-prop-types */
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled, { css } from "styled-components";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 function DryText(props) {
   const {
@@ -51,10 +52,10 @@ DryText.defaultProps = {
 };
 
 DryText.propTypes = {
-  className: Proptypes.string,
-  style: Proptypes.object,
-  children: Proptypes.node.isRequired,
-  component: Proptypes.oneOf([
+  className: PropTypes.string,
+  style: PropTypes.object,
+  children: PropTypes.node.isRequired,
+  component: PropTypes.oneOf([
     "h1", "h2", "h3", "p", "div", "span",
   ]),
 };
@@ -111,4 +112,8 @@ const StyledText = styled(DryText)`
   }
 `;
 
-export default withTheme(StyledText);
+const ThemedStyledText = withTheme(StyledText);
+
+setPropTypes("DryText", [Text, DryText], ThemedStyledText);
+
+export default ThemedStyledText;

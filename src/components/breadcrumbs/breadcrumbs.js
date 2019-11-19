@@ -1,9 +1,10 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { Breadcrumbs } from "@material-ui/core";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 function DryBreadcrumbs(props) {
   const {
@@ -28,7 +29,7 @@ DryBreadcrumbs.defaultProps = {
 };
 
 DryBreadcrumbs.propTypes = {
-  className: Proptypes.string,
+  className: PropTypes.string,
 
 };
 
@@ -36,4 +37,8 @@ const StyledBreadcrumbs = styled(DryBreadcrumbs)`
  
 `;
 
-export default withTheme(StyledBreadcrumbs);
+const ThemedDryBreadcrumbs = withTheme(StyledBreadcrumbs);
+
+setPropTypes("DryBreadcrumbs", [Breadcrumbs, DryBreadcrumbs], ThemedDryBreadcrumbs);
+
+export default ThemedDryBreadcrumbs;

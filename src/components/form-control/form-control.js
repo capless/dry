@@ -1,9 +1,10 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { FormControl } from "@material-ui/core";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 function DryFormControl(props) {
   const {
@@ -28,11 +29,15 @@ DryFormControl.defaultProps = {
 };
 
 DryFormControl.propTypes = {
-  className: Proptypes.string,
+  className: PropTypes.string,
 
 };
 
 const StyledFormControl = styled(DryFormControl)`
 `;
 
-export default withTheme(StyledFormControl);
+const ThemedStyledFormControl = withTheme(StyledFormControl);
+
+setPropTypes("DryFormControl", [FormControl, DryFormControl], ThemedStyledFormControl);
+
+export default ThemedStyledFormControl;

@@ -1,9 +1,10 @@
 import React, { forwardRef } from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { InputLabel } from "@material-ui/core";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 const DryInputLabel = forwardRef((props, ref) => {
   const {
@@ -38,10 +39,10 @@ DryInputLabel.defaultProps = {
 };
 
 DryInputLabel.propTypes = {
-  className: Proptypes.string,
-  label: Proptypes.string,
-  value: Proptypes.string,
-  rightIcon: Proptypes.node,
+  className: PropTypes.string,
+  label: PropTypes.string,
+  value: PropTypes.string,
+  rightIcon: PropTypes.node,
 };
 
 const StyledInputLabel = styled(DryInputLabel)`
@@ -63,4 +64,8 @@ const StyledInputLabel = styled(DryInputLabel)`
   }
 `;
 
-export default withTheme(StyledInputLabel);
+const ThemedStyledInputLabel = withTheme(StyledInputLabel);
+
+setPropTypes("DryInputLabel", [InputLabel, DryInputLabel], ThemedStyledInputLabel);
+
+export default ThemedStyledInputLabel;

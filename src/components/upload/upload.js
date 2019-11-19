@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import TextField from "components/textfield";
@@ -7,6 +7,7 @@ import InputLabel from "components/input-label";
 import FormControl from "components/form-control";
 import Button from "components/button";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 function DryUpload(props) {
   const {
@@ -74,10 +75,10 @@ DryUpload.defaultProps = {
 };
 
 DryUpload.propTypes = {
-  className: Proptypes.string,
-  accept: Proptypes.string,
-  label: Proptypes.node,
-  buttonLabel: Proptypes.node,
+  className: PropTypes.string,
+  accept: PropTypes.string,
+  label: PropTypes.node,
+  buttonLabel: PropTypes.node,
 };
 
 const StyledUpload = styled(DryUpload)`
@@ -143,4 +144,8 @@ const StyledUpload = styled(DryUpload)`
   }
 `;
 
-export default withTheme(StyledUpload);
+const ThemedStyledUpload = withTheme(StyledUpload);
+
+setPropTypes("DryUpload", [DryUpload], ThemedStyledUpload);
+
+export default ThemedStyledUpload;

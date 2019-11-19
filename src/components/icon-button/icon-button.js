@@ -1,9 +1,10 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { IconButton } from "@material-ui/core";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 function DryIconButton(props) {
   const {
@@ -28,7 +29,7 @@ DryIconButton.defaultProps = {
 };
 
 DryIconButton.propTypes = {
-  className: Proptypes.string,
+  className: PropTypes.string,
 
 };
 
@@ -36,4 +37,8 @@ const StyledIconButton = styled(DryIconButton)`
  
 `;
 
-export default withTheme(StyledIconButton);
+const ThemedStyledIconButton = withTheme(StyledIconButton);
+
+setPropTypes("DryIconButton", [IconButton, DryIconButton], ThemedStyledIconButton);
+
+export default ThemedStyledIconButton;

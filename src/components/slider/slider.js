@@ -1,9 +1,10 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { Slider } from "@material-ui/core";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 function DrySlider(props) {
   const {
@@ -28,7 +29,7 @@ DrySlider.defaultProps = {
 };
 
 DrySlider.propTypes = {
-  className: Proptypes.string,
+  className: PropTypes.string,
 
 };
 
@@ -74,4 +75,8 @@ const StyledSlider = styled(DrySlider)`
   }
 `;
 
-export default withTheme(StyledSlider);
+const ThemedStyledSlider = withTheme(StyledSlider);
+
+setPropTypes("DrySlider", [Slider, DrySlider], ThemedStyledSlider);
+
+export default ThemedStyledSlider;

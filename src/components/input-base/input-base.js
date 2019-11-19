@@ -1,9 +1,10 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { InputBase } from "@material-ui/core";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 function DryInputBase(props) {
   const {
@@ -28,7 +29,7 @@ DryInputBase.defaultProps = {
 };
 
 DryInputBase.propTypes = {
-  className: Proptypes.string,
+  className: PropTypes.string,
 
 };
 
@@ -36,4 +37,8 @@ const StyledInputBase = styled(DryInputBase)`
  
 `;
 
-export default withTheme(StyledInputBase);
+const ThemedStyledInputBase = withTheme(StyledInputBase);
+
+setPropTypes("DryInputBase", [InputBase, DryInputBase], ThemedStyledInputBase);
+
+export default ThemedStyledInputBase;

@@ -1,9 +1,10 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { TableBody } from "@material-ui/core";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 function DryTableBody(props) {
   const {
@@ -28,7 +29,7 @@ DryTableBody.defaultProps = {
 };
 
 DryTableBody.propTypes = {
-  className: Proptypes.string,
+  className: PropTypes.string,
 
 };
 
@@ -36,4 +37,8 @@ const StyledTableBody = styled(DryTableBody)`
  
 `;
 
-export default withTheme(StyledTableBody);
+const ThemedStyledTableBody = withTheme(StyledTableBody);
+
+setPropTypes("DryTableBody", [TableBody, DryTableBody], ThemedStyledTableBody);
+
+export default ThemedStyledTableBody;

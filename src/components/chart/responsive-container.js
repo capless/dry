@@ -1,5 +1,5 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { ResponsiveContainer } from "recharts";
@@ -26,7 +26,7 @@ DryResponsiveContainer.defaultProps = {
 };
 
 DryResponsiveContainer.propTypes = {
-  className: Proptypes.string,
+  className: PropTypes.string,
 };
 
 const StyledResponsiveContainer = styled(DryResponsiveContainer)`

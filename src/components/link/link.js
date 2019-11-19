@@ -1,9 +1,10 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { Link } from "@material-ui/core";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 function DryLink(props) {
   const {
@@ -28,7 +29,7 @@ DryLink.defaultProps = {
 };
 
 DryLink.propTypes = {
-  className: Proptypes.string,
+  className: PropTypes.string,
 
 };
 
@@ -36,4 +37,8 @@ const StyledLink = styled(DryLink)`
  
 `;
 
-export default withTheme(StyledLink);
+const ThemedStyledLink = withTheme(StyledLink);
+
+setPropTypes("DryLink", [Link, DryLink], ThemedStyledLink);
+
+export default ThemedStyledLink;

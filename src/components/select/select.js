@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { Select } from "@material-ui/core";
@@ -7,6 +7,7 @@ import { withTheme } from "theme";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import { makeStyles } from "@material-ui/core/styles";
+import setPropTypes from "utils/setPropTypes";
 
 const useStyles = makeStyles(() => ({
   paper: {
@@ -79,10 +80,10 @@ DrySelect.defaultProps = {
 };
 
 DrySelect.propTypes = {
-  className: Proptypes.string,
-  label: Proptypes.string,
-  fullWidth: Proptypes.bool,
-  textVariant: Proptypes.oneOf([
+  className: PropTypes.string,
+  label: PropTypes.string,
+  fullWidth: PropTypes.bool,
+  textVariant: PropTypes.oneOf([
     "normal",
     "naked",
   ]),
@@ -195,4 +196,8 @@ const StyledSelect = styled(DrySelect)`
   }
 `;
 
-export default withTheme(StyledSelect);
+const ThemedStyledSelect = withTheme(StyledSelect);
+
+setPropTypes("DrySelect", [Select, DrySelect], ThemedStyledSelect);
+
+export default ThemedStyledSelect;

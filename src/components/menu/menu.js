@@ -1,10 +1,11 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { Menu } from "@material-ui/core";
 import { withTheme } from "theme";
 import { makeStyles } from "@material-ui/core/styles";
+import setPropTypes from "utils/setPropTypes";
 
 const useStyles = makeStyles(() => ({
   paper: {
@@ -58,7 +59,7 @@ DryMenu.defaultProps = {
 };
 
 DryMenu.propTypes = {
-  className: Proptypes.string,
+  className: PropTypes.string,
 
 };
 
@@ -66,4 +67,8 @@ const StyledMenu = styled(DryMenu)`
  
 `;
 
-export default withTheme(StyledMenu);
+const ThemedStyledMenu = withTheme(StyledMenu);
+
+setPropTypes("DryMenu", [Menu, DryMenu], ThemedStyledMenu);
+
+export default ThemedStyledMenu;

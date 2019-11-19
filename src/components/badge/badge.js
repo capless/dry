@@ -2,6 +2,8 @@ import React from "react";
 import omit from "lodash/omit";
 import styled from "styled-components";
 import { Badge } from "@material-ui/core";
+import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 const excludeProps = ["minWidth"];
 
@@ -9,7 +11,7 @@ function DryBadge(props) {
   return <Badge {...omit(props, excludeProps)} />;
 }
 
-const StyledDryBadge = styled(DryBadge)`
+const StyledBadge = styled(DryBadge)`
   .MuiBadge-badge {
     width: ${({ width }) => width};
     min-width: ${({ minWidth }) => minWidth};
@@ -21,4 +23,8 @@ const StyledDryBadge = styled(DryBadge)`
   }
 `;
 
-export default StyledDryBadge;
+const ThemedStyledBadge = withTheme(StyledBadge);
+
+setPropTypes("DryBadge", [Badge, DryBadge], ThemedStyledBadge);
+
+export default ThemedStyledBadge;
