@@ -1,9 +1,10 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { ListItemSecondaryAction } from "@material-ui/core";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 function DryListItemSecondaryAction(props) {
   const {
@@ -28,7 +29,7 @@ DryListItemSecondaryAction.defaultProps = {
 };
 
 DryListItemSecondaryAction.propTypes = {
-  className: Proptypes.string,
+  className: PropTypes.string,
 
 };
 
@@ -36,4 +37,8 @@ const StyledListItemSecondaryAction = styled(DryListItemSecondaryAction)`
  
 `;
 
-export default withTheme(StyledListItemSecondaryAction);
+const ThemedStyledListItemSecondaryAction = withTheme(StyledListItemSecondaryAction);
+
+setPropTypes("DryListItemSecondaryAction", DryListItemSecondaryAction, ThemedStyledListItemSecondaryAction);
+
+export default ThemedStyledListItemSecondaryAction;

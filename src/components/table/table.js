@@ -1,9 +1,10 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { Table } from "@material-ui/core";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 function DryTable(props) {
   const {
@@ -28,7 +29,7 @@ DryTable.defaultProps = {
 };
 
 DryTable.propTypes = {
-  className: Proptypes.string,
+  className: PropTypes.string,
 
 };
 
@@ -89,4 +90,8 @@ const StyledTable = styled(DryTable)`
   }
 `;
 
-export default withTheme(StyledTable);
+const ThemedStyledTable = withTheme(StyledTable);
+
+setPropTypes("DryTable", Table, ThemedStyledTable);
+
+export default ThemedStyledTable;

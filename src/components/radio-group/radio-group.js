@@ -1,9 +1,10 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { RadioGroup } from "@material-ui/core";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 function DryRadioGroup(props) {
   const {
@@ -28,7 +29,7 @@ DryRadioGroup.defaultProps = {
 };
 
 DryRadioGroup.propTypes = {
-  className: Proptypes.string,
+  className: PropTypes.string,
 
 };
 
@@ -36,4 +37,8 @@ const StyledRadioGroup = styled(DryRadioGroup)`
  
 `;
 
-export default withTheme(StyledRadioGroup);
+const ThemedStyledRadioGroup = withTheme(StyledRadioGroup);
+
+setPropTypes("DryRadioGroup", RadioGroup, ThemedStyledRadioGroup);
+
+export default ThemedStyledRadioGroup;

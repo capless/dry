@@ -1,12 +1,13 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { Editor } from "react-draft-wysiwyg";
 import { withTheme } from "theme";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import setPropTypes from "utils/setPropTypes";
 
-function DryGrid(props) {
+function DryEditor(props) {
   const {
     className,
     ...restProps
@@ -24,16 +25,16 @@ function DryGrid(props) {
   );
 }
 
-DryGrid.defaultProps = {
+DryEditor.defaultProps = {
   className: "",
 };
 
-DryGrid.propTypes = {
-  className: Proptypes.string,
+DryEditor.propTypes = {
+  className: PropTypes.string,
 
 };
 
-const StyledGrid = styled(DryGrid)`
+const StyledEditor = styled(DryEditor)`
   &.wrapperClassName {
     margin: 8px 0;
     font-family: Roboto;
@@ -55,4 +56,8 @@ const StyledGrid = styled(DryGrid)`
   }
 `;
 
-export default withTheme(StyledGrid);
+const ThemedStyledEditor = withTheme(StyledEditor);
+
+setPropTypes("DryEditor", Editor, ThemedStyledEditor);
+
+export default ThemedStyledEditor;

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { Button } from "@material-ui/core";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 function DryButton(props) {
   const {
@@ -59,12 +60,12 @@ DryButton.defaultProps = {
 };
 
 DryButton.propTypes = {
-  className: Proptypes.string,
-  disabled: Proptypes.bool,
-  disableRipple: Proptypes.bool,
-  onMouseDown: Proptypes.func,
-  onMouseUp: Proptypes.func,
-  onMouseLeave: Proptypes.func,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  disableRipple: PropTypes.bool,
+  onMouseDown: PropTypes.func,
+  onMouseUp: PropTypes.func,
+  onMouseLeave: PropTypes.func,
 };
 
 const StyledButton = styled(DryButton)`
@@ -161,4 +162,8 @@ const StyledButton = styled(DryButton)`
   }
 `;
 
-export default withTheme(StyledButton);
+const ThemedStyledButton = withTheme(StyledButton);
+
+setPropTypes("DryButton", DryButton, ThemedStyledButton);
+
+export default ThemedStyledButton;

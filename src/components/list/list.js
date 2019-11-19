@@ -1,9 +1,10 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { List } from "@material-ui/core";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 function DryList(props) {
   const {
@@ -28,7 +29,7 @@ DryList.defaultProps = {
 };
 
 DryList.propTypes = {
-  className: Proptypes.string,
+  className: PropTypes.string,
 
 };
 
@@ -78,4 +79,8 @@ const StyledList = styled(DryList)`
   }
 `;
 
-export default withTheme(StyledList);
+const ThemedStyledList = withTheme(StyledList);
+
+setPropTypes("DryList", List, ThemedStyledList);
+
+export default ThemedStyledList;

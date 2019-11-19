@@ -1,9 +1,10 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { Tabs } from "@material-ui/core";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 function DryTabs(props) {
   const {
@@ -28,7 +29,7 @@ DryTabs.defaultProps = {
 };
 
 DryTabs.propTypes = {
-  className: Proptypes.string,
+  className: PropTypes.string,
 
 };
 
@@ -59,4 +60,8 @@ const StyledTabs = styled(DryTabs)`
   }
 `;
 
-export default withTheme(StyledTabs);
+const ThemedStyledTabs = withTheme(StyledTabs);
+
+setPropTypes("DryTabs", Tabs, ThemedStyledTabs);
+
+export default ThemedStyledTabs;

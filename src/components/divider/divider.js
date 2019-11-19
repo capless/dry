@@ -1,9 +1,10 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { Divider } from "@material-ui/core";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 function DryDivider(props) {
   const {
@@ -28,7 +29,7 @@ DryDivider.defaultProps = {
 };
 
 DryDivider.propTypes = {
-  className: Proptypes.string,
+  className: PropTypes.string,
 
 };
 
@@ -36,4 +37,8 @@ const StyledDivider = styled(DryDivider)`
  
 `;
 
-export default withTheme(StyledDivider);
+const ThemedStyledDivider = withTheme(StyledDivider);
+
+setPropTypes("DryDivider", Divider, ThemedStyledDivider);
+
+export default ThemedStyledDivider;

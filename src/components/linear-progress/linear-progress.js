@@ -1,9 +1,10 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { LinearProgress } from "@material-ui/core";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 function DryLinearProgress(props) {
   const {
@@ -28,7 +29,7 @@ DryLinearProgress.defaultProps = {
 };
 
 DryLinearProgress.propTypes = {
-  className: Proptypes.string,
+  className: PropTypes.string,
 
 };
 
@@ -36,4 +37,8 @@ const StyledLinearProgress = styled(DryLinearProgress)`
  
 `;
 
-export default withTheme(StyledLinearProgress);
+const ThemedStyledLinearProgress = withTheme(StyledLinearProgress);
+
+setPropTypes("DryLinearProgress", LinearProgress, ThemedStyledLinearProgress);
+
+export default ThemedStyledLinearProgress;
