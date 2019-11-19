@@ -1,9 +1,10 @@
 import React, { forwardRef } from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { MenuItem } from "@material-ui/core";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 const DryMenuItem = forwardRef((props, ref) => {
   const {
@@ -29,7 +30,7 @@ DryMenuItem.defaultProps = {
 };
 
 DryMenuItem.propTypes = {
-  className: Proptypes.string,
+  className: PropTypes.string,
 
 };
 
@@ -40,4 +41,8 @@ const StyledMenuItem = styled(DryMenuItem)`
   }
 `;
 
-export default withTheme(StyledMenuItem);
+const ThemedStyledMenuItem = withTheme(StyledMenuItem);
+
+setPropTypes("DryMenuItem", DryMenuItem, ThemedStyledMenuItem);
+
+export default ThemedStyledMenuItem;

@@ -1,9 +1,10 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled, { css } from "styled-components";
 import { ListItemIcon } from "@material-ui/core";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 function DryListItemIcon(props) {
   const {
@@ -28,7 +29,7 @@ DryListItemIcon.defaultProps = {
 };
 
 DryListItemIcon.propTypes = {
-  className: Proptypes.string,
+  className: PropTypes.string,
 
 };
 
@@ -40,4 +41,8 @@ const StyledListItemIcon = styled(DryListItemIcon)`
   }
 `;
 
-export default withTheme(StyledListItemIcon);
+const ThemedStyledListItemIcon = withTheme(StyledListItemIcon);
+
+setPropTypes("DryListItemIcon", DryListItemIcon, ThemedStyledListItemIcon);
+
+export default ThemedStyledListItemIcon;

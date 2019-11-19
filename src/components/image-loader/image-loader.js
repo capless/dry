@@ -1,9 +1,10 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import ImageLoader from "react-image";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 function DryImageLoader(props) {
   const {
@@ -28,7 +29,7 @@ DryImageLoader.defaultProps = {
 };
 
 DryImageLoader.propTypes = {
-  className: Proptypes.string,
+  className: PropTypes.string,
 
 };
 
@@ -36,4 +37,8 @@ const StyledImageLoader = styled(DryImageLoader)`
  
 `;
 
-export default withTheme(StyledImageLoader);
+const ThemedStyledImageLoader = withTheme(StyledImageLoader);
+
+setPropTypes("DryImageLoader", ImageLoader, ThemedStyledImageLoader);
+
+export default ThemedStyledImageLoader;

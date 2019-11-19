@@ -1,9 +1,10 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { Grid } from "@material-ui/core";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 function DryGrid(props) {
   const {
@@ -29,8 +30,8 @@ DryGrid.defaultProps = {
 };
 
 DryGrid.propTypes = {
-  className: Proptypes.string,
-  textAlign: Proptypes.string,
+  className: PropTypes.string,
+  textAlign: PropTypes.string,
 };
 
 const StyledGrid = styled(DryGrid)`
@@ -39,4 +40,8 @@ const StyledGrid = styled(DryGrid)`
   }
 `;
 
-export default withTheme(StyledGrid);
+const ThemedStyledGrid = withTheme(StyledGrid);
+
+setPropTypes("DryGrid", Grid, ThemedStyledGrid);
+
+export default ThemedStyledGrid;

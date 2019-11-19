@@ -1,9 +1,10 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { Typography } from "@material-ui/core";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 function DryTypography(props) {
   const {
@@ -28,7 +29,7 @@ DryTypography.defaultProps = {
 };
 
 DryTypography.propTypes = {
-  className: Proptypes.string,
+  className: PropTypes.string,
 
 };
 
@@ -36,4 +37,8 @@ const StyledTypography = styled(DryTypography)`
  
 `;
 
-export default withTheme(StyledTypography);
+const ThemedStyledTypography = withTheme(StyledTypography);
+
+setPropTypes("DryTypography", Typography, ThemedStyledTypography);
+
+export default ThemedStyledTypography;

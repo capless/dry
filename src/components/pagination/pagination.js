@@ -3,13 +3,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/forbid-prop-types */
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import Pagination from "rc-pagination";
 import enLocale from "rc-pagination/lib/locale/en_US";
 import { withTheme } from "theme";
 import "rc-pagination/assets/index.css";
+import setPropTypes from "utils/setPropTypes";
 
 function DryPagination(props) {
   const {
@@ -89,12 +90,12 @@ DryPagination.defaultProps = {
 };
 
 DryPagination.propTypes = {
-  className: Proptypes.string,
-  locale: Proptypes.object,
-  current: Proptypes.number,
-  pageSize: Proptypes.number,
-  total: Proptypes.number.isRequired,
-  onChange: Proptypes.func.isRequired,
+  className: PropTypes.string,
+  locale: PropTypes.object,
+  current: PropTypes.number,
+  pageSize: PropTypes.number,
+  total: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 const StyledPagination = styled(DryPagination)`
@@ -159,4 +160,8 @@ const StyledPagination = styled(DryPagination)`
   }
 `;
 
-export default withTheme(StyledPagination);
+const ThemedStyledPagination = withTheme(StyledPagination);
+
+setPropTypes("DryPagination", DryPagination, ThemedStyledPagination);
+
+export default ThemedStyledPagination;

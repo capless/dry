@@ -1,5 +1,5 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { Grid } from "@material-ui/core";
@@ -28,7 +28,7 @@ DryGrid.defaultProps = {
 };
 
 DryGrid.propTypes = {
-  className: Proptypes.string,
+  className: PropTypes.string,
 
 };
 

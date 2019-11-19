@@ -1,9 +1,10 @@
 import React from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { Radio } from "@material-ui/core";
 import { withTheme } from "theme";
+import setPropTypes from "utils/setPropTypes";
 
 function DryRadio(props) {
   const {
@@ -29,8 +30,8 @@ DryRadio.defaultProps = {
 };
 
 DryRadio.propTypes = {
-  className: Proptypes.string,
-  disableRipple: Proptypes.bool,
+  className: PropTypes.string,
+  disableRipple: PropTypes.bool,
 };
 
 const StyledRadio = styled(DryRadio)`
@@ -53,4 +54,8 @@ const StyledRadio = styled(DryRadio)`
   }
 `;
 
-export default withTheme(StyledRadio);
+const ThemedStyledRadio = withTheme(StyledRadio);
+
+setPropTypes("DryRadio", Radio, ThemedStyledRadio);
+
+export default ThemedStyledRadio;
