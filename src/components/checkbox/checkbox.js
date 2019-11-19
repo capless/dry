@@ -100,6 +100,6 @@ const StyledCheckbox = styled(DryCheckbox)`
 
 const ThemedStyledCheckbox = withTheme(StyledCheckbox);
 
-setPropTypes("DryCheckbox", DryCheckbox, ThemedStyledCheckbox);
+setPropTypes("DryCheckbox", [Checkbox, DryCheckbox], ThemedStyledCheckbox);
 
 export default ThemedStyledCheckbox;

@@ -164,6 +164,6 @@ const StyledButton = styled(DryButton)`
 
 const ThemedStyledButton = withTheme(StyledButton);
 
-setPropTypes("DryButton", DryButton, ThemedStyledButton);
+setPropTypes("DryButton", [Button, DryButton], ThemedStyledButton);
 
 export default ThemedStyledButton;

@@ -38,6 +38,6 @@ const StyledFormControl = styled(DryFormControl)`
 
 const ThemedStyledFormControl = withTheme(StyledFormControl);
 
-setPropTypes("DryFormControl", FormControl, ThemedStyledFormControl);
+setPropTypes("DryFormControl", [FormControl, DryFormControl], ThemedStyledFormControl);
 
 export default ThemedStyledFormControl;

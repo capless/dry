@@ -45,6 +45,6 @@ const StyledListItemText = styled(DryListItemText)`
 
 const ThemedStyledListItemText = withTheme(StyledListItemText);
 
-setPropTypes("DryListItemText", DryListItemText, ThemedStyledListItemText);
+setPropTypes("DryListItemText", [ListItemText, DryListItemText], ThemedStyledListItemText);
 
 export default ThemedStyledListItemText;

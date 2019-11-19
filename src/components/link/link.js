@@ -39,6 +39,6 @@ const StyledLink = styled(DryLink)`
 
 const ThemedStyledLink = withTheme(StyledLink);
 
-setPropTypes("DryLink", DryLink, ThemedStyledLink);
+setPropTypes("DryLink", [Link, DryLink], ThemedStyledLink);
 
 export default ThemedStyledLink;

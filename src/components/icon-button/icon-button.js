@@ -39,6 +39,6 @@ const StyledIconButton = styled(DryIconButton)`
 
 const ThemedStyledIconButton = withTheme(StyledIconButton);
 
-setPropTypes("DryIconButton", DryIconButton, ThemedStyledIconButton);
+setPropTypes("DryIconButton", [IconButton, DryIconButton], ThemedStyledIconButton);
 
 export default ThemedStyledIconButton;

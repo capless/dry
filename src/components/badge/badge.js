@@ -25,6 +25,6 @@ const StyledBadge = styled(DryBadge)`
 
 const ThemedStyledBadge = withTheme(StyledBadge);
 
-setPropTypes("DryBadge", Badge, ThemedStyledBadge);
+setPropTypes("DryBadge", [Badge, DryBadge], ThemedStyledBadge);
 
 export default ThemedStyledBadge;

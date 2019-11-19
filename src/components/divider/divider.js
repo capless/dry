@@ -39,6 +39,6 @@ const StyledDivider = styled(DryDivider)`
 
 const ThemedStyledDivider = withTheme(StyledDivider);
 
-setPropTypes("DryDivider", Divider, ThemedStyledDivider);
+setPropTypes("DryDivider", [Divider, DryDivider], ThemedStyledDivider);
 
 export default ThemedStyledDivider;

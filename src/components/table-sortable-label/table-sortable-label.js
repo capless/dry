@@ -53,6 +53,6 @@ const StyledTableSortLabel = styled(DryTableSortLabel)`
 
 const ThemedStyledTableSortableLabel = withTheme(StyledTableSortLabel);
 
-setPropTypes("DryTableSortableLabel", TableSortLabel, ThemedStyledTableSortableLabel);
+setPropTypes("DryTableSortableLabel", [TableSortLabel, DryTableSortLabel], ThemedStyledTableSortableLabel);
 
 export default ThemedStyledTableSortableLabel;

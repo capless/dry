@@ -39,6 +39,6 @@ const StyledLinearProgress = styled(DryLinearProgress)`
 
 const ThemedStyledLinearProgress = withTheme(StyledLinearProgress);
 
-setPropTypes("DryLinearProgress", LinearProgress, ThemedStyledLinearProgress);
+setPropTypes("DryLinearProgress", [LinearProgress, DryLinearProgress], ThemedStyledLinearProgress);
 
 export default ThemedStyledLinearProgress;

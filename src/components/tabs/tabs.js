@@ -62,6 +62,6 @@ const StyledTabs = styled(DryTabs)`
 
 const ThemedStyledTabs = withTheme(StyledTabs);
 
-setPropTypes("DryTabs", Tabs, ThemedStyledTabs);
+setPropTypes("DryTabs", [Tabs, DryTabs], ThemedStyledTabs);
 
 export default ThemedStyledTabs;

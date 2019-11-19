@@ -43,6 +43,6 @@ const StyledMenuItem = styled(DryMenuItem)`
 
 const ThemedStyledMenuItem = withTheme(StyledMenuItem);
 
-setPropTypes("DryMenuItem", DryMenuItem, ThemedStyledMenuItem);
+setPropTypes("DryMenuItem", [MenuItem, DryMenuItem], ThemedStyledMenuItem);
 
 export default ThemedStyledMenuItem;

@@ -92,6 +92,6 @@ const StyledTable = styled(DryTable)`
 
 const ThemedStyledTable = withTheme(StyledTable);
 
-setPropTypes("DryTable", Table, ThemedStyledTable);
+setPropTypes("DryTable", [Table, DryTable], ThemedStyledTable);
 
 export default ThemedStyledTable;

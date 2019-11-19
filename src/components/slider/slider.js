@@ -77,6 +77,6 @@ const StyledSlider = styled(DrySlider)`
 
 const ThemedStyledSlider = withTheme(StyledSlider);
 
-setPropTypes("DrySlider", Slider, ThemedStyledSlider);
+setPropTypes("DrySlider", [Slider, DrySlider], ThemedStyledSlider);
 
 export default ThemedStyledSlider;

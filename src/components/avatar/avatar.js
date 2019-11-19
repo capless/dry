@@ -63,6 +63,6 @@ const StyledDryAvatar = styled(DryAvatar)`
   `}
 `;
 
-setPropTypes("DryAvatar", Avatar, StyledDryAvatar);
+setPropTypes("DryAvatar", [Avatar, DryAvatar], StyledDryAvatar);
 
 export default StyledDryAvatar;

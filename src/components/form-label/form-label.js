@@ -51,6 +51,6 @@ const StyledFormLabel = styled(DryFormLabel)`
 
 const ThemedStyledFormLabel = withTheme(StyledFormLabel);
 
-setPropTypes("DryFormLabel", FormLabel, ThemedStyledFormLabel);
+setPropTypes("DryFormLabel", [FormLabel, DryFormLabel], ThemedStyledFormLabel);
 
 export default ThemedStyledFormLabel;

@@ -39,6 +39,6 @@ const StyledFormControlLabel = styled(DryFormControlLabel)`
 
 const ThemedStyledFormControlLabel = withTheme(StyledFormControlLabel);
 
-setPropTypes("DryFormControlLabel", DryFormControlLabel, ThemedStyledFormControlLabel);
+setPropTypes("DryFormControlLabel", [FormControlLabel, DryFormControlLabel], ThemedStyledFormControlLabel);
 
 export default ThemedStyledFormControlLabel;
