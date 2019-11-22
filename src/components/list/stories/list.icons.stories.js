@@ -28,83 +28,6 @@ export default {
   title: "Library|Lists/Icons",
 };
 
-export const withIcons = () => {
-  const [selected, setSelected] = useState("Dashboard");
-
-  return (
-    <List>
-      <ListItem
-        selected={selected === "Dashboard"}
-        onClick={() => handleClick("Dashboard")}
-      >
-        <ListItemIcon>
-          <DashboardOutlined fontSize="small" />
-        </ListItemIcon>
-        <ListItemText primary="Dashboard" />
-      </ListItem>
-      <ListItem
-        selected={selected === "Performance"}
-        onClick={() => handleClick("Performance")}
-      >
-        <ListItemIcon>
-          <ViewAgendaOutlined fontSize="small" />
-        </ListItemIcon>
-        <ListItemText primary="Performance" />
-      </ListItem>
-      <ListItem
-        selected={selected === "Email"}
-        onClick={() => handleClick("Email")}
-      >
-        <ListItemIcon>
-          <MailOutline fontSize="small" />
-        </ListItemIcon>
-        <ListItemText primary="Email" />
-      </ListItem>
-      <ListItem
-        selected={selected === "Contacts"}
-        onClick={() => handleClick("Contacts")}
-      >
-        <ListItemIcon>
-          <PersonOutlineOutlined fontSize="small" />
-        </ListItemIcon>
-        <ListItemText primary="Contacts" />
-      </ListItem>
-      <ListItem
-        selected={selected === "Chat"}
-        onClick={() => handleClick("Chat")}
-      >
-        <ListItemIcon>
-          <ChatBubbleOutlineOutlined fontSize="small" />
-        </ListItemIcon>
-        <ListItemText primary="Chat" />
-      </ListItem>
-      <ListItem
-        selected={selected === "Sales"}
-        onClick={() => handleClick("Sales")}
-      >
-        <ListItemIcon>
-          <ViewWeekOutlined fontSize="small" />
-        </ListItemIcon>
-        <ListItemText primary="Sales" />
-      </ListItem>
-      <Divider />
-      <ListItem
-        selected={selected === "Settings"}
-        onClick={() => handleClick("Settings")}
-      >
-        <ListItemIcon>
-          <MoreHoriz fontSize="small" />
-        </ListItemIcon>
-        <ListItemText primary="Settings" />
-      </ListItem>
-    </List>
-  );
-
-  function handleClick(selectedItem) {
-    setSelected(selectedItem);
-  }
-};
-
 const useStyles = makeStyles(() => ({
   root: {
     backgroundColor: "#E5E5E5",
@@ -130,6 +53,12 @@ const useStyles = makeStyles(() => ({
     padding: "1rem",
   },
 
+  item: {
+    background: "#FFF",
+    margin: "24px",
+    padding: 0,
+  },
+
   selectInput: {
     fontSize: "12px",
     lineHeight: "14px",
@@ -145,6 +74,88 @@ const useStyles = makeStyles(() => ({
     fill: "#C2CFE0 !important",
   },
 }));
+
+export const withIcons = () => {
+  const classes = useStyles();
+  const [selected, setSelected] = useState("Dashboard");
+
+  return (
+    <Grid container spacing={6} className={classes.grid}>
+      <Grid item xs={4} className={classes.item}>
+        <List>
+          <ListItem
+            selected={selected === "Dashboard"}
+            onClick={() => handleClick("Dashboard")}
+          >
+            <ListItemIcon>
+              <DashboardOutlined fontSize="small" />
+            </ListItemIcon>
+            <ListItemText primary="Dashboard" />
+          </ListItem>
+          <ListItem
+            selected={selected === "Performance"}
+            onClick={() => handleClick("Performance")}
+          >
+            <ListItemIcon>
+              <ViewAgendaOutlined fontSize="small" />
+            </ListItemIcon>
+            <ListItemText primary="Performance" />
+          </ListItem>
+          <ListItem
+            selected={selected === "Email"}
+            onClick={() => handleClick("Email")}
+          >
+            <ListItemIcon>
+              <MailOutline fontSize="small" />
+            </ListItemIcon>
+            <ListItemText primary="Email" />
+          </ListItem>
+          <ListItem
+            selected={selected === "Contacts"}
+            onClick={() => handleClick("Contacts")}
+          >
+            <ListItemIcon>
+              <PersonOutlineOutlined fontSize="small" />
+            </ListItemIcon>
+            <ListItemText primary="Contacts" />
+          </ListItem>
+          <ListItem
+            selected={selected === "Chat"}
+            onClick={() => handleClick("Chat")}
+          >
+            <ListItemIcon>
+              <ChatBubbleOutlineOutlined fontSize="small" />
+            </ListItemIcon>
+            <ListItemText primary="Chat" />
+          </ListItem>
+          <ListItem
+            selected={selected === "Sales"}
+            onClick={() => handleClick("Sales")}
+          >
+            <ListItemIcon>
+              <ViewWeekOutlined fontSize="small" />
+            </ListItemIcon>
+            <ListItemText primary="Sales" />
+          </ListItem>
+          <Divider />
+          <ListItem
+            selected={selected === "Settings"}
+            onClick={() => handleClick("Settings")}
+          >
+            <ListItemIcon>
+              <MoreHoriz fontSize="small" />
+            </ListItemIcon>
+            <ListItemText primary="Settings" />
+          </ListItem>
+        </List>
+      </Grid>
+    </Grid>
+  );
+
+  function handleClick(selectedItem) {
+    setSelected(selectedItem);
+  }
+};
 
 export const withIconsInPaperNotifications = () => {
   const [selected, setSelected] = useState("1");
