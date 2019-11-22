@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006 -s ./public",
     "dev": "yarn storybook",
-    "build-storybook": "build-storybook -s ./public",
+    "build-storybook": "NODE_ENV=development build-storybook -s ./public",
     "build-components": "cross-env NODE_ENV=production babel src --out-dir dist"
   },
   "keywords": [],
@@ -23,6 +23,7 @@
     "prop-types": "^15.7.2",
     "rc-pagination": "^1.20.10",
     "react": "^16.10.1",
+    "react-color": "^2.17.3",
     "react-dom": "^16.10.1",
     "react-draft-wysiwyg": "^1.13.2",
     "react-image": "^2.2.1",

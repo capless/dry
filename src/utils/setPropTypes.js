@@ -1,15 +1,17 @@
 /* eslint-disable react/forbid-foreign-prop-types */
 function setPropTypes(name, Sources, Destination) {
-  const Source = Array.isArray(Sources) ? Sources[0] : Sources;
   const sourcePropTypes = Array.isArray(Sources)
     ? getComponentsPropTypes(Sources)
     : getMuiPropTypes(Sources);
+  const sourceDefaultProps = Array.isArray(Sources)
+    ? getComponentsDefaultProps(Sources)
+    : getMuiDefaultProps(Sources);
 
   Object.assign(
     Destination, {
       displayName: name,
       propTypes: { ...sourcePropTypes, ...Destination.propTypes },
-      defaultProps: { ...Source.defaultProps, ...Destination.defaultProps },
+      defaultProps: { ...sourceDefaultProps, ...Destination.defaultProps },
     },
   );
 }
@@ -28,6 +30,22 @@ function getMuiPropTypes(Component) {
     return { ...Naked.propTypes, ...propTypes };
   }
   return propTypes;
+}
+
+function getComponentsDefaultProps(Components) {
+  return Components.reduce((accPropTypes, currComponent) => ({
+    ...accPropTypes,
+    ...currComponent.defaultProps,
+    ...getMuiDefaultProps(currComponent),
+  }), {});
+}
+
+function getMuiDefaultProps(Component) {
+  const { Naked, defaultProps } = Component;
+  if (Naked) {
+    return { ...Naked.defaultProps, ...defaultProps };
+  }
+  return defaultProps;
 }
 
 export default setPropTypes;
