@@ -36,12 +36,12 @@ export const all = () => {
           <Grid container spacing={2}>
             {/* Fieldset */}
             <Grid item xs={12}>
-              <Text component="h1" className="form-title">Fieldset</Text>
+              <Text component="h1">Fieldset</Text>
             </Grid>
 
             {/* Personal Information */}
             <Grid item xs={12}>
-              <Text component="h2" className="form-sub-title">Personal Information</Text>
+              <Text component="h2">Personal Information</Text>
             </Grid>
 
             {/* First name, Last name */}
@@ -82,7 +82,7 @@ export const all = () => {
 
             {/* Personal Information */}
             <Grid item xs={12}>
-              <Text component="h2" className="form-sub-title">Address Details</Text>
+              <Text component="h2">Address Details</Text>
             </Grid>
 
             {/* Address 1 */}

@@ -35,7 +35,7 @@ export const all = () => {
           <Grid container spacing={2}>
             {/* Fieldset */}
             <Grid item xs={12}>
-              <Text component="h1" className="form-title">Sample Form</Text>
+              <Text component="h1">Sample Form</Text>
             </Grid>
 
             {/* First name, Last name */}

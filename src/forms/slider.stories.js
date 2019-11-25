@@ -28,14 +28,14 @@ export const all = () => {
           <Grid container spacing={2}>
             {/* Form Sliders */}
             <Grid item xs={12}>
-              <Text component="h1" className="form-title">Form Sliders</Text>
+              <Text component="h1">Form Sliders</Text>
             </Grid>
 
             {/* One Marker */}
             <Grid item xs={6}>
               <Grid container spacing={2}>
                 <Grid item xs={12}>
-                  <Text component="h2" className="form-sub-title">One Marker</Text>
+                  <Text component="h2">One Marker</Text>
                 </Grid>
 
                 {/* Enabled */}
@@ -56,7 +56,7 @@ export const all = () => {
             <Grid item xs={6}>
               <Grid container spacing={2}>
                 <Grid item xs={12}>
-                  <Text component="h2" className="form-sub-title">Two Marker</Text>
+                  <Text component="h2">Two Marker</Text>
                 </Grid>
 
                 {/* Enabled */}
