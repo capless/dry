@@ -30,24 +30,6 @@ export default {
 };
 
 const useStyles = makeStyles(() => ({
-  root: {
-    backgroundColor: "#E5E5E5",
-    height: "90vh",
-    padding: "1rem",
-
-    "& .MuiPaper-root:hover": {
-      "& svg, h1, p": {
-        color: "white !important",
-      },
-
-      background: "#5CC64C",
-      boxShadow: "2px 2px 20px rgba(0, 0, 0, 0.32)",
-      borderRadius: "4px",
-      transition: "box-shadow 1s",
-      "-webkit-transition": "box-shadow 1s",
-    },
-  },
-
   grid: {
     backgroundColor: "#E5E5E5",
     height: "90vh",
