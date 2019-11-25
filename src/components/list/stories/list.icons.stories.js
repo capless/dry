@@ -120,8 +120,8 @@ export const withMenuIcons = () => {
   const [selected, setSelected] = useState("Dashboard");
 
   return (
-    <Grid container spacing={6} className={classes.grid}>
-      <Grid item xs={4} className={classes.item}>
+    <Grid container spacing={6} className={classes.menuGrid}>
+      <Grid item xs={3} className={classes.menuGridItem}>
         <List>
           <ListItem
             selected={selected === "Dashboard"}
