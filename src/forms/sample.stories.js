@@ -22,11 +22,6 @@ const useStyles = makeStyles(() => ({
     height: "120vh",
     padding: "1rem",
   },
-
-  gridItemButton: {
-    display: "flex",
-    justifyContent: "flex-end",
-  },
 }));
 
 export const all = () => {

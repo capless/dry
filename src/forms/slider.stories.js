@@ -1,64 +1,82 @@
 import React from "react";
+import makeStyles from "utils/makeStyles";
 import Grid from "components/grid";
 import Text from "components/text";
 import Slider from "components/slider";
+import Paper from "components/paper";
 
 export default {
   title: "Forms|Slider/Default",
 };
 
-export const all = () => (
-  <Grid className="storybook-adjusted" container justify="center">
-    <Grid item xs={6}>
-      <Grid container spacing={2}>
-        {/* Form Sliders */}
-        <Grid item xs={12}>
-          <Text component="h1" className="form-title">Form Sliders</Text>
-        </Grid>
+const useStyles = makeStyles(() => ({
+  grid: {
+    backgroundColor: "#E5E5E5",
+    height: "120vh",
+    padding: "1rem",
+  },
+}));
 
-        {/* One Marker */}
-        <Grid item xs={6}>
+export const all = () => {
+  const classes = useStyles();
+
+  return (
+    <Grid container justify="center" className={classes.grid}>
+      <Grid item xs={6}>
+
+        <Paper>
           <Grid container spacing={2}>
+            {/* Form Sliders */}
             <Grid item xs={12}>
-              <Text component="h2" className="form-sub-title">One Marker</Text>
+              <Text component="h1" className="form-title">Form Sliders</Text>
             </Grid>
 
-            {/* Enabled */}
-            <Grid item xs={12}>
-              <Text>Enabled</Text>
-              <Slider defaultValue={40} />
+            {/* One Marker */}
+            <Grid item xs={6}>
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <Text component="h2" className="form-sub-title">One Marker</Text>
+                </Grid>
+
+                {/* Enabled */}
+                <Grid item xs={12}>
+                  <Text>Enabled</Text>
+                  <Slider defaultValue={40} />
+                </Grid>
+
+                {/* Disabled */}
+                <Grid item xs={12}>
+                  <Text>Disabled</Text>
+                  <Slider defaultValue={40} disabled />
+                </Grid>
+              </Grid>
             </Grid>
 
-            {/* Disabled */}
-            <Grid item xs={12}>
-              <Text>Disabled</Text>
-              <Slider defaultValue={40} disabled />
+            {/* Two Marker */}
+            <Grid item xs={6}>
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <Text component="h2" className="form-sub-title">Two Marker</Text>
+                </Grid>
+
+                {/* Enabled */}
+                <Grid item xs={12}>
+                  <Text>Enabled</Text>
+                  <Slider defaultValue={[20, 70]} />
+                </Grid>
+
+                {/* Disabled */}
+                <Grid item xs={12}>
+                  <Text>Disabled</Text>
+                  <Slider defaultValue={[20, 70]} disabled />
+                </Grid>
+              </Grid>
             </Grid>
+
           </Grid>
-        </Grid>
-
-        {/* Two Marker */}
-        <Grid item xs={6}>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <Text component="h2" className="form-sub-title">Two Marker</Text>
-            </Grid>
-
-            {/* Enabled */}
-            <Grid item xs={12}>
-              <Text>Enabled</Text>
-              <Slider defaultValue={[20, 70]} />
-            </Grid>
-
-            {/* Disabled */}
-            <Grid item xs={12}>
-              <Text>Disabled</Text>
-              <Slider defaultValue={[20, 70]} disabled />
-            </Grid>
-          </Grid>
-        </Grid>
+        </Paper>
 
       </Grid>
     </Grid>
-  </Grid>
-);
+  );
+};
