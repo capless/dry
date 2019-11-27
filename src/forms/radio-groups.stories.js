@@ -1,16 +1,16 @@
 import React from "react";
-import makeStyles from "utils/makeStyles";
-import Grid from "components/grid";
-import Text from "components/text";
-import FormLabel from "components/form-label";
-import Paper from "components/paper";
-import Radio from "components/radio";
-import FormControlLabel from "components/form-control-label";
-import FormGroup from "components/form-group";
-import RadioGroup from "components/radio-group";
-import Typography from "components/typography";
-import Divider from "components/divider";
-import Button from "components/button";
+import makeStyles from "dry/utils/makeStyles";
+import Grid from "dry/components/grid";
+import Text from "dry/components/text";
+import FormLabel from "dry/components/form-label";
+import Paper from "dry/components/paper";
+import Radio from "dry/components/radio";
+import FormControlLabel from "dry/components/form-control-label";
+import FormGroup from "dry/components/form-group";
+import RadioGroup from "dry/components/radio-group";
+import Typography from "dry/components/typography";
+import Divider from "dry/components/divider";
+import Button from "dry/components/button";
 
 export default {
   title: "Forms|RadioGroups/Default",

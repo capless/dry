@@ -1,8 +1,8 @@
 import React from "react";
-import makeStyles from "utils/makeStyles";
-import Grid from "components/grid";
-import Text from "components/text";
-import Carousel from "components/carousel";
+import makeStyles from "dry/utils/makeStyles";
+import Grid from "dry/components/grid";
+import Text from "dry/components/text";
+import Carousel from "dry/components/carousel";
 
 export default {
   title: "Library|Carousels/Default",

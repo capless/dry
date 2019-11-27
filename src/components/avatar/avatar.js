@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import omit from "lodash/omit";
 import styled, { css } from "styled-components";
 import { Avatar } from "@material-ui/core";
-import toSvgString from "utils/toSvgString";
-import setPropTypes from "utils/setPropTypes";
+import toSvgString from "dry/utils/toSvgString";
+import setPropTypes from "dry/utils/setPropTypes";
 import AvatarBackdrop from "./assets/avatar-backdrop";
 
 const excludeProps = ["bordered", "showBackdrop", "backdropImage"];

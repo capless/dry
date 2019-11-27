@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import List from "components/list";
-import ListItem from "components/list-item";
-import ListItemText from "components/list-item-text";
-import Divider from "components/divider";
+import List from "dry/components/list";
+import ListItem from "dry/components/list-item";
+import ListItemText from "dry/components/list-item-text";
+import Divider from "dry/components/divider";
 
 export default {
   title: "Library|Lists/Default",

@@ -1,5 +1,5 @@
 import React from "react";
-import Editor from "components/editor";
+import Editor from "dry/components/editor";
 
 export default {
   title: "Library|Editors/Default",

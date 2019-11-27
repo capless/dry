@@ -1,7 +1,7 @@
 import React from "react";
-import makeStyles from "utils/makeStyles";
-import Grid from "components/grid";
-import ImageLoader from "components/image-loader";
+import makeStyles from "dry/utils/makeStyles";
+import Grid from "dry/components/grid";
+import ImageLoader from "dry/components/image-loader";
 
 export default {
   title: "Library|ImageLoaders/Default",

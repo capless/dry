@@ -1,12 +1,12 @@
 import React from "react";
-import makeStyles from "utils/makeStyles";
-import TextField from "components/textfield";
-import Select from "components/select";
-import Grid from "components/grid";
-import MenuItem from "components/menu-item";
-import Paper from "components/paper";
-import Text from "components/text";
-import Button from "components/button";
+import makeStyles from "dry/utils/makeStyles";
+import TextField from "dry/components/textfield";
+import Select from "dry/components/select";
+import Grid from "dry/components/grid";
+import MenuItem from "dry/components/menu-item";
+import Paper from "dry/components/paper";
+import Text from "dry/components/text";
+import Button from "dry/components/button";
 
 export default {
   title: "Forms|Fieldset/Default",

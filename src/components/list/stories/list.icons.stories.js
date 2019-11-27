@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import makeStyles from "utils/makeStyles";
+import makeStyles from "dry/utils/makeStyles";
 import {
   MoreVert,
   MoreHoriz,
@@ -9,21 +9,21 @@ import {
   ViewAgendaOutlined,
   PersonOutlineOutlined,
   ChatBubbleOutlineOutlined,
-} from "icons";
-import Icon from "components/icon";
-import Badge from "components/badge";
-import IconButton from "components/icon-button";
-import List from "components/list";
-import ListItem from "components/list-item";
-import ListItemIcon from "components/list-item-icon";
-import ListItemText from "components/list-item-text";
-import ListItemSecondaryAction from "components/list-item-secondary-action";
-import Divider from "components/divider";
-import Grid from "components/grid";
-import Paper from "components/paper";
-import Text from "components/text";
-import Avatar from "components/avatar";
-import ImageLoader from "components/image-loader";
+} from "dry/icons";
+import Icon from "dry/components/icon";
+import Badge from "dry/components/badge";
+import IconButton from "dry/components/icon-button";
+import List from "dry/components/list";
+import ListItem from "dry/components/list-item";
+import ListItemIcon from "dry/components/list-item-icon";
+import ListItemText from "dry/components/list-item-text";
+import ListItemSecondaryAction from "dry/components/list-item-secondary-action";
+import Divider from "dry/components/divider";
+import Grid from "dry/components/grid";
+import Paper from "dry/components/paper";
+import Text from "dry/components/text";
+import Avatar from "dry/components/avatar";
+import ImageLoader from "dry/components/image-loader";
 
 export default {
   title: "Library|Lists/Icons",

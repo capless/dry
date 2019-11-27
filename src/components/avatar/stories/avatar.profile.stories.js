@@ -1,5 +1,5 @@
 import React from "react";
-import Avatar from "components/avatar";
+import Avatar from "dry/components/avatar";
 
 export default {
   title: "Library|Avatars/Profile",

@@ -1,7 +1,7 @@
 import React from "react";
-import makeStyles from "utils/makeStyles";
-import Box from "components/box";
-import Grid from "components/grid";
+import makeStyles from "dry/utils/makeStyles";
+import Box from "dry/components/box";
+import Grid from "dry/components/grid";
 
 export default {
   title: "Library|Grid/Default",

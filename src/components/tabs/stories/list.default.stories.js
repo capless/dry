@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import makeStyles from "utils/makeStyles";
-import Grid from "components/grid";
-import Tabs from "components/tabs";
-import Tab from "components/tab";
-import Text from "components/text";
-import Typography from "components/typography";
+import makeStyles from "dry/utils/makeStyles";
+import Grid from "dry/components/grid";
+import Tabs from "dry/components/tabs";
+import Tab from "dry/components/tab";
+import Text from "dry/components/text";
+import Typography from "dry/components/typography";
 
 export default {
   title: "Library|Tabs/Default",

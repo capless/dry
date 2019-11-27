@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import Carousel from "react-slick";
-import { withTheme } from "theme";
-import setPropTypes from "utils/setPropTypes";
+import { withTheme } from "dry/theme";
+import setPropTypes from "dry/utils/setPropTypes";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

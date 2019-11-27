@@ -1,6 +1,6 @@
 import React from "react";
-import makeStyles from "utils/makeStyles";
-import CircularProgress from "components/circular-progress";
+import makeStyles from "dry/utils/makeStyles";
+import CircularProgress from "dry/components/circular-progress";
 
 export default {
   title: "Library|CircularProgress/Static",

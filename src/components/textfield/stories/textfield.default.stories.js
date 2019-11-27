@@ -1,14 +1,14 @@
 import React from "react";
-import makeStyles from "utils/makeStyles";
-import { Calendar } from "icons";
-import TextField from "components/textfield";
-import Select from "components/select";
-import Grid from "components/grid";
-import InputAdornment from "components/input-adornment";
-import Avatar from "components/avatar";
-import Box from "components/box";
-import MenuItem from "components/menu-item";
-import InputLabel from "components/input-label";
+import makeStyles from "dry/utils/makeStyles";
+import { Calendar } from "dry/icons";
+import TextField from "dry/components/textfield";
+import Select from "dry/components/select";
+import Grid from "dry/components/grid";
+import InputAdornment from "dry/components/input-adornment";
+import Avatar from "dry/components/avatar";
+import Box from "dry/components/box";
+import MenuItem from "dry/components/menu-item";
+import InputLabel from "dry/components/input-label";
 
 export default {
   title: "Library|Inputs/Default",

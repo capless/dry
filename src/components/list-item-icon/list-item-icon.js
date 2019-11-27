@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled, { css } from "styled-components";
 import { ListItemIcon } from "@material-ui/core";
-import { withTheme } from "theme";
-import setPropTypes from "utils/setPropTypes";
+import { withTheme } from "dry/theme";
+import setPropTypes from "dry/utils/setPropTypes";
 
 function DryListItemIcon(props) {
   const {

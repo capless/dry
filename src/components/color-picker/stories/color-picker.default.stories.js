@@ -1,9 +1,9 @@
 /* eslint-disable import/named */
 import React from "react";
-import makeStyles from "utils/makeStyles";
-import Box from "components/box";
-import Grid from "components/grid";
-import Typography from "components/typography";
+import makeStyles from "dry/utils/makeStyles";
+import Box from "dry/components/box";
+import Grid from "dry/components/grid";
+import Typography from "dry/components/typography";
 import {
   AlphaPicker, BlockPicker,
   ChromePicker, CirclePicker,
@@ -11,7 +11,7 @@ import {
   HuePicker, PhotoshopPicker,
   SketchPicker, SliderPicker,
   SwatchesPicker, TwitterPicker,
-} from "components/color-picker/react-color";
+} from "dry/components/color-picker/react-color";
 
 export default {
   title: "Library|ColorPicker/Default",

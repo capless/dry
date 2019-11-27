@@ -1,9 +1,9 @@
 import React, { useState, useRef } from "react";
-import { ArrowDropDown } from "icons";
-import Select from "components/select";
-import Menu from "components/menu";
-import MenuItem from "components/menu-item";
-import InputLabel from "components/input-label";
+import { ArrowDropDown } from "dry/icons";
+import Select from "dry/components/select";
+import Menu from "dry/components/menu";
+import MenuItem from "dry/components/menu-item";
+import InputLabel from "dry/components/input-label";
 
 export default {
   title: "Library|Selects/Default",

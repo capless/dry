@@ -1,9 +1,9 @@
 import React from "react";
-import makeStyles from "utils/makeStyles";
-import Box from "components/box";
-import Grid from "components/grid";
-import Link from "components/link";
-import Breadcrumbs from "components/breadcrumbs";
+import makeStyles from "dry/utils/makeStyles";
+import Box from "dry/components/box";
+import Grid from "dry/components/grid";
+import Link from "dry/components/link";
+import Breadcrumbs from "dry/components/breadcrumbs";
 
 export default {
   title: "Library|Breadcrumbs/Default",

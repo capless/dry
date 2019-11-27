@@ -2,8 +2,8 @@ import React from "react";
 import omit from "lodash/omit";
 import styled from "styled-components";
 import { Badge } from "@material-ui/core";
-import { withTheme } from "theme";
-import setPropTypes from "utils/setPropTypes";
+import { withTheme } from "dry/theme";
+import setPropTypes from "dry/utils/setPropTypes";
 
 const excludeProps = ["minWidth"];
 

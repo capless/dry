@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { ResponsiveContainer } from "recharts";
-import { withTheme } from "theme";
+import { withTheme } from "dry/theme";
 
 function DryResponsiveContainer(props) {
   const {
