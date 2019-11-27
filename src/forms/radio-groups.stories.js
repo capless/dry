@@ -10,6 +10,7 @@ import FormGroup from "components/form-group";
 import RadioGroup from "components/radio-group";
 import Typography from "components/typography";
 import Divider from "components/divider";
+import Button from "components/button";
 
 export default {
   title: "Forms|RadioGroups/Default",
@@ -42,6 +43,11 @@ const useStyles = makeStyles(() => ({
     "& .MuiFormGroup-root[role=radiogroup]": {
       flexDirection: "row",
     },
+  },
+
+  gridItemButton: {
+    display: "flex",
+    justifyContent: "flex-end",
   },
 }));
 
@@ -460,6 +466,15 @@ export const all = () => {
                   </FormGroup>
                 </Grid>
               </Grid>
+            </Grid>
+
+            <Grid item xs={12} className={classes.gridItemButton}>
+              <Button
+                color="primary"
+                variant="contained"
+              >
+                Submit
+              </Button>
             </Grid>
 
 
