@@ -65,6 +65,7 @@ export const all = () => {
               <Text component="h1">Radio Groups</Text>
             </Grid>
 
+            {/* Interior Details */}
             <Grid item xs={12}>
               <Grid container spacing={2}>
                 <Grid item xs={12}>
@@ -476,7 +477,6 @@ export const all = () => {
                 Submit
               </Button>
             </Grid>
-
 
           </Grid>
         </Paper>
