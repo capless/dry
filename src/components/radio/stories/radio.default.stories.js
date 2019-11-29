@@ -1,8 +1,8 @@
 import React from "react";
-import Radio from "components/radio";
-import FormControlLabel from "components/form-control-label";
-import FormGroup from "components/form-group";
-import RadioGroup from "components/radio-group";
+import Radio from "dry/components/radio";
+import FormControlLabel from "dry/components/form-control-label";
+import FormGroup from "dry/components/form-group";
+import RadioGroup from "dry/components/radio-group";
 
 export default {
   title: "Library|Radio Buttons/Default",

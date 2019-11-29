@@ -1,5 +1,5 @@
 import React from "react";
-import LinearProgress from "components/linear-progress";
+import LinearProgress from "dry/components/linear-progress";
 
 export default {
   title: "Library|LinearProgress/Query",

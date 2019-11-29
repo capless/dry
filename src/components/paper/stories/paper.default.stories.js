@@ -1,12 +1,12 @@
 import React from "react";
-import makeStyles from "utils/makeStyles";
-import Grid from "components/grid";
-import Paper from "components/paper";
-import Text from "components/text";
-import Icon from "components/icon";
+import makeStyles from "dry/utils/makeStyles";
+import Grid from "dry/components/grid";
+import Paper from "dry/components/paper";
+import Text from "dry/components/text";
+import Icon from "dry/components/icon";
 import {
   People, AssignmentTurnedIn, Notifications, Error,
-} from "icons";
+} from "dry/icons";
 
 export default {
   title: "Library|Papers/Default",

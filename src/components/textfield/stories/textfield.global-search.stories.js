@@ -1,11 +1,11 @@
 import React from "react";
-import makeStyles from "utils/makeStyles";
-import Grid from "components/grid";
-import InputBase from "components/input-base";
-import Paper from "components/paper";
-import IconButton from "components/icon-button";
-import Badge from "components/badge";
-import { Search as SearchIcon, NotificationsNoneTwoTone } from "icons";
+import makeStyles from "dry/utils/makeStyles";
+import Grid from "dry/components/grid";
+import InputBase from "dry/components/input-base";
+import Paper from "dry/components/paper";
+import IconButton from "dry/components/icon-button";
+import Badge from "dry/components/badge";
+import { Search as SearchIcon, NotificationsNoneTwoTone } from "dry/icons";
 
 export default {
   title: "Library|Inputs/GlobalSearch",

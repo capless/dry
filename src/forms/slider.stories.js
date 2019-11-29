@@ -1,9 +1,9 @@
 import React from "react";
-import makeStyles from "utils/makeStyles";
-import Grid from "components/grid";
-import Text from "components/text";
-import Slider from "components/slider";
-import Paper from "components/paper";
+import makeStyles from "dry/utils/makeStyles";
+import Grid from "dry/components/grid";
+import Text from "dry/components/text";
+import Slider from "dry/components/slider";
+import Paper from "dry/components/paper";
 
 export default {
   title: "Forms|Slider/Default",

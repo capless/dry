@@ -4,6 +4,7 @@ export { default as Calendar } from "./calendar";
 export { Delete } from "@material-ui/icons";
 export { EditOutlined } from "@material-ui/icons";
 export { DeleteOutlined } from "@material-ui/icons";
+export { DoneOutline } from "@material-ui/icons";
 export { ArrowDropDown } from "@material-ui/icons";
 export { Dashboard } from "@material-ui/icons";
 export { MailOutline } from "@material-ui/icons";

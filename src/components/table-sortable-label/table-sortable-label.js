@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { TableSortLabel } from "@material-ui/core";
-import { withTheme } from "theme";
-import { ArrowDropDown } from "icons";
-import setPropTypes from "utils/setPropTypes";
+import { withTheme } from "dry/theme";
+import { ArrowDropDown } from "dry/icons";
+import setPropTypes from "dry/utils/setPropTypes";
 
 function DryTableSortLabel(props) {
   const {

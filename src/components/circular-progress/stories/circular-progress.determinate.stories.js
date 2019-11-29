@@ -1,5 +1,5 @@
 import React from "react";
-import CircularProgress from "components/circular-progress";
+import CircularProgress from "dry/components/circular-progress";
 
 export default {
   title: "Library|CircularProgress/Determinate",

@@ -4,9 +4,9 @@ import clsx from "clsx";
 import styled from "styled-components";
 import { Checkbox } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { withTheme } from "theme";
-import toSvgString from "utils/toSvgString";
-import setPropTypes from "utils/setPropTypes";
+import { withTheme } from "dry/theme";
+import toSvgString from "dry/utils/toSvgString";
+import setPropTypes from "dry/utils/setPropTypes";
 import Check from "./assets/check";
 
 const useStyles = makeStyles({

@@ -2,12 +2,12 @@ import React, { useRef, useState } from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import TextField from "components/textfield";
-import InputLabel from "components/input-label";
-import FormControl from "components/form-control";
-import Button from "components/button";
-import { withTheme } from "theme";
-import setPropTypes from "utils/setPropTypes";
+import TextField from "dry/components/textfield";
+import InputLabel from "dry/components/input-label";
+import FormControl from "dry/components/form-control";
+import Button from "dry/components/button";
+import { withTheme } from "dry/theme";
+import setPropTypes from "dry/utils/setPropTypes";
 
 function DryUpload(props) {
   const {

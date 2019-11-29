@@ -8,9 +8,9 @@ import clsx from "clsx";
 import styled from "styled-components";
 import Pagination from "rc-pagination";
 import enLocale from "rc-pagination/lib/locale/en_US";
-import { withTheme } from "theme";
+import { withTheme } from "dry/theme";
 import "rc-pagination/assets/index.css";
-import setPropTypes from "utils/setPropTypes";
+import setPropTypes from "dry/utils/setPropTypes";
 
 function DryPagination(props) {
   const {

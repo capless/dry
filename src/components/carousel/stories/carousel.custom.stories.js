@@ -2,9 +2,9 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable react/no-array-index-key */
 import React from "react";
-import makeStyles from "utils/makeStyles";
-import Grid from "components/grid";
-import Carousel from "components/carousel";
+import makeStyles from "dry/utils/makeStyles";
+import Grid from "dry/components/grid";
+import Carousel from "dry/components/carousel";
 
 export default {
   title: "Library|Carousels/Custom",

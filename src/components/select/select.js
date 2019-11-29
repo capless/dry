@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
 import { Select } from "@material-ui/core";
-import { withTheme } from "theme";
+import { withTheme } from "dry/theme";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import { makeStyles } from "@material-ui/core/styles";
-import setPropTypes from "utils/setPropTypes";
+import setPropTypes from "dry/utils/setPropTypes";
 
 const useStyles = makeStyles(() => ({
   paper: {

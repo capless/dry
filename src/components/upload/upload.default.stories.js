@@ -1,6 +1,6 @@
 
 import React from "react";
-import Upload from "components/upload";
+import Upload from "dry/components/upload";
 
 export default {
   title: "Library|Uploads/Default",

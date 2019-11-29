@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import makeStyles from "utils/makeStyles";
-import Button from "components/button";
-import Grid from "components/grid";
-import Text from "components/text";
-import Checkbox from "components/checkbox";
-import FormControlLabel from "components/form-control-label";
-import FormGroup from "components/form-group";
-import FormLabel from "components/form-label";
-import Paper from "components/paper";
-import Select from "components/select";
-import MenuItem from "components/menu-item";
+import makeStyles from "dry/utils/makeStyles";
+import Button from "dry/components/button";
+import Grid from "dry/components/grid";
+import Text from "dry/components/text";
+import Checkbox from "dry/components/checkbox";
+import FormControlLabel from "dry/components/form-control-label";
+import FormGroup from "dry/components/form-group";
+import FormLabel from "dry/components/form-label";
+import Paper from "dry/components/paper";
+import Select from "dry/components/select";
+import MenuItem from "dry/components/menu-item";
 
 export default {
   title: "Forms|Search/Default",

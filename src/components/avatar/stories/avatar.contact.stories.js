@@ -1,9 +1,9 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
-import Avatar from "components/avatar";
-import Badge from "components/badge";
-import Icon from "components/icon";
-import { Edit, Check } from "icons";
+import Avatar from "dry/components/avatar";
+import Badge from "dry/components/badge";
+import Icon from "dry/components/icon";
+import { Edit, Check } from "dry/icons";
 
 export default {
   title: "Library|Avatars/Contact",

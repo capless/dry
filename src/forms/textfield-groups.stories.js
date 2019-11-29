@@ -11,9 +11,12 @@ import RadioGroup from "dry/components/radio-group";
 import Typography from "dry/components/typography";
 import Divider from "dry/components/divider";
 import Button from "dry/components/button";
+import TextField from "dry/components/textfield";
+import InputAdornment from "dry/components/input-adornment";
+import { EditOutlined, DeleteOutlined } from "dry/icons";
 
 export default {
-  title: "Forms|RadioGroups/Default",
+  title: "Forms|TextFieldGroups/Default",
 };
 
 const useStyles = makeStyles(() => ({
@@ -38,10 +41,6 @@ const useStyles = makeStyles(() => ({
     "& .MuiFormGroup-root": {
       flexGrow: 1,
       flexBasis: "30%",
-    },
-
-    "& .MuiFormGroup-root[role=radiogroup]": {
-      flexDirection: "row",
     },
   },
 
@@ -76,20 +75,23 @@ export const all = () => {
 
                 <Grid item xs={12} className={classes.gridItemFormGroup}>
                   <FormGroup>
-                    <FormLabel component="legend">Driver Airbag</FormLabel>
-                    <RadioGroup
-                      name="sample"
-                      defaultValue="yes"
-                    >
-                      <FormControlLabel
-                        label="Yes"
-                        control={<Radio value="yes" />}
-                      />
-                      <FormControlLabel
-                        label="No"
-                        control={<Radio value="no" />}
-                      />
-                    </RadioGroup>
+                    <TextField
+                      id="id"
+                      label="Driver Airbag"
+                      defaultValue="Yes"
+                      InputProps={{
+                        endAdornment: (
+                          <>
+                            <InputAdornment position="end" className={classes.inputAdornment}>
+                              <EditOutlined />
+                            </InputAdornment>
+                            <InputAdornment position="end" className={classes.inputAdornment}>
+                              <DeleteOutlined />
+                            </InputAdornment>
+                          </>
+                        ),
+                      }}
+                    />
                   </FormGroup>
                   <FormGroup>
                     <FormLabel component="legend">Air Conditioning</FormLabel>

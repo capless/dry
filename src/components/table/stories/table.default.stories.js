@@ -1,11 +1,11 @@
 import React from "react";
-import makeStyles from "utils/makeStyles";
-import Grid from "components/grid";
-import Table from "components/table";
-import TableBody from "components/table-body";
-import TableCell from "components/table-cell";
-import TableHead from "components/table-head";
-import TableRow from "components/table-row";
+import makeStyles from "dry/utils/makeStyles";
+import Grid from "dry/components/grid";
+import Table from "dry/components/table";
+import TableBody from "dry/components/table-body";
+import TableCell from "dry/components/table-cell";
+import TableHead from "dry/components/table-head";
+import TableRow from "dry/components/table-row";
 
 export default {
   title: "Library|Tables/Default",

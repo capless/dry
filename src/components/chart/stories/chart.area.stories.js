@@ -1,19 +1,19 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable import/named */
 import React, { useRef, useState } from "react";
-import makeStyles from "utils/makeStyles";
-import Icon from "components/icon";
-import { TripOrigin, ArrowDropDown } from "icons";
-import Grid from "components/grid";
-import Paper from "components/paper";
-import Text from "components/text";
-import Menu from "components/menu";
-import MenuItem from "components/menu-item";
-import InputLabel from "components/input-label";
-import Divider from "components/divider";
+import makeStyles from "dry/utils/makeStyles";
+import Icon from "dry/components/icon";
+import { TripOrigin, ArrowDropDown } from "dry/icons";
+import Grid from "dry/components/grid";
+import Paper from "dry/components/paper";
+import Text from "dry/components/text";
+import Menu from "dry/components/menu";
+import MenuItem from "dry/components/menu-item";
+import InputLabel from "dry/components/input-label";
+import Divider from "dry/components/divider";
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
-} from "components/chart/recharts";
+} from "dry/components/chart/recharts";
 
 export default {
   title: "Library|Charts/Area",
