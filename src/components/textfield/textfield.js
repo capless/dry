@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
@@ -6,7 +6,7 @@ import { TextField } from "@material-ui/core";
 import { withTheme } from "dry/theme";
 import setPropTypes from "dry/utils/setPropTypes";
 
-function DryTextField(props) {
+const DryTextField = forwardRef((props, ref) => {
   const {
     className,
     valueSize,
@@ -21,11 +21,13 @@ function DryTextField(props) {
   return (
     <TextField
       {...restProps}
+      ref={ref}
       className={clsxName}
 
     />
   );
-}
+});
+
 
 DryTextField.defaultProps = {
   className: "",
