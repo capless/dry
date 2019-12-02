@@ -21,6 +21,7 @@ const useStyles = makeStyles(() => ({
 
   inputAdornment: {
     cursor: "pointer",
+    padding: "4px 0",
   },
 }));
 
@@ -74,7 +75,7 @@ export const all = () => {
           defaultValue="Office meet-up"
           InputProps={{
             endAdornment: (
-              <InputAdornment position="end" className={classes.inputAdornment}>
+              <InputAdornment position="end" fontSize="small" className={classes.inputAdornment}>
                 <Calendar />
               </InputAdornment>
             ),
