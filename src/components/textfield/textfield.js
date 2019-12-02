@@ -65,8 +65,6 @@ const StyledTextField = styled(DryTextField)`
 
   /* normal input */
   .MuiInputBase-input {
-    padding-top: 8px;
-    padding-bottom: 9px;
     color: #707683;
     font-style: normal;
     font-weight: normal;
