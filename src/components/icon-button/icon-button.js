@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
@@ -6,7 +6,7 @@ import { IconButton } from "@material-ui/core";
 import { withTheme } from "dry/theme";
 import setPropTypes from "dry/utils/setPropTypes";
 
-function DryIconButton(props) {
+const DryIconButton = forwardRef((props, ref) => {
   const {
     className,
     ...restProps
@@ -18,10 +18,11 @@ function DryIconButton(props) {
   return (
     <IconButton
       {...restProps}
+      ref={ref}
       className={clsxName}
     />
   );
-}
+});
 
 DryIconButton.defaultProps = {
   className: "",
