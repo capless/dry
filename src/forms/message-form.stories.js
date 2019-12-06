@@ -1,24 +1,27 @@
+/* eslint-disable import/named */
 import React, { useRef, useState } from "react";
 import makeStyles from "dry/utils/makeStyles";
 import Button from "dry/components/button";
 import Grid from "dry/components/grid";
 import Text from "dry/components/text";
 import Paper from "dry/components/paper";
-import { ArrowDropDown } from "dry/icons";
+import {
+  ArrowDropDown,
+  KeyboardBackspace,
+  ReplyOutlined,
+  ReplyAllOutlined,
+  ViewStream,
+  Unarchive,
+  MoreHoriz,
+  Policy,
+  Delete,
+  Forward,
+} from "dry/icons";
 import Menu from "dry/components/menu";
 import MenuItem from "dry/components/menu-item";
 import InputLabel from "dry/components/input-label";
 import IconButton from "dry/components/icon-button";
-import Tooltip from "@material-ui/core/Tooltip";
-import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
-import ReplyOutlinedIcon from "@material-ui/icons/ReplyOutlined";
-import ReplyAllOutlinedIcon from "@material-ui/icons/ReplyAllOutlined";
-import ViewStreamIcon from "@material-ui/icons/ViewStream";
-import UnarchiveIcon from "@material-ui/icons/Unarchive";
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
-import PolicyIcon from "@material-ui/icons/Policy";
-import DeleteIcon from "@material-ui/icons/Delete";
-import ForwardIcon from "@material-ui/icons/Forward";
+import Tooltip from "dry/components/tooltip";
 
 export default {
   title: "Forms|MessageForm/Default",
@@ -79,25 +82,25 @@ export const all = () => {
             <Grid item xs={12} className={classes.gridItemButtonGroup}>
               <Grid container alignItems="center">
                 <Grid item xs={4}>
-                  <Button startIcon={<KeyboardBackspaceIcon />} className={classes.buttonBack}>
+                  <Button startIcon={<KeyboardBackspace />} className={classes.buttonBack}>
                    Back
                   </Button>
 
                   <Tooltip title="Reply">
                     <IconButton>
-                      <ReplyOutlinedIcon fontSize="small" />
+                      <ReplyOutlined fontSize="small" />
                     </IconButton>
                   </Tooltip>
 
                   <Tooltip title="Reply All">
                     <IconButton>
-                      <ReplyAllOutlinedIcon fontSize="small" />
+                      <ReplyAllOutlined fontSize="small" />
                     </IconButton>
                   </Tooltip>
 
                   <Tooltip title="Forward">
                     <IconButton>
-                      <ForwardIcon fontSize="small" />
+                      <Forward fontSize="small" />
                     </IconButton>
                   </Tooltip>
                 </Grid>
@@ -106,31 +109,31 @@ export const all = () => {
                 <Grid item xs={5} className={classes.gridItemButtonGroupMiddle}>
                   <Tooltip title="Archive">
                     <IconButton>
-                      <ViewStreamIcon fontSize="small" />
+                      <ViewStream fontSize="small" />
                     </IconButton>
                   </Tooltip>
 
                   <Tooltip title="Move">
                     <IconButton>
-                      <UnarchiveIcon fontSize="small" />
+                      <Unarchive fontSize="small" />
                     </IconButton>
                   </Tooltip>
 
                   <Tooltip title="Delete">
                     <IconButton>
-                      <DeleteIcon fontSize="small" />
+                      <Delete fontSize="small" />
                     </IconButton>
                   </Tooltip>
 
                   <Tooltip title="Spam">
                     <IconButton>
-                      <PolicyIcon fontSize="small" />
+                      <Policy fontSize="small" />
                     </IconButton>
                   </Tooltip>
 
                   <Tooltip title="More Options">
                     <IconButton>
-                      <MoreHorizIcon />
+                      <MoreHoriz />
                     </IconButton>
                   </Tooltip>
                 </Grid>
@@ -139,6 +142,10 @@ export const all = () => {
                   <SortOnTop />
                 </Grid>
               </Grid>
+            </Grid>
+
+            <Grid item xs={12}>
+              <Text component="h3">Invitaton: Qwigo Meeting</Text>
             </Grid>
           </Grid>
         </Paper>
