@@ -22,6 +22,10 @@ import MenuItem from "dry/components/menu-item";
 import InputLabel from "dry/components/input-label";
 import IconButton from "dry/components/icon-button";
 import Tooltip from "dry/components/tooltip";
+// import List from "dry/components/list";
+// import ListItem from "dry/components/list-item";
+// import Typography from "dry/components/typography";
+// import Avatar from "dry/components/avatar";
 
 export default {
   title: "Forms|MessageForm/Default",
@@ -147,6 +151,36 @@ export const all = () => {
             <Grid item xs={12}>
               <Text component="h3">Invitaton: Qwigo Meeting</Text>
             </Grid>
+
+            {/* <Grid item xs={12}>
+              <Grid container>
+                <Grid item xs={12}>
+                  <List className={classes.root}>
+                    <ListItem alignItems="flex-start">
+                      <ListItemAvatar>
+                        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                      </ListItemAvatar>
+                      <ListItemText
+                        primary="Brunch this weekend?"
+                        secondary={(
+                          <>
+                            <Typography
+                              component="span"
+                              variant="body2"
+                              className={classes.inline}
+                              color="textPrimary"
+                            >
+                Ali Connors
+                            </Typography>
+                            — I'll be in your neighborhood doing errands this…
+                          </>
+          )}
+                      />
+                    </ListItem>
+                  </List>
+                </Grid>
+              </Grid>
+            </Grid> */}
           </Grid>
         </Paper>
 
