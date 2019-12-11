@@ -16,6 +16,7 @@ import {
   Delete,
   Forward,
   Star,
+  AttachFile,
 } from "dry/icons";
 import Menu from "dry/components/menu";
 import MenuItem from "dry/components/menu-item";
@@ -28,8 +29,10 @@ import ListItemText from "dry/components/list-item-text";
 import Typography from "dry/components/typography";
 import Avatar from "dry/components/avatar";
 import ListItemAvatar from "dry/components/list-item-avatar";
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
-import { Box, Divider } from "@material-ui/core";
+import ListItemSecondaryAction from "dry/components/list-item-secondary-action";
+import Box from "dry/components/box";
+import Divider from "dry/components/divider";
+import Editor from "dry/components/editor";
 
 export default {
   title: "Forms|MessageForm/Default",
@@ -155,6 +158,19 @@ const useStyles = makeStyles(() => ({
     },
   },
 
+  divider: {
+    height: "1px !important",
+  },
+
+  editor: {
+    margin: "16px 0 !important",
+    background: "#FFF",
+  },
+
+  attachButton: {
+    color: "#90A0B7 !important",
+  },
+
 }));
 
 export const all = () => {
@@ -268,7 +284,7 @@ export const all = () => {
                     />
                   </ListItem>
 
-                  <Divider />
+                  <Divider className={classes.divider} />
 
                   <ListItem disableGutters button={false} alignItems="flex-start">
                     <ListItemAvatar>
@@ -288,7 +304,7 @@ export const all = () => {
                     </ListItemSecondaryAction>
                   </ListItem>
 
-                  <Divider />
+                  <Divider className={classes.divider} />
 
                   <ListItem disableGutters button={false} alignItems="flex-start">
                     <ListItemAvatar>
@@ -306,6 +322,17 @@ export const all = () => {
                         <Star />
                       </Box>
                     </ListItemSecondaryAction>
+                  </ListItem>
+
+                  <ListItem disableGutters button={false} alignItems="flex-start">
+                    <Editor className={classes.editor} />
+                  </ListItem>
+
+                  <ListItem disableGutters button={false} alignItems="flex-start">
+                    <Box width="100%" display="flex" justifyContent="flex-end">
+                      <Button className={classes.attachButton} startIcon={<AttachFile />}>Attach File</Button>
+                      <Button variant="contained" color="primary">Submit</Button>
+                    </Box>
                   </ListItem>
                 </List>
               </Grid>
