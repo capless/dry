@@ -163,7 +163,8 @@ const useStyles = makeStyles(() => ({
   },
 
   editor: {
-    margin: "16px 0 !important",
+    width: "100%",
+    margin: "16px 16px 16px 0 !important",
     background: "#FFF",
   },
 
