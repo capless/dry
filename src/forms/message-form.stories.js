@@ -148,6 +148,7 @@ const useStyles = makeStyles(() => ({
         lineHeight: "20px",
         letterSpacing: "0.01em",
         color: "#334D6E",
+        paddingRight: 16,
 
         "& br": {
           display: "block",

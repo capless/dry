@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable max-len */
 /* eslint-disable import/named */
 import React, { useRef, useState } from "react";
@@ -10,6 +11,7 @@ import {
   MoreHoriz,
   Policy,
   Delete,
+  Star,
 } from "dry/icons";
 import Menu from "dry/components/menu";
 import MenuItem from "dry/components/menu-item";
@@ -20,6 +22,12 @@ import Typography from "dry/components/typography";
 import Box from "dry/components/box";
 import Tabs from "dry/components/tabs";
 import Tab from "dry/components/tab";
+import Table from "dry/components/table";
+import TableBody from "dry/components/table-body";
+import TableCell from "dry/components/table-cell";
+import TableHead from "dry/components/table-head";
+import TableRow from "dry/components/table-row";
+import Checkbox from "dry/components/checkbox";
 
 export default {
   title: "Forms|MessageTable/Default",
@@ -93,6 +101,11 @@ const useStyles = makeStyles((theme) => ({
 export const all = () => {
   const classes = useStyles();
   const [value, setValue] = useState(0);
+  const [selected, setSelected] = useState([]);
+
+  const rows = staticRows;
+  const rowIds = rows.map((r) => r.id);
+  const isAllSelected = rowIds.filter((r) => selected.some((s) => s === r)).length === rows.length;
 
   return (
     <Grid container justify="center" className={classes.grid}>
@@ -161,12 +174,89 @@ export const all = () => {
             </Box>
           </Grid>
 
+          <Grid item xs={12}>
+            <Table className={classes.table} aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>
+                    <Checkbox
+                      id="all"
+                      checked={isAllSelected}
+                      onClick={handleChangeCheckbox}
+                    />
+                  </TableCell>
+                  <TableCell><span>Name</span></TableCell>
+                  <TableCell />
+                  <TableCell><span>Subject</span></TableCell>
+                  <TableCell align="right"><span>Recent Activity</span></TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {rows.map((row) => {
+                  const isRowSelected = selected.includes(row.id);
+                  return (
+                    <TableRow key={row.name} className={isRowSelected ? "selected" : ""}>
+                      <TableCell>
+                        <Checkbox
+                          id={row.id}
+                          onClick={handleChangeCheckbox}
+                          checked={isRowSelected}
+                        />
+                      </TableCell>
+                      <TableCell className="mainCell">{row.name}</TableCell>
+                      <TableCell>
+                        <IconButton className={classes.iconButton} aria-label="favorite">
+                          <Star />
+                        </IconButton>
+                      </TableCell>
+                      <TableCell>{row.subject}</TableCell>
+                      <TableCell align="right">{row.recentActivity}</TableCell>
+                    </TableRow>
+                  );
+                })}
+              </TableBody>
+            </Table>
+          </Grid>
+
         </Grid>
 
       </Grid>
     </Grid>
   );
+
+  function handleChangeCheckbox(evt) {
+    const { id } = evt.target;
+
+    if (id === "all") {
+      setSelected(isAllSelected ? [] : rowIds);
+      return;
+    }
+
+    if (selected.includes(id)) {
+      setSelected(selected.filter((e) => e !== id));
+    } else {
+      setSelected([...selected, id]);
+    }
+  }
 };
+
+function createData(id, name, subject, recentActivity) {
+  return {
+    id, name, subject, recentActivity,
+  };
+}
+
+const staticRows = [
+  createData("1", "Lindsey Stroud", "Invitation: Qwigo Meeting @ Thu Aug 22, 2019 8:30pm - 10pm (EDT) (highest_88@yahoo.com)", "5 Minutes ago"),
+  createData("2", "Nicci Troiani", "Learn how to do Fine Art Photography with my latest course.", "14 Minutes ago"),
+  createData("3", "George Fields", "How to save 80 hours per month | Plus, new Hubstaff features", "6 Hours ago"),
+  createData("4", "Rebecca Moore", "What are students saying about the Fine Art Masterclass.", "Dec 14, 2018"),
+  createData("5", "Jane Doe", "You've got a missed message on Skype from Jane", "Dec 12, 2018"),
+  createData("6", "Jones Dermot", "Get Jones Dermot’s Complete Pack for $299", "Dec 11, 2018"),
+  createData("7", "Martin Merces", "Meetings that are actually fun...", "Dec 9, 2018"),
+  createData("8", "Franz Ferdinand", "Your Daily Work Summary for Qwigo", "Dec 6, 2018"),
+];
+
 
 const SortOnTop = () => {
   const inputRef = useRef();

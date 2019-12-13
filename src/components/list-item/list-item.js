@@ -26,13 +26,11 @@ function DryListItem(props) {
 DryListItem.defaultProps = {
   className: "",
   button: true,
-  disableRipple: true,
 };
 
 DryListItem.propTypes = {
   className: PropTypes.string,
   button: PropTypes.bool,
-  disableRipple: PropTypes.bool,
 };
 
 const StyledListItem = styled(DryListItem)`
