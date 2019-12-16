@@ -12,6 +12,7 @@ import {
   Policy,
   Delete,
   Star,
+  Search,
 } from "dry/icons";
 import Menu from "dry/components/menu";
 import MenuItem from "dry/components/menu-item";
@@ -30,7 +31,6 @@ import TableRow from "dry/components/table-row";
 import Checkbox from "dry/components/checkbox";
 import TextField from "dry/components/textfield";
 import InputAdornment from "dry/components/input-adornment";
-import SearchIcon from "@material-ui/icons/Search";
 
 export default {
   title: "Forms|MessageTable/Default",
@@ -201,7 +201,7 @@ export const all = () => {
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
-                        <SearchIcon className={classes.searchIcon} />
+                        <Search className={classes.searchIcon} />
                       </InputAdornment>
                     ),
                   }}
