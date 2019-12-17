@@ -9,7 +9,7 @@ import Text from "dry/components/text";
 import Button from "dry/components/button";
 
 export default {
-  title: "Forms|Fieldset/Default",
+  title: "Forms|Fieldset",
 };
 
 const useStyles = makeStyles(() => ({
