@@ -12,6 +12,7 @@ import {
   Policy,
   Delete,
   Star,
+  Search,
 } from "dry/icons";
 import Menu from "dry/components/menu";
 import MenuItem from "dry/components/menu-item";
@@ -28,6 +29,8 @@ import TableCell from "dry/components/table-cell";
 import TableHead from "dry/components/table-head";
 import TableRow from "dry/components/table-row";
 import Checkbox from "dry/components/checkbox";
+import TextField from "dry/components/textfield";
+import InputAdornment from "dry/components/input-adornment";
 
 export default {
   title: "Forms|MessageTable/Default",
@@ -74,6 +77,9 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: "0.01em",
     color: "#334D6E",
   },
+  tabs: {
+    minHeight: "auto",
+  },
   tab: {
     "&.MuiButtonBase-root": {
       minWidth: "unset",
@@ -89,12 +95,28 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   searchText: {
+    marginRight: 10,
     fontSize: theme.typography.fontSize,
     fontWeight: "bold",
     lineHeight: "16px",
     letterSpacing: "0.01em",
     color: "#334D6E",
-
+    whiteSpace: "nowrap",
+  },
+  searchField: {
+    width: "100%",
+    "& .Mui-focused .MuiInputBase-input": {
+      background: "none !important",
+    },
+    "& .Mui-focused .MuiInputAdornment-root": {
+      background: "none !important",
+    },
+  },
+  searchIcon: {
+    color: "#C2CFE0",
+  },
+  starIcon: {
+    color: ({ active }) => (active ? "#5CC64C" : "unset"),
   },
 }));
 
@@ -157,19 +179,33 @@ export const all = () => {
           </Grid>
 
           <Grid item xs={12}>
-            <Box display="flex">
-              <Tabs
-                value={value}
-                onChange={(evt, newValue) => setValue(newValue)}
-                TabIndicatorProps={{ style: { display: "none" } }}
-              >
-                <Tab className={classes.tab} disableRipple label="Unread" />
-                <Tab className={classes.tab} disableRipple label="Starred" />
-                <Tab className={classes.tab} disableRipple label="Sent" />
-                <Tab className={classes.tab} disableRipple label="Trash" />
-              </Tabs>
-              <Box marginLeft="1rem">
+            <Box display="flex" alignItems="center">
+              <Box display="flex" alignItems="center">
+                <Tabs
+                  value={value}
+                  onChange={(evt, newValue) => setValue(newValue)}
+                  TabIndicatorProps={{ style: { display: "none" } }}
+                  className={classes.tabs}
+                >
+                  <Tab className={classes.tab} disableRipple label="Unread" />
+                  <Tab className={classes.tab} disableRipple label="Starred" />
+                  <Tab className={classes.tab} disableRipple label="Sent" />
+                  <Tab className={classes.tab} disableRipple label="Trash" />
+                </Tabs>
+              </Box>
+
+              <Box display="flex" marginLeft="1rem" width="100%" alignItems="center">
                 <Typography className={classes.searchText}>Search Message</Typography>
+                <TextField
+                  className={classes.searchField}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <Search className={classes.searchIcon} />
+                      </InputAdornment>
+                    ),
+                  }}
+                />
               </Box>
             </Box>
           </Grid>
@@ -205,9 +241,7 @@ export const all = () => {
                       </TableCell>
                       <TableCell className="mainCell">{row.name}</TableCell>
                       <TableCell>
-                        <IconButton className={classes.iconButton} aria-label="favorite">
-                          <Star />
-                        </IconButton>
+                        <StarToggle />
                       </TableCell>
                       <TableCell>{row.subject}</TableCell>
                       <TableCell align="right">{row.recentActivity}</TableCell>
@@ -257,6 +291,19 @@ const staticRows = [
   createData("8", "Franz Ferdinand", "Your Daily Work Summary for Qwigo", "Dec 6, 2018"),
 ];
 
+const StarToggle = () => {
+  const [active, setActive] = useState(false);
+  const classes = useStyles({ active });
+  const iconProps = {
+    onClick: () => setActive((prevActive) => !prevActive),
+  };
+
+  return (
+    <IconButton {...iconProps} aria-label="favorite">
+      <Star className={classes.starIcon} />
+    </IconButton>
+  );
+};
 
 const SortOnTop = () => {
   const inputRef = useRef();
