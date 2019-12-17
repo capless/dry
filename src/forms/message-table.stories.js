@@ -33,7 +33,7 @@ import TextField from "dry/components/textfield";
 import InputAdornment from "dry/components/input-adornment";
 
 export default {
-  title: "Forms|MessageTable/Default",
+  title: "Forms|MessageTable",
 };
 
 const useStyles = makeStyles((theme) => ({

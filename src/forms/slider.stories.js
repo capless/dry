@@ -6,7 +6,7 @@ import Slider from "dry/components/slider";
 import Paper from "dry/components/paper";
 
 export default {
-  title: "Forms|Slider/Default",
+  title: "Forms|Slider",
 };
 
 const useStyles = makeStyles(() => ({

@@ -13,7 +13,7 @@ import Divider from "dry/components/divider";
 import Button from "dry/components/button";
 
 export default {
-  title: "Forms|RadioGroups/Default",
+  title: "Forms|RadioGroups",
 };
 
 const useStyles = makeStyles(() => ({
