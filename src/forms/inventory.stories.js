@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
+import lodashOrderBy from "lodash/orderBy";
 import makeStyles from "dry/utils/makeStyles";
 import Grid from "dry/components/grid";
 import InputBase from "dry/components/input-base";
@@ -10,8 +11,16 @@ import Text from "dry/components/text";
 import Tabs from "dry/components/tabs";
 import Tab from "dry/components/tab";
 import Box from "dry/components/box";
-import { Search as SearchIcon, NotificationsNoneTwoTone } from "dry/icons";
-
+import Table from "dry/components/table";
+import TableBody from "dry/components/table-body";
+import TableCell from "dry/components/table-cell";
+import TableHead from "dry/components/table-head";
+import TableRow from "dry/components/table-row";
+import Checkbox from "dry/components/checkbox";
+import TableSortLabel from "dry/components/table-sortable-label";
+import {
+  EditOutlined, DeleteOutlined, Search as SearchIcon, NotificationsNoneTwoTone,
+} from "dry/icons";
 
 export default {
   title: "Forms|Inventory",
@@ -25,6 +34,18 @@ const useStyles = makeStyles((theme) => ({
   box: {
     padding: theme.spacing(4),
   },
+  title: {
+    marginBottom: 60,
+    fontWeight: "bold",
+    fontSize: 20,
+    lineHeight: "23px",
+    letterSpacing: "0.01em",
+    color: "#334D6E",
+  },
+  tabs: {
+    minHeight: 0,
+    paddingBottom: 16,
+  },
 }));
 
 export const all = () => {
@@ -33,17 +54,18 @@ export const all = () => {
 
   return (
     <Grid container spacing={1} className={classes.grid}>
-      <Grid item xs={12}>
-        <GlobalSearch classes={classes} />
+      <Grid item xs={12} className={classes.gridItem}>
+        <GlobalSearch />
 
         <Box className={classes.box}>
-          <Text component="h3">Inventory &gt; 2011 Volkswagen Jetta</Text>
+          <Text component="h3" className={classes.title}>Inventory &gt; 2011 Volkswagen Jetta</Text>
 
           <Box>
             <Tabs
               value={value}
               onChange={handleChange}
               TabIndicatorProps={{ style: { display: "none" } }}
+              className={classes.tabs}
             >
               <Tab disableRipple label="Overview" />
               <Tab disableRipple label="Expenses" />
@@ -54,6 +76,10 @@ export const all = () => {
 
           <Box>
             <PaperwithStatuses />
+          </Box>
+
+          <Box>
+            <TablewithActionButtons />
           </Box>
         </Box>
       </Grid>
@@ -137,9 +163,7 @@ function GlobalSearch() {
 
 const useStylesPaper = makeStyles(() => ({
   root: {
-    backgroundColor: "#E5E5E5",
-    height: "90vh",
-    padding: "1rem",
+    padding: "1rem 0",
 
     "& .MuiPaper-root:hover": {
       "& svg, h1, p": {
@@ -273,4 +297,174 @@ function PaperwithStatuses() {
       </Grid>
     </Grid>
   );
+}
+
+const useStylesTable = makeStyles({
+  table: {
+    margin: "1rem 0",
+  },
+
+  gridPhotos: {
+    textAlign: "center",
+
+    "& img": {
+      width: "100%",
+    },
+  },
+
+  link: {
+    cursor: "pointer",
+  },
+
+  iconButton: {
+    color: "#C2CFE0",
+
+    "&.MuiIconButton-root:hover": {
+      color: "#FFF",
+    },
+  },
+});
+
+function createData(id, description, laborCost, partsCost, timeSpent, vendor) {
+  return {
+    id, description, laborCost, partsCost, timeSpent, vendor,
+  };
+}
+
+const staticRows = [
+  createData("1", "Tires", "$2", "$80", "1 hour", "Venso Tires"),
+  createData("2", "Cylinder", "$400", "$220", "22 hours", "Yesi Auto"),
+  createData("3", "Radiator", "$250", "$120", "12 hours", "Nolan Aircon"),
+];
+
+
+function TablewithActionButtons() {
+  const classes = useStylesTable();
+  const [selected, setSelected] = useState([]);
+  const [order, setOrder] = useState("asc");
+  const [orderBy, setOrderBy] = useState("description");
+
+  const rows = lodashOrderBy(staticRows, [orderBy], [order]);
+  const rowIds = rows.map((r) => r.id);
+  const isAllSelected = rowIds.filter((r) => selected.some((s) => s === r)).length === rows.length;
+
+  return (
+    <Grid container className={classes.grid}>
+      <Grid item xs={12}>
+        <Table className={classes.table} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>
+                <Checkbox
+                  id="all"
+                  checked={isAllSelected}
+                  onClick={handleChangeCheckbox}
+                />
+              </TableCell>
+              <TableCell>
+                <TableSortLabel
+                  active={orderBy === "description"}
+                  direction={orderBy === "description" ? order : undefined}
+                  onClick={createSortHandler("description")}
+                >
+                  <span>Description</span>
+                </TableSortLabel>
+              </TableCell>
+              <TableCell>
+                <TableSortLabel
+                  active={orderBy === "laborCost"}
+                  direction={orderBy === "laborCost" ? order : undefined}
+                  onClick={createSortHandler("laborCost")}
+                >
+                  <span>Labor Cost</span>
+                </TableSortLabel>
+              </TableCell>
+              <TableCell>
+                <TableSortLabel
+                  active={orderBy === "partsCost"}
+                  direction={orderBy === "partsCost" ? order : undefined}
+                  onClick={createSortHandler("partsCost")}
+                >
+                  <span>Parts Cost</span>
+                </TableSortLabel>
+              </TableCell>
+              <TableCell>
+                <TableSortLabel
+                  active={orderBy === "timeSpent"}
+                  direction={orderBy === "timeSpent" ? order : undefined}
+                  onClick={createSortHandler("timeSpent")}
+                >
+                  <span>Time Spent</span>
+                </TableSortLabel>
+              </TableCell>
+              <TableCell>
+                <TableSortLabel
+                  active={orderBy === "vendor"}
+                  direction={orderBy === "vendor" ? order : undefined}
+                  onClick={createSortHandler("vendor")}
+                >
+                  <span>Vendor</span>
+                </TableSortLabel>
+              </TableCell>
+              <TableCell />
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => {
+              const isRowSelected = selected.includes(row.id);
+              return (
+                <TableRow key={row.id} className={isRowSelected ? "selected" : ""}>
+                  <TableCell>
+                    <Checkbox
+                      id={row.id}
+                      onClick={handleChangeCheckbox}
+                      checked={isRowSelected}
+                    />
+                  </TableCell>
+                  <TableCell className="mainCell">
+                    <span>{row.description}</span>
+                  </TableCell>
+                  <TableCell>{row.laborCost}</TableCell>
+                  <TableCell>{row.partsCost}</TableCell>
+                  <TableCell>{row.timeSpent}</TableCell>
+                  <TableCell>{row.vendor}</TableCell>
+                  <TableCell>
+                    <IconButton className={classes.iconButton} aria-label="edit">
+                      <EditOutlined />
+                    </IconButton>
+                    <IconButton className={classes.iconButton} aria-label="delete">
+                      <DeleteOutlined />
+                    </IconButton>
+                  </TableCell>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </Table>
+      </Grid>
+    </Grid>
+  );
+
+  function handleChangeCheckbox(evt) {
+    const { id } = evt.target;
+
+    if (id === "all") {
+      setSelected(isAllSelected ? [] : rowIds);
+      return;
+    }
+
+    if (selected.includes(id)) {
+      setSelected(selected.filter((e) => e !== id));
+    } else {
+      setSelected([...selected, id]);
+    }
+  }
+
+  function createSortHandler(property) {
+    return () => {
+      const isDesc = orderBy === property && order === "desc";
+      setOrder(isDesc ? "asc" : "desc");
+      setOrderBy(property);
+    };
+  }
 }
