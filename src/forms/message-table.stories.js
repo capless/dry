@@ -2,6 +2,7 @@
 /* eslint-disable max-len */
 /* eslint-disable import/named */
 import React, { useRef, useState } from "react";
+import clsx from "clsx";
 import makeStyles from "dry/utils/makeStyles";
 import Grid from "dry/components/grid";
 import {
@@ -118,6 +119,12 @@ const useStyles = makeStyles((theme) => ({
   starIcon: {
     color: ({ active }) => (active ? "#5CC64C" : "unset"),
   },
+  tableRow: {
+    "&.isNew td": {
+      fontWeight: "bold",
+      color: "#5CC64C",
+    },
+  },
 }));
 
 export const all = () => {
@@ -187,10 +194,10 @@ export const all = () => {
                   TabIndicatorProps={{ style: { display: "none" } }}
                   className={classes.tabs}
                 >
-                  <Tab className={classes.tab} disableRipple label="Unread" />
-                  <Tab className={classes.tab} disableRipple label="Starred" />
-                  <Tab className={classes.tab} disableRipple label="Sent" />
-                  <Tab className={classes.tab} disableRipple label="Trash" />
+                  <Tab disableRipple className={classes.tab} label="Unread" />
+                  <Tab disableRipple className={classes.tab} label="Starred" />
+                  <Tab disableRipple className={classes.tab} label="Sent" />
+                  <Tab disableRipple className={classes.tab} label="Trash" />
                 </Tabs>
               </Box>
 
@@ -211,7 +218,7 @@ export const all = () => {
           </Grid>
 
           <Grid item xs={12}>
-            <Table className={classes.table} aria-label="simple table">
+            <Table className={classes.table}>
               <TableHead>
                 <TableRow>
                   <TableCell>
@@ -231,7 +238,7 @@ export const all = () => {
                 {rows.map((row) => {
                   const isRowSelected = selected.includes(row.id);
                   return (
-                    <TableRow key={row.name} className={isRowSelected ? "selected" : ""}>
+                    <TableRow key={row.name} className={clsx(classes.tableRow, { selected: isRowSelected, isNew: row.isNew })}>
                       <TableCell>
                         <Checkbox
                           id={row.id}
@@ -239,7 +246,7 @@ export const all = () => {
                           checked={isRowSelected}
                         />
                       </TableCell>
-                      <TableCell className="mainCell">{row.name}</TableCell>
+                      <TableCell>{row.name}</TableCell>
                       <TableCell>
                         <StarToggle />
                       </TableCell>
@@ -274,14 +281,14 @@ export const all = () => {
   }
 };
 
-function createData(id, name, subject, recentActivity) {
+function createData(id, name, subject, recentActivity, isNew) {
   return {
-    id, name, subject, recentActivity,
+    id, name, subject, recentActivity, isNew,
   };
 }
 
 const staticRows = [
-  createData("1", "Lindsey Stroud", "Invitation: Qwigo Meeting @ Thu Aug 22, 2019 8:30pm - 10pm (EDT) (highest_88@yahoo.com)", "5 Minutes ago"),
+  createData("1", "Lindsey Stroud", "Invitation: Qwigo Meeting @ Thu Aug 22, 2019 8:30pm - 10pm (EDT) (highest_88@yahoo.com)", "5 Minutes ago", true),
   createData("2", "Nicci Troiani", "Learn how to do Fine Art Photography with my latest course.", "14 Minutes ago"),
   createData("3", "George Fields", "How to save 80 hours per month | Plus, new Hubstaff features", "6 Hours ago"),
   createData("4", "Rebecca Moore", "What are students saying about the Fine Art Masterclass.", "Dec 14, 2018"),

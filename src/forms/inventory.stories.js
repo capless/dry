@@ -46,6 +46,16 @@ const useStyles = makeStyles((theme) => ({
     minHeight: 0,
     paddingBottom: 16,
   },
+  tab: {
+    "&.MuiButtonBase-root": {
+      minWidth: "unset",
+      padding: "0 1rem",
+
+      "&:first-child": {
+        paddingLeft: 0,
+      },
+    },
+  },
 }));
 
 export const all = () => {
@@ -67,10 +77,10 @@ export const all = () => {
               TabIndicatorProps={{ style: { display: "none" } }}
               className={classes.tabs}
             >
-              <Tab disableRipple label="Overview" />
-              <Tab disableRipple label="Expenses" />
-              <Tab disableRipple label="Inquiries" />
-              <Tab disableRipple label="Paperwork" />
+              <Tab disableRipple className={classes.tab} label="Overview" />
+              <Tab disableRipple className={classes.tab} label="Expenses" />
+              <Tab disableRipple className={classes.tab} label="Inquiries" />
+              <Tab disableRipple className={classes.tab} label="Paperwork" />
             </Tabs>
           </Box>
 
@@ -321,6 +331,7 @@ const useStylesTable = makeStyles({
 
     "&.MuiIconButton-root:hover": {
       color: "#FFF",
+      backgroundColor: "#5CC64C !important",
     },
   },
 });
