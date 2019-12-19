@@ -54,10 +54,6 @@ const useStyles = makeStyles((theme) => ({
       "&:first-child": {
         paddingLeft: 0,
       },
-
-      "&:last-child": {
-        borderRight: "1px solid #C2CFE0 !important",
-      },
     },
   },
 }));
