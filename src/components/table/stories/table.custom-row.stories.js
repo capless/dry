@@ -150,7 +150,7 @@ export const withRowPhotos = () => {
                   <TableCell>
                     {renderPhotos()}
                   </TableCell>
-                  <TableCell className="mainCell">
+                  <TableCell className="primary">
                     <Grid container spacing={4} alignItems="center">
                       <Grid item xs={2}>
                         <Avatar width="24px" height="24px" src={`https://picsum.photos/25?random=${row.id}`} />
@@ -315,7 +315,7 @@ export const withActionButtons = () => {
                   <TableCell>
                     {renderPhotos()}
                   </TableCell>
-                  <TableCell className="mainCell">
+                  <TableCell className="primary">
                     <Grid container spacing={4} alignItems="center">
                       <Grid item xs={2}>
                         <Avatar width="24px" height="24px" src={`https://picsum.photos/25?random=${row.id}`} />

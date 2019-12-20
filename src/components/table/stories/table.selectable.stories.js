@@ -97,7 +97,7 @@ export const withDefault = () => {
                       checked={isRowSelected}
                     />
                   </TableCell>
-                  <TableCell className="mainCell">{row.name}</TableCell>
+                  <TableCell className="primary">{row.name}</TableCell>
                   <TableCell>{row.email}</TableCell>
                   <TableCell>{row.companyName}</TableCell>
                   <TableCell>{row.role}</TableCell>
@@ -169,7 +169,7 @@ export const withAvatar = () => {
                       checked={isRowSelected}
                     />
                   </TableCell>
-                  <TableCell className="mainCell">
+                  <TableCell className="primary">
                     <Grid container spacing={4} alignItems="center">
                       <Grid item xs={2}>
                         <Avatar width="24px" height="24px" src={`https://picsum.photos/25?random=${row.id}`} />
@@ -300,7 +300,7 @@ export const withSortable = () => {
                       checked={isRowSelected}
                     />
                   </TableCell>
-                  <TableCell className="mainCell">
+                  <TableCell className="primary">
                     <Grid container spacing={4} alignItems="center">
                       <Grid item xs={2}>
                         <Avatar width="24px" height="24px" src={`https://picsum.photos/25?random=${row.id}`} />

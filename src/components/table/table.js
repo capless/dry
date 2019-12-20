@@ -71,7 +71,7 @@ const StyledTable = styled(DryTable)`
 
     /* Table Cell (td) */
     .MuiTableCell-root {
-      &.mainCell {
+      &.primary {
         font-style: normal;
         font-weight: bold;
         font-size: 14px;

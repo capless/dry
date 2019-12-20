@@ -59,7 +59,7 @@ export const withDefault = () => {
           <TableBody>
             {rows.map((row) => (
               <TableRow key={row.name}>
-                <TableCell className="mainCell">{row.name}</TableCell>
+                <TableCell className="primary">{row.name}</TableCell>
                 <TableCell>{row.email}</TableCell>
                 <TableCell>{row.companyName}</TableCell>
                 <TableCell>{row.role}</TableCell>
