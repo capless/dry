@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
+import clsx from "clsx";
 import lodashOrderBy from "lodash/orderBy";
 import makeStyles from "dry/utils/makeStyles";
 import Grid from "dry/components/grid";
@@ -17,6 +18,7 @@ import TableCell from "dry/components/table-cell";
 import TableHead from "dry/components/table-head";
 import TableRow from "dry/components/table-row";
 import Checkbox from "dry/components/checkbox";
+import Typography from "dry/components/typography";
 import TableSortLabel from "dry/components/table-sortable-label";
 import {
   EditOutlined, DeleteOutlined, Search as SearchIcon, NotificationsNoneTwoTone,
@@ -29,7 +31,7 @@ export default {
 const useStyles = makeStyles((theme) => ({
   grid: {
     backgroundColor: "#E5E5E5",
-    height: "100%",
+    height: "150vh",
   },
   box: {
     padding: theme.spacing(4),
@@ -58,9 +60,55 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const expensesStatuses = [
+  {
+    id: 1,
+    label: "Purchase Price",
+    value: "$2,200",
+  },
+  {
+    id: 2,
+    label: "Expenses Total",
+    value: "$728",
+  },
+  {
+    id: 3,
+    label: "Projected Sales Price",
+    value: "$4,250",
+  },
+  {
+    id: 4,
+    label: "Projected Profit",
+    value: "$1,252",
+  },
+  {
+    id: 5,
+    label: "ROI",
+    value: "45.15%",
+  },
+  {
+    id: 6,
+    label: "Time Since Purchase",
+    value: "15 Days",
+  },
+];
+
+const paperworkStatuses = [
+  {
+    id: 1,
+    label: "Paperwork Status",
+    value: "34",
+  },
+  {
+    id: 2,
+    label: "Test Drive Total",
+    value: "2",
+  },
+];
+
 export const all = () => {
   const classes = useStyles();
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(1);
 
   return (
     <Grid container spacing={1} className={classes.grid}>
@@ -82,20 +130,69 @@ export const all = () => {
               <Tab disableRipple className={classes.tab} label="Inquiries" />
               <Tab disableRipple className={classes.tab} label="Paperwork" />
             </Tabs>
-          </Box>
+            <div className={classes.panels}>
+              <TabPanel value={value} index={0}>
+                <Text component="p" className={classes.panelLabel}>
+                  Tagline Overview
+                </Text>
+                <Text component="h3" className={classes.panelTitle}>
+                  Overview Content
+                </Text>
+              </TabPanel>
 
-          <Box>
-            <PaperwithStatuses />
-          </Box>
+              <TabPanel value={value} index={1}>
+                <Box>
+                  <PaperwithStatuses statuses={expensesStatuses} />
+                </Box>
 
-          <Box>
-            <TablewithActionButtons />
+                <Box>
+                  <TablewithActionButtons />
+                </Box>
+              </TabPanel>
+
+              <TabPanel value={value} index={2}>
+                <Text component="p" className={classes.panelLabel}>
+                  Tagline Inquiries
+                </Text>
+                <Text component="h3" className={classes.panelTitle}>
+                  Inquiries Content
+                </Text>
+              </TabPanel>
+
+              <TabPanel value={value} index={3}>
+                <Box>
+                  <PaperwithStatuses statuses={paperworkStatuses} />
+                </Box>
+
+                <Box>
+                  <TablewithActionButtons />
+                </Box>
+              </TabPanel>
+            </div>
           </Box>
         </Box>
       </Grid>
 
     </Grid>
   );
+
+  function TabPanel(props) {
+    const {
+      // eslint-disable-next-line react/prop-types
+      children, value: tabValue, index, ...other
+    } = props;
+
+    return (
+      <Typography
+        component="div"
+        role="tabpanel"
+        hidden={tabValue !== index}
+        {...other}
+      >
+        <Grid p={3}>{children}</Grid>
+      </Typography>
+    );
+  }
 
   function handleChange(evt, newValue) {
     setValue(newValue);
@@ -199,112 +296,30 @@ const useStylesPaper = makeStyles(() => ({
     padding: "1rem",
   },
 }));
-function PaperwithStatuses() {
+function PaperwithStatuses(props) {
+  const { statuses = [] } = props;
   const classes = useStylesPaper();
 
   return (
     <Grid container spacing={4} className={classes.root}>
-      <Grid item xs={4}>
-        <Paper>
-          <Grid container justify="center" textAlign="left">
-            <Grid item xs={12}>
-              <Text component="p" fontSize="12px" margin="4px" color="#99A6B7">
-              Purchase Price
-              </Text>
+      {statuses.map((status) => (
+        <Grid key={status.id} item xs={4}>
+          <Paper>
+            <Grid container justify="center" textAlign="left">
+              <Grid item xs={12}>
+                <Text component="p" fontSize="12px" margin="4px" color="#99A6B7">
+                  {status.label}
+                </Text>
+              </Grid>
+              <Grid item xs={12}>
+                <Text component="h1" fontSize="24px" fontWeight="bold" margin="4px">
+                  {status.value}
+                </Text>
+              </Grid>
             </Grid>
-            <Grid item xs={12}>
-              <Text component="h1" fontSize="24px" fontWeight="bold" margin="4px">
-              $2,200
-              </Text>
-            </Grid>
-          </Grid>
-        </Paper>
-      </Grid>
-
-      <Grid item xs={4}>
-        <Paper>
-          <Grid container justify="center" textAlign="left">
-            <Grid item xs={12}>
-              <Text component="p" fontSize="12px" margin="4px" color="#99A6B7">
-              Expenses Total
-              </Text>
-            </Grid>
-            <Grid item xs={12}>
-              <Text component="h1" fontSize="24px" fontWeight="bold" margin="4px">
-              $728
-              </Text>
-            </Grid>
-          </Grid>
-        </Paper>
-      </Grid>
-
-      <Grid item xs={4}>
-        <Paper>
-          <Grid container justify="center" textAlign="left">
-            <Grid item xs={12}>
-              <Text component="p" fontSize="12px" margin="4px" color="#99A6B7">
-              Projected Sales Price
-              </Text>
-            </Grid>
-            <Grid item xs={12}>
-              <Text component="h1" fontSize="24px" fontWeight="bold" margin="4px">
-              $4,250
-              </Text>
-            </Grid>
-          </Grid>
-        </Paper>
-      </Grid>
-
-      <Grid item xs={4}>
-        <Paper>
-          <Grid container justify="center" textAlign="left">
-            <Grid item xs={12}>
-              <Text component="p" fontSize="12px" margin="4px" color="#99A6B7">
-              Projected Profit
-              </Text>
-            </Grid>
-            <Grid item xs={12}>
-              <Text component="h1" fontSize="24px" fontWeight="bold" margin="4px">
-              $1,252
-              </Text>
-            </Grid>
-          </Grid>
-        </Paper>
-      </Grid>
-
-      <Grid item xs={4}>
-        <Paper>
-          <Grid container justify="center" textAlign="left">
-            <Grid item xs={12}>
-              <Text component="p" fontSize="12px" margin="4px" color="#99A6B7">
-              ROI
-              </Text>
-            </Grid>
-            <Grid item xs={12}>
-              <Text component="h1" fontSize="24px" fontWeight="bold" margin="4px">
-              45.15%
-              </Text>
-            </Grid>
-          </Grid>
-        </Paper>
-      </Grid>
-
-      <Grid item xs={4}>
-        <Paper>
-          <Grid container justify="center" textAlign="left">
-            <Grid item xs={12}>
-              <Text component="p" fontSize="12px" margin="4px" color="#99A6B7">
-              Time Since Purchase
-              </Text>
-            </Grid>
-            <Grid item xs={12}>
-              <Text component="h1" fontSize="24px" fontWeight="bold" margin="4px">
-              15 Days
-              </Text>
-            </Grid>
-          </Grid>
-        </Paper>
-      </Grid>
+          </Paper>
+        </Grid>
+      ))}
     </Grid>
   );
 }
@@ -348,6 +363,62 @@ const staticRows = [
   createData("3", "Radiator", "$250", "$120", "12 hours", "Nolan Aircon"),
 ];
 
+const buttons = {
+  edit: ({ classes, header }) => (
+    <IconButton className={classes.iconButton} aria-label={header.label}>
+      <EditOutlined />
+    </IconButton>
+  ),
+  delete: ({ classes, header }) => (
+    <IconButton className={classes.iconButton} aria-label={header.label}>
+      <DeleteOutlined />
+    </IconButton>
+  ),
+};
+
+const columnHeaders = [
+  {
+    id: "all",
+    type: "checkbox",
+  },
+  {
+    id: "description",
+    label: "Description",
+    primary: true,
+  },
+  {
+    id: "laborCost",
+    label: "Labor Cost",
+  },
+  {
+    id: "partsCost",
+    label: "Parts Cost",
+  },
+  {
+    id: "timeSpent",
+    label: "Time Spent",
+  },
+  {
+    id: "vendor",
+    label: "Vendor",
+  },
+  {
+    id: "action",
+    type: "action",
+    actions: [
+      {
+        id: "edit",
+        label: "Edit",
+        component: buttons.edit,
+      },
+      {
+        id: "delete",
+        label: "Delete",
+        component: buttons.delete,
+      },
+    ],
+  },
+];
 
 function TablewithActionButtons() {
   const classes = useStylesTable();
@@ -365,88 +436,91 @@ function TablewithActionButtons() {
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>
-                <Checkbox
-                  id="all"
-                  checked={isAllSelected}
-                  onClick={handleChangeCheckbox}
-                />
-              </TableCell>
-              <TableCell>
-                <TableSortLabel
-                  active={orderBy === "description"}
-                  direction={orderBy === "description" ? order : undefined}
-                  onClick={createSortHandler("description")}
-                >
-                  <span>Description</span>
-                </TableSortLabel>
-              </TableCell>
-              <TableCell>
-                <TableSortLabel
-                  active={orderBy === "laborCost"}
-                  direction={orderBy === "laborCost" ? order : undefined}
-                  onClick={createSortHandler("laborCost")}
-                >
-                  <span>Labor Cost</span>
-                </TableSortLabel>
-              </TableCell>
-              <TableCell>
-                <TableSortLabel
-                  active={orderBy === "partsCost"}
-                  direction={orderBy === "partsCost" ? order : undefined}
-                  onClick={createSortHandler("partsCost")}
-                >
-                  <span>Parts Cost</span>
-                </TableSortLabel>
-              </TableCell>
-              <TableCell>
-                <TableSortLabel
-                  active={orderBy === "timeSpent"}
-                  direction={orderBy === "timeSpent" ? order : undefined}
-                  onClick={createSortHandler("timeSpent")}
-                >
-                  <span>Time Spent</span>
-                </TableSortLabel>
-              </TableCell>
-              <TableCell>
-                <TableSortLabel
-                  active={orderBy === "vendor"}
-                  direction={orderBy === "vendor" ? order : undefined}
-                  onClick={createSortHandler("vendor")}
-                >
-                  <span>Vendor</span>
-                </TableSortLabel>
-              </TableCell>
-              <TableCell />
+              {columnHeaders.map((header) => {
+                const { id, type, label } = header;
+
+                // empty header
+                if (type === "action") {
+                  return <TableCell key={id} />;
+                }
+
+                // checkbox header
+                if (type === "checkbox") {
+                  return (
+                    <TableCell key={id}>
+                      <Checkbox
+                        id={id}
+                        checked={isAllSelected}
+                        onClick={handleChangeCheckbox}
+                      />
+                    </TableCell>
+                  );
+                }
+
+                // text header
+                return (
+                  <TableCell key={id}>
+                    <TableSortLabel
+                      active={orderBy === id}
+                      direction={orderBy === id ? order : undefined}
+                      onClick={createSortHandler(id)}
+                    >
+                      <span>{label}</span>
+                    </TableSortLabel>
+                  </TableCell>
+                );
+              })}
             </TableRow>
           </TableHead>
+
           <TableBody>
             {rows.map((row) => {
               const isRowSelected = selected.includes(row.id);
+
               return (
                 <TableRow key={row.id} className={isRowSelected ? "selected" : ""}>
-                  <TableCell>
-                    <Checkbox
-                      id={row.id}
-                      onClick={handleChangeCheckbox}
-                      checked={isRowSelected}
-                    />
-                  </TableCell>
-                  <TableCell className="mainCell">
-                    <span>{row.description}</span>
-                  </TableCell>
-                  <TableCell>{row.laborCost}</TableCell>
-                  <TableCell>{row.partsCost}</TableCell>
-                  <TableCell>{row.timeSpent}</TableCell>
-                  <TableCell>{row.vendor}</TableCell>
-                  <TableCell>
-                    <IconButton className={classes.iconButton} aria-label="edit">
-                      <EditOutlined />
-                    </IconButton>
-                    <IconButton className={classes.iconButton} aria-label="delete">
-                      <DeleteOutlined />
-                    </IconButton>
-                  </TableCell>
+                  {columnHeaders.map((header) => {
+                    const {
+                      id, type, primary, actions,
+                    } = header;
+
+                    // empty header
+                    if (type === "action") {
+                      return (
+                        <TableCell key={id}>
+                          {actions.map((action) => (
+                            <action.component
+                              key={action.id}
+                              {...action}
+                              classes={classes}
+                              header={header}
+                              row={row}
+                            />
+                          ))}
+                        </TableCell>
+                      );
+                    }
+
+                    // checkbox header
+                    if (type === "checkbox") {
+                      return (
+                        <TableCell key={id}>
+                          <Checkbox
+                            id={row.id}
+                            onClick={handleChangeCheckbox}
+                            checked={isRowSelected}
+                          />
+                        </TableCell>
+                      );
+                    }
+
+                    // text header
+                    return (
+                      <TableCell key={id} className={clsx({ primary })}>
+                        {row[id]}
+                      </TableCell>
+                    );
+                  })}
                 </TableRow>
               );
             })}
