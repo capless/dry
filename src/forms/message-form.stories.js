@@ -35,7 +35,7 @@ import Divider from "dry/components/divider";
 import Editor from "dry/components/editor";
 
 export default {
-  title: "Forms|MessageForm/Default",
+  title: "Forms|MessageForm",
 };
 
 const useStyles = makeStyles(() => ({

@@ -13,7 +13,7 @@ import Editor from "dry/components/editor";
 import Paper from "dry/components/paper";
 
 export default {
-  title: "Forms|Sample/Default",
+  title: "Forms|Sample",
 };
 
 const useStyles = makeStyles(() => ({

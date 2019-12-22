@@ -12,7 +12,7 @@ import Select from "dry/components/select";
 import MenuItem from "dry/components/menu-item";
 
 export default {
-  title: "Forms|Search/Default",
+  title: "Forms|Search",
 };
 
 const useStyles = makeStyles(() => ({

@@ -52,7 +52,7 @@ const StyledInputLabel = styled(DryInputLabel)`
     
     .value {
       margin: 0 5px;
-      color: ${({ theme }) => theme.colors.deepPink};
+      color: ${({ theme }) => theme.colors.lightGreen};
       cursor: pointer;
     }
 
