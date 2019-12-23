@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import clsx from "clsx";
@@ -20,6 +21,8 @@ import TableRow from "dry/components/table-row";
 import Checkbox from "dry/components/checkbox";
 import Typography from "dry/components/typography";
 import TableSortLabel from "dry/components/table-sortable-label";
+import Button from "dry/components/button";
+import ImageLoader from "dry/components/image-loader";
 import {
   EditOutlined, DeleteOutlined, Search as SearchIcon, NotificationsNoneTwoTone,
 } from "dry/icons";
@@ -37,12 +40,21 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(4),
   },
   title: {
-    marginBottom: 60,
     fontWeight: "bold",
     fontSize: 20,
     lineHeight: "23px",
     letterSpacing: "0.01em",
     color: "#334D6E",
+  },
+  titleButton: {
+    marginBottom: 60,
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  startButton: {
+    margin: "0 10px",
+    width: 246,
   },
   tabs: {
     minHeight: 0,
@@ -57,6 +69,30 @@ const useStyles = makeStyles((theme) => ({
         paddingLeft: 0,
       },
     },
+  },
+  image: {
+    width: "100%",
+    height: "100%",
+    maxHeight: "100%",
+  },
+
+  tagline: {
+    fontWeight: "normal",
+    fontSize: 11,
+    lineHeight: "13px",
+    color: "#90A0B7",
+  },
+  taglineTitle: {
+    fontWeight: "bold",
+    fontSize: 18,
+    lineHeight: "21px",
+    color: "#334D6E",
+  },
+  description: {
+    fontWeight: "normal",
+    fontSize: 14,
+    lineHeight: "24px",
+    color: "#707683",
   },
 }));
 
@@ -108,7 +144,7 @@ const paperworkStatuses = [
 
 export const all = () => {
   const classes = useStyles();
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState(0);
 
   return (
     <Grid container spacing={1} className={classes.grid}>
@@ -116,7 +152,21 @@ export const all = () => {
         <GlobalSearch />
 
         <Box className={classes.box}>
-          <Text component="h3" className={classes.title}>Inventory &gt; 2011 Volkswagen Jetta</Text>
+          <Box className={classes.titleButton}>
+            <Text component="h3" className={classes.title}>Inventory &gt; 2011 Volkswagen Jetta</Text>
+
+            {value === 0 && (
+              <Box>
+                <Button variant="contained" color="primary" className={classes.startButton}>
+                Start Sale Paperwork
+                </Button>
+                <Button variant="contained" color="primary">
+                Edit
+                </Button>
+              </Box>
+            )}
+          </Box>
+
 
           <Box>
             <Tabs
@@ -132,12 +182,61 @@ export const all = () => {
             </Tabs>
             <div className={classes.panels}>
               <TabPanel value={value} index={0}>
-                <Text component="p" className={classes.panelLabel}>
-                  Tagline Overview
-                </Text>
-                <Text component="h3" className={classes.panelTitle}>
-                  Overview Content
-                </Text>
+                <Grid container spacing={2}>
+                  <Grid item xs={7}>
+                    <ImageLoader
+                      src="/images/cars/car1.jpg"
+                      alt="car 1"
+                      className={classes.image}
+                      loader="Image loading..."
+                      unloader="Image not found"
+                    />
+                  </Grid>
+
+                  <Grid item xs={5}>
+                    <Grid container spacing={2}>
+                      {[2, 3, 4, 5, 6].map((id) => (
+                        <Grid key={id} item xs={4}>
+                          <ImageLoader
+                            src={`/images/cars/car${id}.jpg`}
+                            alt={`car ${id}`}
+                            className={classes.image}
+                            loader="Image loading..."
+                            unloader="Image not found"
+                          />
+                        </Grid>
+                      ))}
+                    </Grid>
+                  </Grid>
+
+                  <Grid item xs={7}>
+                    <Text component="p" className={classes.tagline}>
+                      Tagline
+                    </Text>
+                    <Text component="h3" className={classes.taglineTitle}>
+                      Rock Solid Transportation with good fuel efficiency
+                    </Text>
+                  </Grid>
+
+                  <Grid item xs={7}>
+                    <Text component="h3" className={classes.description}>
+                      Description
+                      <br />
+                      <br />
+                      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                      The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English.
+                      Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites still in their infancy.
+                    </Text>
+                  </Grid>
+
+                  <Grid item xs={7}>
+                    <Text component="h3" className={classes.taglineTitle}>
+                      Vehicle Details
+                    </Text>
+                  </Grid>
+                </Grid>
+
+
               </TabPanel>
 
               <TabPanel value={value} index={1}>
