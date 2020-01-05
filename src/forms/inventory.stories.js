@@ -1,3 +1,4 @@
+/* eslint-disable import/named */
 /* eslint-disable max-len */
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
@@ -23,6 +24,7 @@ import Typography from "dry/components/typography";
 import TableSortLabel from "dry/components/table-sortable-label";
 import Button from "dry/components/button";
 import ImageLoader from "dry/components/image-loader";
+import { TwitterPicker } from "dry/components/color-picker/react-color";
 import {
   EditOutlined, DeleteOutlined, Search as SearchIcon, NotificationsNoneTwoTone,
 } from "dry/icons";
@@ -75,12 +77,18 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
     maxHeight: "100%",
   },
-
-  tagline: {
+  label: {
+    marginBottom: 8,
     fontWeight: "normal",
     fontSize: 11,
     lineHeight: "13px",
     color: "#90A0B7",
+  },
+  labelValue: {
+    fontSize: 14,
+    lineHeight: "16px",
+    letterSpacing: "0.01em",
+    color: "#707683",
   },
   taglineTitle: {
     fontWeight: "bold",
@@ -93,6 +101,16 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 14,
     lineHeight: "24px",
     color: "#707683",
+  },
+  color: {
+    width: 30,
+    height: 30,
+    borderRadius: 4,
+    cursor: "pointer",
+  },
+  colorPicker: {
+    marginLeft: "-6px",
+    marginTop: 6,
   },
 }));
 
@@ -210,29 +228,128 @@ export const all = () => {
                   </Grid>
 
                   <Grid item xs={7}>
-                    <Text component="p" className={classes.tagline}>
+                    <Typography component="p" className={classes.label}>
                       Tagline
-                    </Text>
+                    </Typography>
                     <Text component="h3" className={classes.taglineTitle}>
                       Rock Solid Transportation with good fuel efficiency
                     </Text>
                   </Grid>
 
                   <Grid item xs={7}>
-                    <Text component="h3" className={classes.description}>
-                      Description
-                      <br />
-                      <br />
+                    <Typography component="p" className={classes.label}>
+                    Description
+                    </Typography>
+                    <Typography component="h3" className={classes.description}>
                       It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
                       The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English.
                       Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites still in their infancy.
-                    </Text>
+                    </Typography>
                   </Grid>
 
-                  <Grid item xs={7}>
+                  <Grid item xs={12}>
                     <Text component="h3" className={classes.taglineTitle}>
                       Vehicle Details
                     </Text>
+
+                    <Grid container spacing={2}>
+                      <Grid item xs={3}>
+                        <Box>
+                          <Typography component="p" className={classes.label}>
+                            Condition
+                          </Typography>
+                          <Typography component="p" className={classes.labelValue}>
+                            Used
+                          </Typography>
+                        </Box>
+                      </Grid>
+
+                      <Grid item xs={3}>
+                        <Box>
+                          <Typography component="p" className={classes.label}>
+                            Title
+                          </Typography>
+                          <Typography component="p" className={classes.labelValue}>
+                            Clean
+                          </Typography>
+                        </Box>
+                      </Grid>
+
+                      <Grid item xs={6}>
+                        <Box>
+                          <Typography component="p" className={classes.label}>
+                          Transmission
+                          </Typography>
+                          <Typography component="p" className={classes.labelValue}>
+                          Manual
+                          </Typography>
+                        </Box>
+                      </Grid>
+
+                      <Grid item xs={3}>
+                        <Box>
+                          <Typography component="p" className={classes.label}>
+                          Mileage
+                          </Typography>
+                          <Typography component="p" className={classes.labelValue}>
+                          120,000km
+                          </Typography>
+                        </Box>
+                      </Grid>
+
+                      <Grid item xs={3}>
+                        <Box>
+                          <Typography component="p" className={classes.label}>
+                          Fuel Type
+                          </Typography>
+                          <Typography component="p" className={classes.labelValue}>
+                          Gasoline
+                          </Typography>
+                        </Box>
+                      </Grid>
+
+                      <Grid item xs={6}>
+                        <Box>
+                          <Typography component="p" className={classes.label}>
+                          Vin
+                          </Typography>
+                          <Typography component="p" className={classes.labelValue}>
+                          JF25SKAWC5KH467155
+                          </Typography>
+                        </Box>
+                      </Grid>
+
+                      <Grid item xs={3}>
+                        <Box>
+                          <Typography component="p" className={classes.label}>
+                          Color
+                          </Typography>
+                          <ColorPicker />
+                        </Box>
+                      </Grid>
+
+                      <Grid item xs={3}>
+                        <Box>
+                          <Typography component="p" className={classes.label}>
+                          Engine
+                          </Typography>
+                          <Typography component="p" className={classes.labelValue}>
+                          2.5
+                          </Typography>
+                        </Box>
+                      </Grid>
+
+                      <Grid item xs={6}>
+                        <Box>
+                          <Typography component="p" className={classes.label}>
+                          Doors
+                          </Typography>
+                          <Typography component="p" className={classes.labelValue}>
+                          4
+                          </Typography>
+                        </Box>
+                      </Grid>
+                    </Grid>
                   </Grid>
                 </Grid>
 
@@ -297,6 +414,28 @@ export const all = () => {
     setValue(newValue);
   }
 };
+
+function ColorPicker() {
+  const classes = useStyles();
+  const [color, setColor] = useState({ hex: "#E92323" });
+  const [isPickerVisible, setIsPickerVisible] = useState(false);
+
+  return (
+    <Box>
+      <Box style={{ background: color.hex }} className={classes.color} onClick={handleBoxClick} />
+      {isPickerVisible && <TwitterPicker color={color.hex} className={classes.colorPicker} onChange={handleColorChange} />}
+    </Box>
+  );
+
+  function handleBoxClick() {
+    setIsPickerVisible((prevVisible) => !prevVisible);
+  }
+
+  function handleColorChange(colorValue) {
+    setColor(colorValue);
+    setIsPickerVisible(false);
+  }
+}
 
 const useStylesGlobalSearch = makeStyles((theme) => ({
   paper: {
