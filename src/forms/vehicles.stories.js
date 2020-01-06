@@ -7,8 +7,11 @@ import Grid from "dry/components/grid";
 import InputBase from "dry/components/input-base";
 import Paper from "dry/components/paper";
 import IconButton from "dry/components/icon-button";
+import Button from "dry/components/button";
 import Badge from "dry/components/badge";
+import Divider from "dry/components/divider";
 import Text from "dry/components/text";
+import Typography from "dry/components/typography";
 import Box from "dry/components/box";
 import TextField from "dry/components/textfield";
 import FormLabel from "dry/components/form-label";
@@ -28,7 +31,7 @@ export default {
 const useStyles = makeStyles((theme) => ({
   grid: {
     backgroundColor: "#E5E5E5",
-    height: "150vh",
+    height: "100%",
   },
   box: {
     padding: theme.spacing(4),
@@ -104,6 +107,20 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "-6px",
     marginTop: 6,
   },
+  gridItemFormGroup: {
+    "&.MuiGrid-item": {
+      display: "flex",
+    },
+
+    "& .MuiFormGroup-root": {
+      flexGrow: 1,
+      flexBasis: "30%",
+    },
+
+    "& .MuiFormGroup-root[role=radiogroup]": {
+      flexDirection: "row",
+    },
+  },
 }));
 
 export const all = () => {
@@ -123,7 +140,7 @@ export const all = () => {
               <Grid item xs={6} className={classes.gridItem}>
                 <TextField
                   fullWidth
-                  id="id"
+                  id="Car Model"
                   label="Car Model"
                   defaultValue="Toyota Corolla Altis"
                 />
@@ -131,7 +148,7 @@ export const all = () => {
               <Grid item xs={6} className={classes.gridItem}>
                 <TextField
                   fullWidth
-                  id="id"
+                  id="Year Model"
                   label="Year Model"
                   defaultValue="Select Year"
                 />
@@ -140,7 +157,7 @@ export const all = () => {
               <Grid item xs={6} className={classes.gridItem}>
                 <TextField
                   fullWidth
-                  id="id"
+                  id="Condition"
                   label="Condition"
                   defaultValue="Select Condition"
                 />
@@ -148,7 +165,7 @@ export const all = () => {
               <Grid item xs={6} className={classes.gridItem}>
                 <TextField
                   fullWidth
-                  id="id"
+                  id="Mileage"
                   label="Mileage"
                   defaultValue="Add Mileage"
                 />
@@ -204,6 +221,423 @@ export const all = () => {
                 <ColorPicker />
               </Grid>
 
+            </Grid>
+          </Grid>
+
+          <Grid item xs={8} className={classes.gridItem}>
+            <Text component="h3" className={classes.title}>Primary Details</Text>
+
+            {/* Interior Details */}
+            <Grid item xs={12}>
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <Typography variant="h6" className={classes.formTitle}>
+                    Interior Details
+                  </Typography>
+                </Grid>
+
+                <Grid item xs={12} className={classes.gridItemFormGroup}>
+                  <FormGroup>
+                    <FormLabel component="legend">Driver Airbag</FormLabel>
+                    <RadioGroup
+                      name="sample"
+                      defaultValue="yes"
+                    >
+                      <FormControlLabel
+                        label="Yes"
+                        control={<Radio value="yes" />}
+                      />
+                      <FormControlLabel
+                        label="No"
+                        control={<Radio value="no" />}
+                      />
+                    </RadioGroup>
+                  </FormGroup>
+                  <FormGroup>
+                    <FormLabel component="legend">Air Conditioning</FormLabel>
+                    <RadioGroup
+                      name="sample"
+                      defaultValue="yes"
+                    >
+                      <FormControlLabel
+                        label="Yes"
+                        control={<Radio value="yes" />}
+                      />
+                      <FormControlLabel
+                        label="No"
+                        control={<Radio value="no" />}
+                      />
+                    </RadioGroup>
+                  </FormGroup>
+                  <FormGroup>
+                    <FormLabel component="legend">CD Audio System</FormLabel>
+                    <RadioGroup
+                      name="sample"
+                      defaultValue="yes"
+                    >
+                      <FormControlLabel
+                        label="Yes"
+                        control={<Radio value="yes" />}
+                      />
+                      <FormControlLabel
+                        label="No"
+                        control={<Radio value="no" />}
+                      />
+                    </RadioGroup>
+                  </FormGroup>
+                </Grid>
+
+                <Grid item xs={12}>
+                  <Divider />
+                </Grid>
+
+                <Grid item xs={12} className={classes.gridItemFormGroup}>
+                  <FormGroup>
+                    <FormLabel component="legend">Passenger Airbag</FormLabel>
+                    <RadioGroup
+                      name="sample"
+                      defaultValue="yes"
+                    >
+                      <FormControlLabel
+                        label="Yes"
+                        control={<Radio value="yes" />}
+                      />
+                      <FormControlLabel
+                        label="No"
+                        control={<Radio value="no" />}
+                      />
+                    </RadioGroup>
+                  </FormGroup>
+                  <FormGroup>
+                    <FormLabel component="legend">Cup holders</FormLabel>
+                    <RadioGroup
+                      name="sample"
+                      defaultValue="yes"
+                    >
+                      <FormControlLabel
+                        label="Yes"
+                        control={<Radio value="yes" />}
+                      />
+                      <FormControlLabel
+                        label="No"
+                        control={<Radio value="no" />}
+                      />
+                    </RadioGroup>
+                  </FormGroup>
+                  <FormGroup>
+                    <FormLabel component="legend">iPod/MP3 Compatible</FormLabel>
+                    <RadioGroup
+                      name="sample"
+                      defaultValue="yes"
+                    >
+                      <FormControlLabel
+                        label="Yes"
+                        control={<Radio value="yes" />}
+                      />
+                      <FormControlLabel
+                        label="No"
+                        control={<Radio value="no" />}
+                      />
+                    </RadioGroup>
+                  </FormGroup>
+                </Grid>
+
+                <Grid item xs={12}>
+                  <Divider />
+                </Grid>
+
+                <Grid item xs={12} className={classes.gridItemFormGroup}>
+                  <FormGroup>
+                    <FormLabel component="legend">Side Airbag</FormLabel>
+                    <RadioGroup
+                      name="sample"
+                      defaultValue="yes"
+                    >
+                      <FormControlLabel
+                        label="Yes"
+                        control={<Radio value="yes" />}
+                      />
+                      <FormControlLabel
+                        label="No"
+                        control={<Radio value="no" />}
+                      />
+                    </RadioGroup>
+                  </FormGroup>
+                  <FormGroup>
+                    <FormLabel component="legend">AM/FM Stereo</FormLabel>
+                    <RadioGroup
+                      name="sample"
+                      defaultValue="yes"
+                    >
+                      <FormControlLabel
+                        label="Yes"
+                        control={<Radio value="yes" />}
+                      />
+                      <FormControlLabel
+                        label="No"
+                        control={<Radio value="no" />}
+                      />
+                    </RadioGroup>
+                  </FormGroup>
+                  <FormGroup>
+                    <FormLabel component="legend">Leather Seats</FormLabel>
+                    <RadioGroup
+                      name="sample"
+                      defaultValue="yes"
+                    >
+                      <FormControlLabel
+                        label="Yes"
+                        control={<Radio value="yes" />}
+                      />
+                      <FormControlLabel
+                        label="No"
+                        control={<Radio value="no" />}
+                      />
+                    </RadioGroup>
+                  </FormGroup>
+                </Grid>
+              </Grid>
+            </Grid>
+
+            <Grid item xs={12}>
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <Typography variant="h6" className={classes.formTitle}>
+                Exterior Details
+                  </Typography>
+                </Grid>
+
+                <Grid item xs={12} className={classes.gridItemFormGroup}>
+                  <FormGroup>
+                    <FormLabel component="legend">Alloy Wheels</FormLabel>
+                    <RadioGroup
+                      name="sample"
+                      defaultValue="yes"
+                    >
+                      <FormControlLabel
+                        label="Yes"
+                        control={<Radio value="yes" />}
+                      />
+                      <FormControlLabel
+                        label="No"
+                        control={<Radio value="no" />}
+                      />
+                    </RadioGroup>
+                  </FormGroup>
+                  <FormGroup>
+                    <FormLabel component="legend">Fog Lights</FormLabel>
+                    <RadioGroup
+                      name="sample"
+                      defaultValue="yes"
+                    >
+                      <FormControlLabel
+                        label="Yes"
+                        control={<Radio value="yes" />}
+                      />
+                      <FormControlLabel
+                        label="No"
+                        control={<Radio value="no" />}
+                      />
+                    </RadioGroup>
+                  </FormGroup>
+                  <FormGroup>
+                    <FormLabel component="legend">Tinted Windows</FormLabel>
+                    <RadioGroup
+                      name="sample"
+                      defaultValue="yes"
+                    >
+                      <FormControlLabel
+                        label="Yes"
+                        control={<Radio value="yes" />}
+                      />
+                      <FormControlLabel
+                        label="No"
+                        control={<Radio value="no" />}
+                      />
+                    </RadioGroup>
+                  </FormGroup>
+                </Grid>
+              </Grid>
+            </Grid>
+
+            <Grid item xs={12}>
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <Typography variant="h6" className={classes.formTitle}>
+                Equipments
+                  </Typography>
+                </Grid>
+
+                <Grid item xs={12} className={classes.gridItemFormGroup}>
+                  <FormGroup>
+                    <FormLabel component="legend">Alarm System</FormLabel>
+                    <RadioGroup
+                      name="sample"
+                      defaultValue="yes"
+                    >
+                      <FormControlLabel
+                        label="Yes"
+                        control={<Radio value="yes" />}
+                      />
+                      <FormControlLabel
+                        label="No"
+                        control={<Radio value="no" />}
+                      />
+                    </RadioGroup>
+                  </FormGroup>
+                  <FormGroup>
+                    <FormLabel component="legend">Keyless Entry</FormLabel>
+                    <RadioGroup
+                      name="sample"
+                      defaultValue="yes"
+                    >
+                      <FormControlLabel
+                        label="Yes"
+                        control={<Radio value="yes" />}
+                      />
+                      <FormControlLabel
+                        label="No"
+                        control={<Radio value="no" />}
+                      />
+                    </RadioGroup>
+                  </FormGroup>
+                  <FormGroup>
+                    <FormLabel component="legend">Power Windows</FormLabel>
+                    <RadioGroup
+                      name="sample"
+                      defaultValue="yes"
+                    >
+                      <FormControlLabel
+                        label="Yes"
+                        control={<Radio value="yes" />}
+                      />
+                      <FormControlLabel
+                        label="No"
+                        control={<Radio value="no" />}
+                      />
+                    </RadioGroup>
+                  </FormGroup>
+                </Grid>
+
+                <Grid item xs={12}>
+                  <Divider />
+                </Grid>
+
+                <Grid item xs={12} className={classes.gridItemFormGroup}>
+                  <FormGroup>
+                    <FormLabel component="legend">Power Steering</FormLabel>
+                    <RadioGroup
+                      name="sample"
+                      defaultValue="yes"
+                    >
+                      <FormControlLabel
+                        label="Yes"
+                        control={<Radio value="yes" />}
+                      />
+                      <FormControlLabel
+                        label="No"
+                        control={<Radio value="no" />}
+                      />
+                    </RadioGroup>
+                  </FormGroup>
+                  <FormGroup>
+                    <FormLabel component="legend">Engine Immobilizer</FormLabel>
+                    <RadioGroup
+                      name="sample"
+                      defaultValue="yes"
+                    >
+                      <FormControlLabel
+                        label="Yes"
+                        control={<Radio value="yes" />}
+                      />
+                      <FormControlLabel
+                        label="No"
+                        control={<Radio value="no" />}
+                      />
+                    </RadioGroup>
+                  </FormGroup>
+                  <FormGroup>
+                    <FormLabel component="legend">Electric Mirrors</FormLabel>
+                    <RadioGroup
+                      name="sample"
+                      defaultValue="yes"
+                    >
+                      <FormControlLabel
+                        label="Yes"
+                        control={<Radio value="yes" />}
+                      />
+                      <FormControlLabel
+                        label="No"
+                        control={<Radio value="no" />}
+                      />
+                    </RadioGroup>
+                  </FormGroup>
+                </Grid>
+
+                <Grid item xs={12}>
+                  <Divider />
+                </Grid>
+
+                <Grid item xs={12} className={classes.gridItemFormGroup}>
+                  <FormGroup>
+                    <FormLabel component="legend">ABS</FormLabel>
+                    <RadioGroup
+                      name="sample"
+                      defaultValue="yes"
+                    >
+                      <FormControlLabel
+                        label="Yes"
+                        control={<Radio value="yes" />}
+                      />
+                      <FormControlLabel
+                        label="No"
+                        control={<Radio value="no" />}
+                      />
+                    </RadioGroup>
+                  </FormGroup>
+                  <FormGroup>
+                    <FormLabel component="legend">Power Door Locks</FormLabel>
+                    <RadioGroup
+                      name="sample"
+                      defaultValue="yes"
+                    >
+                      <FormControlLabel
+                        label="Yes"
+                        control={<Radio value="yes" />}
+                      />
+                      <FormControlLabel
+                        label="No"
+                        control={<Radio value="no" />}
+                      />
+                    </RadioGroup>
+                  </FormGroup>
+                  <FormGroup>
+                    <FormLabel component="legend">Multizone Climate System</FormLabel>
+                    <RadioGroup
+                      name="sample"
+                      defaultValue="yes"
+                    >
+                      <FormControlLabel
+                        label="Yes"
+                        control={<Radio value="yes" />}
+                      />
+                      <FormControlLabel
+                        label="No"
+                        control={<Radio value="no" />}
+                      />
+                    </RadioGroup>
+                  </FormGroup>
+                </Grid>
+              </Grid>
+            </Grid>
+
+            <Grid item xs={12} className={classes.gridItemButton}>
+              <Button
+                color="primary"
+                variant="contained"
+              >
+                Submit
+              </Button>
             </Grid>
           </Grid>
 
