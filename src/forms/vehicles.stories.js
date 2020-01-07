@@ -19,6 +19,7 @@ import FormControlLabel from "dry/components/form-control-label";
 import FormGroup from "dry/components/form-group";
 import RadioGroup from "dry/components/radio-group";
 import Radio from "dry/components/radio";
+import Editor from "dry/components/editor";
 import { TwitterPicker } from "dry/components/color-picker/react-color";
 import {
   Search as SearchIcon, NotificationsNoneTwoTone,
@@ -120,6 +121,10 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiFormGroup-root[role=radiogroup]": {
       flexDirection: "row",
     },
+  },
+  editor: {
+    background: "#FFF",
+    borderTop: "1px solid #D3D8DD",
   },
 }));
 
@@ -629,6 +634,10 @@ export const all = () => {
                   </FormGroup>
                 </Grid>
               </Grid>
+            </Grid>
+
+            <Grid item xs={12}>
+              <Editor className={classes.editor} />
             </Grid>
 
             <Grid item xs={12} className={classes.gridItemButton}>
