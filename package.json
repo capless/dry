@@ -2,7 +2,7 @@
   "name": "dry-ui",
   "version": "1.0.7",
   "description": "",
-  "main": "dist",
+  "main": "dist/index.js",
   "files": [
     "dist"
   ],

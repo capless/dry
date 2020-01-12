@@ -1,6 +1,6 @@
 module.exports = {
   presets: ["@babel/env", "@babel/preset-react"],
-  only: ['src/components', 'src/icons', 'src/theme', 'src/utils'],
+  only: ['src/index.js', 'src/components', 'src/icons', 'src/theme', 'src/utils'],
   plugins: [
     // for absolute imports
     [
