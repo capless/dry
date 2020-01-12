@@ -23,3 +23,6 @@ Builds the app stories.
 
 ### `yarn build-components`
 Builds the components design system. It will create a `dist` folder.
+
+### `yarn publish`
+Builds components and publishes to npm.
