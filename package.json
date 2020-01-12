@@ -2,8 +2,8 @@
   "name": "dry-ui",
   "version": "1.0.6",
   "description": "",
-  "main": "dist/*",
-  "files": ["dist/*"],
+  "main": "dist",
+  "files": ["dist"],
   "scripts": {
     "lint": "npm run eslint src/",
     "test": "echo \"Error: no test specified\" && exit 0",
