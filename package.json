@@ -1,16 +1,17 @@
 {
   "name": "dry-ui",
-  "version": "1.0.1",
+  "version": "1.0.6",
   "description": "",
-  "main": "dist",
+  "main": "dist/*",
+  "files": ["dist/*"],
   "scripts": {
-    "lint": "yarn eslint src/",
+    "lint": "npm run eslint src/",
     "test": "echo \"Error: no test specified\" && exit 0",
     "storybook": "start-storybook -p 6006 -s ./public",
-    "dev": "yarn storybook",
+    "dev": "npm run storybook",
     "build-storybook": "NODE_ENV=development build-storybook -s ./public",
     "build-components": "cross-env NODE_ENV=production babel src --out-dir dist",
-    "publish": "yarn build-components && yarn np"
+    "prepublish": "npm run build-components"
   },
   "keywords": [],
   "author": "",
