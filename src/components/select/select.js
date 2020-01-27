@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
     borderRadius: 0,
     border: "1px solid #EBEFF2",
     overflowX: "inherit",
-    overflowY: "inherit",
+    overflowY: "auto !important",
   },
 
   list: {
