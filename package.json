@@ -1,6 +1,6 @@
 {
   "name": "dry-ui",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "",
   "main": "dist",
   "files": [
@@ -14,7 +14,7 @@
     "build-storybook": "NODE_ENV=development build-storybook -s ./public",
     "build-components": "cross-env NODE_ENV=production babel src --out-dir dist",
     "prepublish": "npm run build-components",
-    "deploy": "np"
+    "deploy": "npm publish"
   },
   "keywords": [],
   "author": "",

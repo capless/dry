@@ -13,17 +13,8 @@ import "rc-pagination/assets/index.css";
 import setPropTypes from "dry/utils/setPropTypes";
 
 function DryPagination(props) {
-  const {
-    className,
-    total,
-    current,
-    pageSize,
-    onChange,
-    ...restProps
-  } = props;
-  const clsxName = clsx(className, {
-
-  });
+  const { className, total, current, pageSize, onChange, ...restProps } = props;
+  const clsxName = clsx(className, {});
 
   const lastPage = Math.ceil(total / pageSize);
   const firstPage = 1;
@@ -34,13 +25,12 @@ function DryPagination(props) {
     <div className={clsxName}>
       <div
         title="First Page"
-        className={clsx("pagination goto-first rc-pagination-item", isFirstPage && "rc-pagination-disabled")}
+        className={clsx(
+          "pagination goto-first rc-pagination-item",
+          isFirstPage && "rc-pagination-disabled"
+        )}
       >
-        <a
-          href="#"
-          className="rc-pagination-item-link"
-          onClick={gotoFirst}
-        />
+        <a href="#" className="rc-pagination-item-link" onClick={gotoFirst} />
       </div>
       <Pagination
         {...restProps}
@@ -51,14 +41,12 @@ function DryPagination(props) {
       />
       <div
         title="Last Page"
-        className={clsx("pagination goto-last rc-pagination-item", isLastPage && "rc-pagination-disabled")}
+        className={clsx(
+          "pagination goto-last rc-pagination-item",
+          isLastPage && "rc-pagination-disabled"
+        )}
       >
-        <a
-          href="#"
-          className="rc-pagination-item-link"
-          onClick={gotoLast}
-          disabled
-        />
+        <a href="#" className="rc-pagination-item-link" onClick={gotoLast} />
       </div>
     </div>
   );
@@ -86,7 +74,7 @@ DryPagination.defaultProps = {
   className: "",
   locale: enLocale,
   pageSize: 10,
-  current: 1,
+  current: 1
 };
 
 DryPagination.propTypes = {
@@ -95,7 +83,7 @@ DryPagination.propTypes = {
   current: PropTypes.number,
   pageSize: PropTypes.number,
   total: PropTypes.number.isRequired,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired
 };
 
 const StyledPagination = styled(DryPagination)`
@@ -104,8 +92,9 @@ const StyledPagination = styled(DryPagination)`
   .rc-pagination {
     margin: 0;
   }
-  .rc-pagination-prev, .rc-pagination-next {
-    background: #FFFFFF;
+  .rc-pagination-prev,
+  .rc-pagination-next {
+    background: #ffffff;
     border: none;
     outline: none;
 
@@ -118,7 +107,7 @@ const StyledPagination = styled(DryPagination)`
     margin-left: 0;
 
     &:hover {
-      border-color: #D9D9D9;
+      border-color: #d9d9d9;
     }
 
     a:after {
@@ -133,9 +122,9 @@ const StyledPagination = styled(DryPagination)`
     margin-right: 0;
 
     &:hover {
-      border-color: #D9D9D9;
+      border-color: #d9d9d9;
     }
-    
+
     a:after {
       margin-top: -1px;
       content: "››";
@@ -150,7 +139,7 @@ const StyledPagination = styled(DryPagination)`
       }
 
       .rc-pagination-item-link {
-        color: #CCC;
+        color: #ccc;
 
         &:after {
           cursor: not-allowed;
@@ -162,6 +151,10 @@ const StyledPagination = styled(DryPagination)`
 
 const ThemedStyledPagination = withTheme(StyledPagination);
 
-setPropTypes("DryPagination", [Pagination, DryPagination], ThemedStyledPagination);
+setPropTypes(
+  "DryPagination",
+  [Pagination, DryPagination],
+  ThemedStyledPagination
+);
 
 export default ThemedStyledPagination;
