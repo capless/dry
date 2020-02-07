@@ -13,7 +13,9 @@ import "rc-pagination/assets/index.css";
 import setPropTypes from "dry/utils/setPropTypes";
 
 function DryPagination(props) {
-  const { className, total, current, pageSize, onChange, ...restProps } = props;
+  const {
+    className, total, current, pageSize, onChange, ...restProps
+  } = props;
   const clsxName = clsx(className, {});
 
   const lastPage = Math.ceil(total / pageSize);
@@ -27,7 +29,7 @@ function DryPagination(props) {
         title="First Page"
         className={clsx(
           "pagination goto-first rc-pagination-item",
-          isFirstPage && "rc-pagination-disabled"
+          isFirstPage && "rc-pagination-disabled",
         )}
       >
         <a href="#" className="rc-pagination-item-link" onClick={gotoFirst} />
@@ -43,7 +45,7 @@ function DryPagination(props) {
         title="Last Page"
         className={clsx(
           "pagination goto-last rc-pagination-item",
-          isLastPage && "rc-pagination-disabled"
+          isLastPage && "rc-pagination-disabled",
         )}
       >
         <a href="#" className="rc-pagination-item-link" onClick={gotoLast} />
@@ -74,7 +76,7 @@ DryPagination.defaultProps = {
   className: "",
   locale: enLocale,
   pageSize: 10,
-  current: 1
+  current: 1,
 };
 
 DryPagination.propTypes = {
@@ -83,7 +85,7 @@ DryPagination.propTypes = {
   current: PropTypes.number,
   pageSize: PropTypes.number,
   total: PropTypes.number.isRequired,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
 };
 
 const StyledPagination = styled(DryPagination)`
@@ -99,12 +101,6 @@ const StyledPagination = styled(DryPagination)`
     outline: none;
 
     .rc-pagination-item-link a {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      left: 0;
-      top: 0;
-
       &:after {
         cursor: pointer;
       }
@@ -142,6 +138,16 @@ const StyledPagination = styled(DryPagination)`
     }
   }
 
+  .goto-first, .goto-last {
+    a {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+    }
+  }
+
   .pagination {
     &.rc-pagination-disabled {
       &:hover {
@@ -164,7 +170,7 @@ const ThemedStyledPagination = withTheme(StyledPagination);
 setPropTypes(
   "DryPagination",
   [Pagination, DryPagination],
-  ThemedStyledPagination
+  ThemedStyledPagination,
 );
 
 export default ThemedStyledPagination;
