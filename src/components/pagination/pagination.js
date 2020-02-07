@@ -105,6 +105,7 @@ const StyledPagination = styled(DryPagination)`
 
   .goto-first {
     margin-left: 0;
+    position: relative;
 
     &:hover {
       border-color: #d9d9d9;
@@ -120,6 +121,7 @@ const StyledPagination = styled(DryPagination)`
   .goto-last {
     margin-left: 8px;
     margin-right: 0;
+    position: relative;
 
     &:hover {
       border-color: #d9d9d9;
@@ -140,6 +142,11 @@ const StyledPagination = styled(DryPagination)`
 
       .rc-pagination-item-link {
         color: #ccc;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
 
         &:after {
           cursor: not-allowed;
@@ -154,7 +161,7 @@ const ThemedStyledPagination = withTheme(StyledPagination);
 setPropTypes(
   "DryPagination",
   [Pagination, DryPagination],
-  ThemedStyledPagination
+  ThemedStyledPagination,
 );
 
 export default ThemedStyledPagination;
