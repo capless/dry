@@ -98,8 +98,16 @@ const StyledPagination = styled(DryPagination)`
     border: none;
     outline: none;
 
-    .rc-pagination-item-link a:after {
-      cursor: pointer;
+    .rc-pagination-item-link a {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+
+      &:after {
+        cursor: pointer;
+      }
     }
   }
 
@@ -142,11 +150,6 @@ const StyledPagination = styled(DryPagination)`
 
       .rc-pagination-item-link {
         color: #ccc;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
 
         &:after {
           cursor: not-allowed;
@@ -161,7 +164,7 @@ const ThemedStyledPagination = withTheme(StyledPagination);
 setPropTypes(
   "DryPagination",
   [Pagination, DryPagination],
-  ThemedStyledPagination,
+  ThemedStyledPagination
 );
 
 export default ThemedStyledPagination;
