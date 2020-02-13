@@ -2,11 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import { ListItem } from "@material-ui/core";
+import { Drawer } from "@material-ui/core";
 import { withTheme } from "dry/theme";
 import setPropTypes from "dry/utils/setPropTypes";
 
-function DryListItem(props) {
+function DryDrawer(props) {
   const {
     className,
     ...restProps
@@ -16,28 +16,29 @@ function DryListItem(props) {
   });
 
   return (
-    <ListItem
+    <Drawer
       {...restProps}
       className={clsxName}
     />
   );
 }
 
-DryListItem.defaultProps = {
+DryDrawer.defaultProps = {
   className: "",
-  button: true,
+
 };
 
-DryListItem.propTypes = {
+DryDrawer.propTypes = {
   className: PropTypes.string,
-  button: PropTypes.bool,
+
 };
 
-const StyledListItem = styled(DryListItem)`
+const StyledDrawer = styled(DryDrawer)`
+ 
 `;
 
-const ThemedStyledListItem = withTheme(StyledListItem);
+const ThemedStyledDrawer = withTheme(StyledDrawer);
 
-setPropTypes("DryListItem", [ListItem, DryListItem], ThemedStyledListItem);
+setPropTypes("DryDrawer", Drawer, ThemedStyledDrawer);
 
-export default ThemedStyledListItem;
+export default ThemedStyledDrawer;

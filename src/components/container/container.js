@@ -2,11 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import { ListItem } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 import { withTheme } from "dry/theme";
 import setPropTypes from "dry/utils/setPropTypes";
 
-function DryListItem(props) {
+function DryContainer(props) {
   const {
     className,
     ...restProps
@@ -16,28 +16,29 @@ function DryListItem(props) {
   });
 
   return (
-    <ListItem
+    <Container
       {...restProps}
       className={clsxName}
     />
   );
 }
 
-DryListItem.defaultProps = {
+DryContainer.defaultProps = {
   className: "",
-  button: true,
+
 };
 
-DryListItem.propTypes = {
+DryContainer.propTypes = {
   className: PropTypes.string,
-  button: PropTypes.bool,
+
 };
 
-const StyledListItem = styled(DryListItem)`
+const StyledContainer = styled(DryContainer)`
+ 
 `;
 
-const ThemedStyledListItem = withTheme(StyledListItem);
+const ThemedStyledContainer = withTheme(StyledContainer);
 
-setPropTypes("DryListItem", [ListItem, DryListItem], ThemedStyledListItem);
+setPropTypes("DryContainer", Container, ThemedStyledContainer);
 
-export default ThemedStyledListItem;
+export default ThemedStyledContainer;

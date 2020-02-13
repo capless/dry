@@ -18,7 +18,7 @@ import MenuItem from "dry/components/menu-item";
 import { Divider } from "@material-ui/core";
 
 export default {
-  title: "Forms|EditableSelectGroups/Default",
+  title: "Forms|EditableSelectGroups",
 };
 
 const useStyles = makeStyles(() => ({

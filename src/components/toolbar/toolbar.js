@@ -2,11 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import { ListItem } from "@material-ui/core";
+import { Toolbar } from "@material-ui/core";
 import { withTheme } from "dry/theme";
 import setPropTypes from "dry/utils/setPropTypes";
 
-function DryListItem(props) {
+function DryToolbar(props) {
   const {
     className,
     ...restProps
@@ -16,28 +16,29 @@ function DryListItem(props) {
   });
 
   return (
-    <ListItem
+    <Toolbar
       {...restProps}
       className={clsxName}
     />
   );
 }
 
-DryListItem.defaultProps = {
+DryToolbar.defaultProps = {
   className: "",
-  button: true,
+
 };
 
-DryListItem.propTypes = {
+DryToolbar.propTypes = {
   className: PropTypes.string,
-  button: PropTypes.bool,
+
 };
 
-const StyledListItem = styled(DryListItem)`
+const StyledToolbar = styled(DryToolbar)`
+ 
 `;
 
-const ThemedStyledListItem = withTheme(StyledListItem);
+const ThemedStyledToolbar = withTheme(StyledToolbar);
 
-setPropTypes("DryListItem", [ListItem, DryListItem], ThemedStyledListItem);
+setPropTypes("DryToolbar", Toolbar, ThemedStyledToolbar);
 
-export default ThemedStyledListItem;
+export default ThemedStyledToolbar;

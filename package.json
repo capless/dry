@@ -1,15 +1,16 @@
 {
-  "name": "dry",
+  "name": "dry-ui",
   "version": "1.0.0",
   "description": "",
   "main": "dist",
   "scripts": {
     "lint": "yarn eslint src/",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 0",
     "storybook": "start-storybook -p 6006 -s ./public",
     "dev": "yarn storybook",
     "build-storybook": "NODE_ENV=development build-storybook -s ./public",
-    "build-components": "cross-env NODE_ENV=production babel src --out-dir dist"
+    "build-components": "cross-env NODE_ENV=production babel src --out-dir dist",
+    "publish": "yarn build-components && yarn np"
   },
   "keywords": [],
   "author": "",
@@ -57,6 +58,7 @@
     "eslint-plugin-react": "^7.15.1",
     "eslint-plugin-react-hooks": "^1.7.0",
     "node-sass": "^4.12.0",
+    "np": "^5.2.1",
     "sass-loader": "^8.0.0"
   }
 }

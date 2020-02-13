@@ -94,7 +94,7 @@ const StyledButton = styled(DryButton)`
   /* primary color */
   &.MuiButton-containedPrimary {
     color: ${({ theme }) => theme.colors.white};
-    background-color: ${({ theme }) => theme.colors.deepPink};
+    background-color: ${({ theme }) => theme.colors.lightGreen};
     box-shadow: 0px 8px 10px rgba(92, 198, 76, 0.13);
 
     &:hover {
@@ -116,9 +116,9 @@ const StyledButton = styled(DryButton)`
 
   /* secondary color */
   &.MuiButton-outlinedSecondary {
-    color: ${({ theme }) => theme.colors.deepPink};
+    color: ${({ theme }) => theme.colors.lightGreen};
     background-color: ${({ theme }) => theme.colors.white};
-    border: ${({ theme }) => `1px solid ${theme.colors.deepPink}`};
+    border: ${({ theme }) => `1px solid ${theme.colors.lightGreen}`};
     box-sizing: border-box;
 
     &:hover {
@@ -142,7 +142,7 @@ const StyledButton = styled(DryButton)`
 
   /* tertiary / default color */
   &.MuiButton-text {
-    color: ${({ theme }) => theme.colors.deepPink};
+    color: ${({ theme }) => theme.colors.lightGreen};
     background-color: transparent;
 
     &:hover {

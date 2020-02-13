@@ -2,11 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import { ListItem } from "@material-ui/core";
+import { AppBar } from "@material-ui/core";
 import { withTheme } from "dry/theme";
 import setPropTypes from "dry/utils/setPropTypes";
 
-function DryListItem(props) {
+function DryAppBar(props) {
   const {
     className,
     ...restProps
@@ -16,28 +16,29 @@ function DryListItem(props) {
   });
 
   return (
-    <ListItem
+    <AppBar
       {...restProps}
       className={clsxName}
     />
   );
 }
 
-DryListItem.defaultProps = {
+DryAppBar.defaultProps = {
   className: "",
-  button: true,
+
 };
 
-DryListItem.propTypes = {
+DryAppBar.propTypes = {
   className: PropTypes.string,
-  button: PropTypes.bool,
+
 };
 
-const StyledListItem = styled(DryListItem)`
+const StyledAppBar = styled(DryAppBar)`
+ 
 `;
 
-const ThemedStyledListItem = withTheme(StyledListItem);
+const ThemedStyledAppBar = withTheme(StyledAppBar);
 
-setPropTypes("DryListItem", [ListItem, DryListItem], ThemedStyledListItem);
+setPropTypes("DryAppBar", AppBar, ThemedStyledAppBar);
 
-export default ThemedStyledListItem;
+export default ThemedStyledAppBar;

@@ -13,7 +13,7 @@ import InputAdornment from "dry/components/input-adornment";
 import { DoneOutline, EditOutlined, DeleteOutlined } from "dry/icons";
 
 export default {
-  title: "Forms|EditableTextFieldGroups/Default",
+  title: "Forms|EditableTextFieldGroups",
 };
 
 const useStyles = makeStyles(() => ({
