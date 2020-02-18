@@ -114,6 +114,6 @@ const StyledText = styled(DryText)`
 
 const ThemedStyledText = withTheme(StyledText);
 
-setPropTypes("DryText", [Text, DryText], ThemedStyledText);
+setPropTypes("DryText", DryText, ThemedStyledText);
 
 export default ThemedStyledText;
