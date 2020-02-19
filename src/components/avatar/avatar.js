@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import omit from "lodash/omit";
 import styled, { css } from "styled-components";
-import { Avatar } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
 import toSvgString from "dry/utils/toSvgString";
 import setPropTypes from "dry/utils/setPropTypes";
 import AvatarBackdrop from "./assets/avatar-backdrop";
@@ -17,13 +17,13 @@ function DryAvatar(props) {
 DryAvatar.defaultProps = {
   role: "presentation",
   showBackdrop: false,
-  backdropImage: toSvgString(AvatarBackdrop),
+  backdropImage: toSvgString(AvatarBackdrop)
 };
 
 DryAvatar.propTypes = {
   role: PropTypes.string,
   showBackdrop: PropTypes.bool,
-  backdropImage: PropTypes.string,
+  backdropImage: PropTypes.string
 };
 
 const StyledDryAvatar = styled(DryAvatar)`
@@ -34,17 +34,19 @@ const StyledDryAvatar = styled(DryAvatar)`
     cursor: ${({ onClick }) => (onClick ? "pointer" : "auto")};
   }
 
-  ${({ showBackdrop }) => showBackdrop && css`
-    &.MuiAvatar-root::before {
-      content: "";
+  ${({ showBackdrop }) =>
+    showBackdrop &&
+    css`
+      &.MuiAvatar-root::before {
+        content: "";
         background-position: center;
         position: absolute;
         width: 100%;
         height: 100%;
         opacity: 0;
 
-        -webkit-transition: all .5s;
-        transition: all .5s;
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
       }
 
       &.MuiAvatar-root:hover::before {
@@ -57,10 +59,10 @@ const StyledDryAvatar = styled(DryAvatar)`
         border-radius: 100%;
         width: 100%;
         height: 100%;
-        opacity: .4;
-        background-color: #192A3E;
+        opacity: 0.4;
+        background-color: #192a3e;
       }
-  `}
+    `}
 `;
 
 setPropTypes("DryAvatar", [Avatar, DryAvatar], StyledDryAvatar);

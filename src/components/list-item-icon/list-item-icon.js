@@ -2,47 +2,41 @@ import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled, { css } from "styled-components";
-import { ListItemIcon } from "@material-ui/core";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
 import { withTheme } from "dry/theme";
 import setPropTypes from "dry/utils/setPropTypes";
 
 function DryListItemIcon(props) {
-  const {
-    className,
-    ...restProps
-  } = props;
-  const clsxName = clsx(className, {
+  const { className, ...restProps } = props;
+  const clsxName = clsx(className, {});
 
-  });
-
-  return (
-    <ListItemIcon
-      {...restProps}
-      className={clsxName}
-    />
-  );
+  return <ListItemIcon {...restProps} className={clsxName} />;
 }
 
 DryListItemIcon.defaultProps = {
-  className: "",
-
+  className: ""
 };
 
 DryListItemIcon.propTypes = {
-  className: PropTypes.string,
-
+  className: PropTypes.string
 };
 
 const StyledListItemIcon = styled(DryListItemIcon)`
   &.MuiListItemIcon-root {
-    ${({ margin }) => margin && css`
-      margin: ${margin};
-    `}
+    ${({ margin }) =>
+      margin &&
+      css`
+        margin: ${margin};
+      `}
   }
 `;
 
 const ThemedStyledListItemIcon = withTheme(StyledListItemIcon);
 
-setPropTypes("DryListItemIcon", [ListItemIcon, DryListItemIcon], ThemedStyledListItemIcon);
+setPropTypes(
+  "DryListItemIcon",
+  [ListItemIcon, DryListItemIcon],
+  ThemedStyledListItemIcon
+);
 
 export default ThemedStyledListItemIcon;

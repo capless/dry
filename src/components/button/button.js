@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import { Button } from "@material-ui/core";
+import Button from "@material-ui/core/Button";
 import { withTheme } from "dry/theme";
 import setPropTypes from "dry/utils/setPropTypes";
 
@@ -19,7 +19,7 @@ function DryButton(props) {
   const [pressed, setPressed] = useState();
   const clsxName = clsx(className, {
     "MuiButton--pressed": pressed,
-    "MuiButton--disabled": disabled,
+    "MuiButton--disabled": disabled
   });
 
   return (
@@ -56,7 +56,7 @@ DryButton.defaultProps = {
   disableRipple: true,
   onMouseDown: () => {},
   onMouseUp: () => {},
-  onMouseLeave: () => {},
+  onMouseLeave: () => {}
 };
 
 DryButton.propTypes = {
@@ -65,7 +65,7 @@ DryButton.propTypes = {
   disableRipple: PropTypes.bool,
   onMouseDown: PropTypes.func,
   onMouseUp: PropTypes.func,
-  onMouseLeave: PropTypes.func,
+  onMouseLeave: PropTypes.func
 };
 
 const StyledButton = styled(DryButton)`
@@ -90,7 +90,7 @@ const StyledButton = styled(DryButton)`
       box-shadow: none;
     }
   }
-  
+
   /* primary color */
   &.MuiButton-containedPrimary {
     color: ${({ theme }) => theme.colors.white};

@@ -2,36 +2,27 @@ import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import { Grid } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
 import { withTheme } from "dry/theme";
 import setPropTypes from "dry/utils/setPropTypes";
 
 function DryGrid(props) {
-  const {
-    className,
-    textAlign,
-    ...restProps
-  } = props;
+  const { className, textAlign, ...restProps } = props;
   const clsxName = clsx(className, {
-    textAlign,
+    textAlign
   });
 
-  return (
-    <Grid
-      {...restProps}
-      className={clsxName}
-    />
-  );
+  return <Grid {...restProps} className={clsxName} />;
 }
 
 DryGrid.defaultProps = {
   className: "",
-  textAlign: "",
+  textAlign: ""
 };
 
 DryGrid.propTypes = {
   className: PropTypes.string,
-  textAlign: PropTypes.string,
+  textAlign: PropTypes.string
 };
 
 const StyledGrid = styled(DryGrid)`

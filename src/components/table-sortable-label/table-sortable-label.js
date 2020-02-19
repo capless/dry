@@ -2,36 +2,26 @@ import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import { TableSortLabel } from "@material-ui/core";
+import TableSortLabel from "@material-ui/core/TableSortLabel";
 import { withTheme } from "dry/theme";
 import { ArrowDropDown } from "dry/icons";
 import setPropTypes from "dry/utils/setPropTypes";
 
 function DryTableSortLabel(props) {
-  const {
-    className,
-    ...restProps
-  } = props;
-  const clsxName = clsx(className, {
+  const { className, ...restProps } = props;
+  const clsxName = clsx(className, {});
 
-  });
-
-  return (
-    <TableSortLabel
-      {...restProps}
-      className={clsxName}
-    />
-  );
+  return <TableSortLabel {...restProps} className={clsxName} />;
 }
 
 DryTableSortLabel.defaultProps = {
   className: "",
-  IconComponent: ArrowDropDown,
+  IconComponent: ArrowDropDown
 };
 
 DryTableSortLabel.propTypes = {
   className: PropTypes.string,
-  IconComponent: PropTypes.elementType,
+  IconComponent: PropTypes.elementType
 };
 
 const StyledTableSortLabel = styled(DryTableSortLabel)`
@@ -46,13 +36,17 @@ const StyledTableSortLabel = styled(DryTableSortLabel)`
     /* Icon */
     .MuiTableSortLabel-icon {
       opacity: 1;
-      color: #AEAEAE;
+      color: #aeaeae;
     }
   }
 `;
 
 const ThemedStyledTableSortableLabel = withTheme(StyledTableSortLabel);
 
-setPropTypes("DryTableSortableLabel", [TableSortLabel, DryTableSortLabel], ThemedStyledTableSortableLabel);
+setPropTypes(
+  "DryTableSortableLabel",
+  [TableSortLabel, DryTableSortLabel],
+  ThemedStyledTableSortableLabel
+);
 
 export default ThemedStyledTableSortableLabel;

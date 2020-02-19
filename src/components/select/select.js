@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import { Select } from "@material-ui/core";
+import Select from "@material-ui/core/Select";
 import { withTheme } from "dry/theme";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
@@ -14,23 +14,17 @@ const useStyles = makeStyles(() => ({
     borderRadius: 0,
     border: "1px solid #EBEFF2",
     overflowX: "inherit",
-    overflowY: "auto !important",
+    overflowY: "auto !important"
   },
 
   list: {
     width: ({ width = "100%" }) => `${width} !important`,
-    padding: "0 !important",
-  },
+    padding: "0 !important"
+  }
 }));
 
 function DrySelect(props) {
-  const {
-    className,
-    label,
-    textVariant,
-    fullWidth,
-    ...restProps
-  } = props;
+  const { className, label, textVariant, fullWidth, ...restProps } = props;
 
   const classes = useStyles();
   const selectRef = useRef();
@@ -44,9 +38,9 @@ function DrySelect(props) {
     anchorReference: "anchorEl",
     anchorOrigin: {
       vertical: "bottom",
-      horizontal: "left",
+      horizontal: "left"
     },
-    getContentAnchorEl: null,
+    getContentAnchorEl: null
   };
 
   useEffect(() => {
@@ -55,19 +49,13 @@ function DrySelect(props) {
 
   const clsxName = clsx(className, {
     [`MuiSelect-select--${textVariant}`]: textVariant,
-    [`MuiSelect-select--fullWidth`]: fullWidth,
+    [`MuiSelect-select--fullWidth`]: fullWidth
   });
 
   return (
     <FormControl className={clsxName}>
-      <InputLabel>
-        {label}
-      </InputLabel>
-      <Select
-        {...restProps}
-        ref={selectRef}
-        MenuProps={menuProps}
-      />
+      <InputLabel>{label}</InputLabel>
+      <Select {...restProps} ref={selectRef} MenuProps={menuProps} />
     </FormControl>
   );
 }
@@ -76,17 +64,14 @@ DrySelect.defaultProps = {
   className: "",
   label: "",
   textVariant: "normal",
-  fullWidth: false,
+  fullWidth: false
 };
 
 DrySelect.propTypes = {
   className: PropTypes.string,
   label: PropTypes.string,
   fullWidth: PropTypes.bool,
-  textVariant: PropTypes.oneOf([
-    "normal",
-    "naked",
-  ]),
+  textVariant: PropTypes.oneOf(["normal", "naked"])
 };
 
 const StyledSelect = styled(DrySelect)`
@@ -97,7 +82,7 @@ const StyledSelect = styled(DrySelect)`
   }
 
   .MuiSelect-icon {
-    color: #AEAEAE;
+    color: #aeaeae;
   }
 
   /* label */
@@ -108,7 +93,7 @@ const StyledSelect = styled(DrySelect)`
     font-size: 12px;
 
     /* by default, the label is positioned at the top */
-    transform: translate(0, 1.5px) !important; 
+    transform: translate(0, 1.5px) !important;
   }
 
   /* input */
@@ -122,27 +107,28 @@ const StyledSelect = styled(DrySelect)`
 
   /* input underline */
   .MuiInput-underline {
-    &::before, &::after {
-      border-bottom-color: #D3D8DD;
+    &::before,
+    &::after {
+      border-bottom-color: #d3d8dd;
     }
 
     &:hover:not(.Mui-disabled):before {
-      border-bottom: 1px solid #D3D8DD;
+      border-bottom: 1px solid #d3d8dd;
     }
   }
 
   /* edit mode */
   .Mui-focused {
     .MuiInputBase-input {
-      background: #EBEFF2;
+      background: #ebeff2;
     }
 
     .MuiInputAdornment-root {
-      background: #EBEFF2;
+      background: #ebeff2;
     }
 
     &.MuiInput-underline::after {
-      border-bottom: 1px solid #818E9B;
+      border-bottom: 1px solid #818e9b;
     }
   }
 
@@ -163,7 +149,8 @@ const StyledSelect = styled(DrySelect)`
   &.MuiSelect-select--naked {
     /* remove underline */
     .MuiInput-underline {
-      &::before, &::after {
+      &::before,
+      &::after {
         border: none;
       }
 

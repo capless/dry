@@ -2,40 +2,26 @@ import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import { InputBase } from "@material-ui/core";
+import InputBase from "@material-ui/core/InputBase";
 import { withTheme } from "dry/theme";
 import setPropTypes from "dry/utils/setPropTypes";
 
 function DryInputBase(props) {
-  const {
-    className,
-    ...restProps
-  } = props;
-  const clsxName = clsx(className, {
+  const { className, ...restProps } = props;
+  const clsxName = clsx(className, {});
 
-  });
-
-  return (
-    <InputBase
-      {...restProps}
-      className={clsxName}
-    />
-  );
+  return <InputBase {...restProps} className={clsxName} />;
 }
 
 DryInputBase.defaultProps = {
-  className: "",
-
+  className: ""
 };
 
 DryInputBase.propTypes = {
-  className: PropTypes.string,
-
+  className: PropTypes.string
 };
 
-const StyledInputBase = styled(DryInputBase)`
- 
-`;
+const StyledInputBase = styled(DryInputBase)``;
 
 const ThemedStyledInputBase = withTheme(StyledInputBase);
 

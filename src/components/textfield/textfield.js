@@ -2,49 +2,30 @@ import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import { TextField } from "@material-ui/core";
+import TextField from "@material-ui/core/TextField";
 import { withTheme } from "dry/theme";
 import setPropTypes from "dry/utils/setPropTypes";
 
 const DryTextField = forwardRef((props, ref) => {
-  const {
-    className,
-    valueSize,
-    textVariant,
-    ...restProps
-  } = props;
+  const { className, valueSize, textVariant, ...restProps } = props;
   const clsxName = clsx(className, {
     [`MuiInput-input--${valueSize}`]: valueSize,
-    [`MuiInput-input--${textVariant}`]: textVariant,
+    [`MuiInput-input--${textVariant}`]: textVariant
   });
 
-  return (
-    <TextField
-      {...restProps}
-      ref={ref}
-      className={clsxName}
-
-    />
-  );
+  return <TextField {...restProps} ref={ref} className={clsxName} />;
 });
-
 
 DryTextField.defaultProps = {
   className: "",
   valueSize: "normal",
-  textVariant: "normal",
+  textVariant: "normal"
 };
 
 DryTextField.propTypes = {
   className: PropTypes.string,
-  valueSize: PropTypes.oneOf([
-    "normal",
-    "large",
-  ]),
-  textVariant: PropTypes.oneOf([
-    "normal",
-    "naked",
-  ]),
+  valueSize: PropTypes.oneOf(["normal", "large"]),
+  textVariant: PropTypes.oneOf(["normal", "naked"])
 };
 
 const StyledTextField = styled(DryTextField)`
@@ -60,7 +41,7 @@ const StyledTextField = styled(DryTextField)`
     font-size: 12px;
 
     /* by default, the label is positioned at the top */
-    transform: translate(0, 1.5px) !important; 
+    transform: translate(0, 1.5px) !important;
   }
 
   /* normal input */
@@ -76,7 +57,7 @@ const StyledTextField = styled(DryTextField)`
       padding-bottom: 6px;
       font-style: normal;
       font-weight: bold;
-      color: #192A3E;
+      color: #192a3e;
     }
   }
 
@@ -90,27 +71,28 @@ const StyledTextField = styled(DryTextField)`
 
   /* input underline */
   .MuiInput-underline {
-    &::before, &::after {
-      border-bottom-color: #D3D8DD;
+    &::before,
+    &::after {
+      border-bottom-color: #d3d8dd;
     }
 
     &:hover:not(.Mui-disabled):before {
-      border-bottom: 1px solid #D3D8DD;
+      border-bottom: 1px solid #d3d8dd;
     }
   }
 
   /* edit mode */
   .Mui-focused {
     .MuiInputBase-input {
-      background: #EBEFF2;
+      background: #ebeff2;
     }
 
     .MuiInputAdornment-root {
-      background: #EBEFF2;
+      background: #ebeff2;
     }
 
     &.MuiInput-underline::after {
-      border-bottom: 1px solid #818E9B;
+      border-bottom: 1px solid #818e9b;
     }
   }
 
@@ -118,7 +100,8 @@ const StyledTextField = styled(DryTextField)`
   &.MuiInput-input--naked {
     /* remove underline */
     .MuiInput-underline {
-      &::before, &::after {
+      &::before,
+      &::after {
         border: none;
       }
 

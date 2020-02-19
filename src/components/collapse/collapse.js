@@ -2,40 +2,26 @@ import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import { Collapse } from "@material-ui/core";
+import Collapse from "@material-ui/core/Collapse";
 import { withTheme } from "dry/theme";
 import setPropTypes from "dry/utils/setPropTypes";
 
 function DryCollapse(props) {
-  const {
-    className,
-    ...restProps
-  } = props;
-  const clsxName = clsx(className, {
+  const { className, ...restProps } = props;
+  const clsxName = clsx(className, {});
 
-  });
-
-  return (
-    <Collapse
-      {...restProps}
-      className={clsxName}
-    />
-  );
+  return <Collapse {...restProps} className={clsxName} />;
 }
 
 DryCollapse.defaultProps = {
-  className: "",
-
+  className: ""
 };
 
 DryCollapse.propTypes = {
-  className: PropTypes.string,
-
+  className: PropTypes.string
 };
 
-const StyledCollapse = styled(DryCollapse)`
- 
-`;
+const StyledCollapse = styled(DryCollapse)``;
 
 const ThemedStyledCollapse = withTheme(StyledCollapse);
 

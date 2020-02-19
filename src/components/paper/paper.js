@@ -2,41 +2,29 @@ import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import { Paper } from "@material-ui/core";
+import Paper from "@material-ui/core/Paper";
 import { withTheme } from "dry/theme";
 import setPropTypes from "dry/utils/setPropTypes";
 
 function DryPaper(props) {
-  const {
-    className,
-    ...restProps
-  } = props;
-  const clsxName = clsx(className, {
+  const { className, ...restProps } = props;
+  const clsxName = clsx(className, {});
 
-  });
-
-  return (
-    <Paper
-      {...restProps}
-      className={clsxName}
-    />
-  );
+  return <Paper {...restProps} className={clsxName} />;
 }
 
 DryPaper.defaultProps = {
-  className: "",
-
+  className: ""
 };
 
 DryPaper.propTypes = {
-  className: PropTypes.string,
-
+  className: PropTypes.string
 };
 
 const StyledPaper = styled(DryPaper)`
   &.MuiPaper-root {
     padding: 1rem;
-    background: #FFFFFF;
+    background: #ffffff;
     box-shadow: 11px 14px 50px rgba(0, 0, 0, 0.05);
     border-radius: 10px;
   }

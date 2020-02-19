@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import { Checkbox } from "@material-ui/core";
+import Checkbox from "@material-ui/core/Checkbox";
 import { makeStyles } from "@material-ui/core/styles";
 import { withTheme } from "dry/theme";
 import toSvgString from "dry/utils/toSvgString";
@@ -12,55 +12,52 @@ import Check from "./assets/check";
 const useStyles = makeStyles({
   root: {
     "&:hover": {
-      backgroundColor: "transparent",
-    },
+      backgroundColor: "transparent"
+    }
   },
   icon: {
     borderRadius: 4,
     width: 16,
     height: 16,
     border: "2px solid #D5D5D5",
-    backgroundImage: "linear-gradient(180deg,hsla(0,0%,100%,.8),hsla(0,0%,100%,0))",
+    backgroundImage:
+      "linear-gradient(180deg,hsla(0,0%,100%,.8),hsla(0,0%,100%,0))",
     "$root.Mui-focusVisible &": {
       outline: "2px auto rgba(19,124,189,.6)",
-      outlineOffset: 2,
+      outlineOffset: 2
     },
     "input:hover ~ &": {
-      backgroundColor: "rgba(92,198,76,.2)",
+      backgroundColor: "rgba(92,198,76,.2)"
     },
     "input:disabled ~ &": {
       boxShadow: "none",
-      background: "rgba(206,217,224,.5)",
-    },
+      background: "rgba(206,217,224,.5)"
+    }
   },
   checkedIcon: {
     border: "2px solid #5CC64C",
     backgroundColor: "#5CC64C",
-    backgroundImage: "linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,0))",
+    backgroundImage:
+      "linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,0))",
     "&:before": {
       display: "block",
       width: 16,
       height: 16,
       backgroundImage: `url(${toSvgString(Check)})`,
-      content: '""',
+      content: '""'
     },
     "input:hover ~ &": {
-      backgroundColor: "#5CC64C",
-    },
-  },
+      backgroundColor: "#5CC64C"
+    }
+  }
 });
 
 function DryCheckbox(props) {
-  const {
-    className,
-    ...restProps
-  } = props;
+  const { className, ...restProps } = props;
 
   const classes = useStyles();
 
-  const clsxName = clsx(className, {
-
-  });
+  const clsxName = clsx(className, {});
 
   return (
     <Checkbox
@@ -74,12 +71,12 @@ function DryCheckbox(props) {
 
 DryCheckbox.defaultProps = {
   className: "",
-  disableRipple: true,
+  disableRipple: true
 };
 
 DryCheckbox.propTypes = {
   className: PropTypes.string,
-  disableRipple: PropTypes.bool,
+  disableRipple: PropTypes.bool
 };
 
 const StyledCheckbox = styled(DryCheckbox)`

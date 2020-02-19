@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import { Menu } from "@material-ui/core";
+import Menu from "@material-ui/core/Menu";
 import { withTheme } from "dry/theme";
 import { makeStyles } from "@material-ui/core/styles";
 import setPropTypes from "dry/utils/setPropTypes";
@@ -12,20 +12,17 @@ const useStyles = makeStyles(() => ({
     borderRadius: 0,
     border: "1px solid #EBEFF2",
     overflowX: "inherit",
-    overflowY: "inherit",
+    overflowY: "inherit"
   },
 
   list: {
     width: ({ width = "100%" }) => `${width} !important`,
-    padding: "0 !important",
-  },
+    padding: "0 !important"
+  }
 }));
 
 function DryMenu(props) {
-  const {
-    className,
-    ...restProps
-  } = props;
+  const { className, ...restProps } = props;
 
   const classes = useStyles();
   const menuProps = {
@@ -36,36 +33,25 @@ function DryMenu(props) {
     anchorReference: "anchorEl",
     anchorOrigin: {
       vertical: "bottom",
-      horizontal: "left",
+      horizontal: "left"
     },
-    getContentAnchorEl: null,
+    getContentAnchorEl: null
   };
 
-  const clsxName = clsx(className, {
-  });
+  const clsxName = clsx(className, {});
 
-  return (
-    <Menu
-      {...menuProps}
-      {...restProps}
-      className={clsxName}
-    />
-  );
+  return <Menu {...menuProps} {...restProps} className={clsxName} />;
 }
 
 DryMenu.defaultProps = {
-  className: "",
-
+  className: ""
 };
 
 DryMenu.propTypes = {
-  className: PropTypes.string,
-
+  className: PropTypes.string
 };
 
-const StyledMenu = styled(DryMenu)`
- 
-`;
+const StyledMenu = styled(DryMenu)``;
 
 const ThemedStyledMenu = withTheme(StyledMenu);
 

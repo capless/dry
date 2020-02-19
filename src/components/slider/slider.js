@@ -2,44 +2,32 @@ import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import { Slider } from "@material-ui/core";
+import Slider from "@material-ui/core/Slider";
 import { withTheme } from "dry/theme";
 import setPropTypes from "dry/utils/setPropTypes";
 
 function DrySlider(props) {
-  const {
-    className,
-    ...restProps
-  } = props;
-  const clsxName = clsx(className, {
+  const { className, ...restProps } = props;
+  const clsxName = clsx(className, {});
 
-  });
-
-  return (
-    <Slider
-      {...restProps}
-      className={clsxName}
-    />
-  );
+  return <Slider {...restProps} className={clsxName} />;
 }
 
 DrySlider.defaultProps = {
-  className: "",
-
+  className: ""
 };
 
 DrySlider.propTypes = {
-  className: PropTypes.string,
-
+  className: PropTypes.string
 };
 
 const StyledSlider = styled(DrySlider)`
   &.MuiSlider-root {
-    color: #5CC64C;
+    color: #5cc64c;
 
     .MuiSlider-rail {
       height: 5px;
-      color: #E3E3E3;
+      color: #e3e3e3;
       border-radius: 5px;
     }
 
@@ -61,10 +49,10 @@ const StyledSlider = styled(DrySlider)`
     }
 
     &.Mui-disabled {
-      color: #C2CFE0;
+      color: #c2cfe0;
 
       .MuiSlider-rail {
-        color: #E3E3E3;
+        color: #e3e3e3;
       }
 
       .MuiSlider-thumb {

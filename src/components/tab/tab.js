@@ -2,40 +2,26 @@ import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import { Tab } from "@material-ui/core";
+import Tab from "@material-ui/core/Tab";
 import { withTheme } from "dry/theme";
 import setPropTypes from "dry/utils/setPropTypes";
 
 function DryTab(props) {
-  const {
-    className,
-    ...restProps
-  } = props;
-  const clsxName = clsx(className, {
+  const { className, ...restProps } = props;
+  const clsxName = clsx(className, {});
 
-  });
-
-  return (
-    <Tab
-      {...restProps}
-      className={clsxName}
-    />
-  );
+  return <Tab {...restProps} className={clsxName} />;
 }
 
 DryTab.defaultProps = {
-  className: "",
-
+  className: ""
 };
 
 DryTab.propTypes = {
-  className: PropTypes.string,
-
+  className: PropTypes.string
 };
 
-const StyledTab = styled(DryTab)`
- 
-`;
+const StyledTab = styled(DryTab)``;
 
 const ThemedStyledTab = withTheme(StyledTab);
 

@@ -10,26 +10,28 @@ import Typography from "dry/components/typography";
 import Button from "dry/components/button";
 import InputAdornment from "dry/components/input-adornment";
 import {
-  DoneOutline, EditOutlined, DeleteOutlined,
-  ArrowDropDown,
+  DoneOutline,
+  EditOutlined,
+  DeleteOutlined,
+  ArrowDropDown
 } from "dry/icons";
 import Select from "dry/components/select";
 import MenuItem from "dry/components/menu-item";
-import { Divider } from "@material-ui/core";
+import Divider from "@material-ui/core/Divider";
 
 export default {
-  title: "Forms|EditableSelectGroups",
+  title: "Forms|EditableSelectGroups"
 };
 
 const useStyles = makeStyles(() => ({
   rootGrid: {
     backgroundColor: "#E5E5E5",
     height: "120vh",
-    padding: "1rem",
+    padding: "1rem"
   },
 
   firstTitle: {
-    marginTop: "0 !important",
+    marginTop: "0 !important"
   },
 
   formTitle: {
@@ -37,42 +39,42 @@ const useStyles = makeStyles(() => ({
     fontSize: "21px",
     lineHeight: "21px",
     color: "#334D6E",
-    marginTop: "1.5rem",
+    marginTop: "1.5rem"
   },
 
   gridItemFormGroup: {
     "&.MuiGrid-item": {
-      display: "flex",
+      display: "flex"
     },
 
     "& .MuiFormGroup-root": {
       flexGrow: 1,
-      flexBasis: "30%",
-    },
+      flexBasis: "30%"
+    }
   },
 
   gridItemButton: {
     display: "flex",
-    justifyContent: "flex-end",
+    justifyContent: "flex-end"
   },
 
   gridItemDivider: {
     "&.MuiGrid-item": {
       padding: "0 1rem",
-      marginBottom: "10px",
-    },
+      marginBottom: "10px"
+    }
   },
 
   inputAdornment: {
     cursor: "pointer",
-    color: "#707683",
+    color: "#707683"
   },
 
   select: {
     "& .MuiInputBase-root:before": {
-      border: "none",
-    },
-  },
+      border: "none"
+    }
+  }
 }));
 
 export const editable = () => {
@@ -81,7 +83,6 @@ export const editable = () => {
   return (
     <Grid container justify="center" className={classes.rootGrid}>
       <Grid item xs={8}>
-
         <Paper>
           <Grid container spacing={4}>
             {/* Radio Groups */}
@@ -93,33 +94,55 @@ export const editable = () => {
             <Grid item xs={12}>
               <Grid container spacing={4}>
                 <Grid item xs={12}>
-                  <Typography variant="h6" className={cn(classes.firstTitle, classes.formTitle)}>
+                  <Typography
+                    variant="h6"
+                    className={cn(classes.firstTitle, classes.formTitle)}
+                  >
                     Interior Details
                   </Typography>
                 </Grid>
 
-                {["Driver Airbag", "Airconditioning", "CD Audio System"].map((item) => (
-                  <Grid key={item} item xs={4} className={classes.gridItemFormGroup}>
-                    <EditableSelect label={item} />
-                  </Grid>
-                ))}
+                {["Driver Airbag", "Airconditioning", "CD Audio System"].map(
+                  item => (
+                    <Grid
+                      key={item}
+                      item
+                      xs={4}
+                      className={classes.gridItemFormGroup}
+                    >
+                      <EditableSelect label={item} />
+                    </Grid>
+                  )
+                )}
 
                 <Grid item xs={12} className={classes.gridItemDivider}>
                   <Divider />
                 </Grid>
 
-                {["Passenger Airbag", "Cup holders", "iPod/MP3 Compatible"].map((item) => (
-                  <Grid key={item} item xs={4} className={classes.gridItemFormGroup}>
-                    <EditableSelect label={item} />
-                  </Grid>
-                ))}
+                {["Passenger Airbag", "Cup holders", "iPod/MP3 Compatible"].map(
+                  item => (
+                    <Grid
+                      key={item}
+                      item
+                      xs={4}
+                      className={classes.gridItemFormGroup}
+                    >
+                      <EditableSelect label={item} />
+                    </Grid>
+                  )
+                )}
 
                 <Grid item xs={12} className={classes.gridItemDivider}>
                   <Divider />
                 </Grid>
 
-                {["Side Airbag", "AM/FM Stereo", "Leather Seats"].map((item) => (
-                  <Grid key={item} item xs={4} className={classes.gridItemFormGroup}>
+                {["Side Airbag", "AM/FM Stereo", "Leather Seats"].map(item => (
+                  <Grid
+                    key={item}
+                    item
+                    xs={4}
+                    className={classes.gridItemFormGroup}
+                  >
                     <EditableSelect label={item} />
                   </Grid>
                 ))}
@@ -127,13 +150,21 @@ export const editable = () => {
 
               <Grid container spacing={4}>
                 <Grid item xs={12}>
-                  <Typography variant="h6" className={cn(classes.firstTitle, classes.formTitle)}>
+                  <Typography
+                    variant="h6"
+                    className={cn(classes.firstTitle, classes.formTitle)}
+                  >
                     Exterior Details
                   </Typography>
                 </Grid>
 
-                {["Alloy Wheels", "Fog Lights", "Tinted Windows"].map((item) => (
-                  <Grid key={item} item xs={4} className={classes.gridItemFormGroup}>
+                {["Alloy Wheels", "Fog Lights", "Tinted Windows"].map(item => (
+                  <Grid
+                    key={item}
+                    item
+                    xs={4}
+                    className={classes.gridItemFormGroup}
+                  >
                     <EditableSelect label={item} />
                   </Grid>
                 ))}
@@ -141,13 +172,42 @@ export const editable = () => {
 
               <Grid container spacing={4}>
                 <Grid item xs={12}>
-                  <Typography variant="h6" className={cn(classes.firstTitle, classes.formTitle)}>
+                  <Typography
+                    variant="h6"
+                    className={cn(classes.firstTitle, classes.formTitle)}
+                  >
                     Equipments
                   </Typography>
                 </Grid>
 
-                {["Alarm System", "Keyless Entry", "Power Windows"].map((item) => (
-                  <Grid key={item} item xs={4} className={classes.gridItemFormGroup}>
+                {["Alarm System", "Keyless Entry", "Power Windows"].map(
+                  item => (
+                    <Grid
+                      key={item}
+                      item
+                      xs={4}
+                      className={classes.gridItemFormGroup}
+                    >
+                      <EditableSelect label={item} />
+                    </Grid>
+                  )
+                )}
+
+                <Grid item xs={12} className={classes.gridItemDivider}>
+                  <Divider />
+                </Grid>
+
+                {[
+                  "Power Steering",
+                  "Engine Immobilizer",
+                  "Electric mirrors"
+                ].map(item => (
+                  <Grid
+                    key={item}
+                    item
+                    xs={4}
+                    className={classes.gridItemFormGroup}
+                  >
                     <EditableSelect label={item} />
                   </Grid>
                 ))}
@@ -156,18 +216,13 @@ export const editable = () => {
                   <Divider />
                 </Grid>
 
-                {["Power Steering", "Engine Immobilizer", "Electric mirrors"].map((item) => (
-                  <Grid key={item} item xs={4} className={classes.gridItemFormGroup}>
-                    <EditableSelect label={item} />
-                  </Grid>
-                ))}
-
-                <Grid item xs={12} className={classes.gridItemDivider}>
-                  <Divider />
-                </Grid>
-
-                {["ABS", "Power Door Locks"].map((item) => (
-                  <Grid key={item} item xs={4} className={classes.gridItemFormGroup}>
+                {["ABS", "Power Door Locks"].map(item => (
+                  <Grid
+                    key={item}
+                    item
+                    xs={4}
+                    className={classes.gridItemFormGroup}
+                  >
                     <EditableSelect label={item} />
                   </Grid>
                 ))}
@@ -175,17 +230,12 @@ export const editable = () => {
             </Grid>
 
             <Grid item xs={12} className={classes.gridItemButton}>
-              <Button
-                color="primary"
-                variant="contained"
-              >
+              <Button color="primary" variant="contained">
                 Submit
               </Button>
             </Grid>
-
           </Grid>
         </Paper>
-
       </Grid>
     </Grid>
   );
@@ -205,16 +255,19 @@ function EditableSelect(props) {
       open={isOpen}
       value={value}
       disabled={!isEditMode}
-      onChange={(evt) => setValue(evt.target.value)}
+      onChange={evt => setValue(evt.target.value)}
       onClose={() => setIsOpen(false)}
       onOpen={() => setIsOpen(true)}
       className={classes.select}
-      endAdornment={(
+      endAdornment={
         <>
           {isEditMode ? (
             <>
               <InputAdornment position="end" className={classes.inputAdornment}>
-                <ArrowDropDown fontSize="small" onClick={() => setIsOpen(!isOpen)} />
+                <ArrowDropDown
+                  fontSize="small"
+                  onClick={() => setIsOpen(!isOpen)}
+                />
               </InputAdornment>
               <InputAdornment position="end" className={classes.inputAdornment}>
                 <DoneOutline fontSize="small" onClick={handleClickDone} />
@@ -229,7 +282,7 @@ function EditableSelect(props) {
             <DeleteOutlined fontSize="small" />
           </InputAdornment>
         </>
-      )}
+      }
     >
       <MenuItem value={1}>Yes</MenuItem>
       <MenuItem value={0}>No</MenuItem>

@@ -2,40 +2,26 @@ import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import { TableBody } from "@material-ui/core";
+import TableBody from "@material-ui/core/TableBody";
 import { withTheme } from "dry/theme";
 import setPropTypes from "dry/utils/setPropTypes";
 
 function DryTableBody(props) {
-  const {
-    className,
-    ...restProps
-  } = props;
-  const clsxName = clsx(className, {
+  const { className, ...restProps } = props;
+  const clsxName = clsx(className, {});
 
-  });
-
-  return (
-    <TableBody
-      {...restProps}
-      className={clsxName}
-    />
-  );
+  return <TableBody {...restProps} className={clsxName} />;
 }
 
 DryTableBody.defaultProps = {
-  className: "",
-
+  className: ""
 };
 
 DryTableBody.propTypes = {
-  className: PropTypes.string,
-
+  className: PropTypes.string
 };
 
-const StyledTableBody = styled(DryTableBody)`
- 
-`;
+const StyledTableBody = styled(DryTableBody)``;
 
 const ThemedStyledTableBody = withTheme(StyledTableBody);
 

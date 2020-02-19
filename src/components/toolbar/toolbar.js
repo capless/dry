@@ -2,40 +2,26 @@ import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import { Toolbar } from "@material-ui/core";
+import Toolbar from "@material-ui/core/Toolbar";
 import { withTheme } from "dry/theme";
 import setPropTypes from "dry/utils/setPropTypes";
 
 function DryToolbar(props) {
-  const {
-    className,
-    ...restProps
-  } = props;
-  const clsxName = clsx(className, {
+  const { className, ...restProps } = props;
+  const clsxName = clsx(className, {});
 
-  });
-
-  return (
-    <Toolbar
-      {...restProps}
-      className={clsxName}
-    />
-  );
+  return <Toolbar {...restProps} className={clsxName} />;
 }
 
 DryToolbar.defaultProps = {
-  className: "",
-
+  className: ""
 };
 
 DryToolbar.propTypes = {
-  className: PropTypes.string,
-
+  className: PropTypes.string
 };
 
-const StyledToolbar = styled(DryToolbar)`
- 
-`;
+const StyledToolbar = styled(DryToolbar)``;
 
 const ThemedStyledToolbar = withTheme(StyledToolbar);
 

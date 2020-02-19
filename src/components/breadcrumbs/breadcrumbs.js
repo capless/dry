@@ -2,43 +2,33 @@ import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import { Breadcrumbs } from "@material-ui/core";
+import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import { withTheme } from "dry/theme";
 import setPropTypes from "dry/utils/setPropTypes";
 
 function DryBreadcrumbs(props) {
-  const {
-    className,
-    ...restProps
-  } = props;
-  const clsxName = clsx(className, {
+  const { className, ...restProps } = props;
+  const clsxName = clsx(className, {});
 
-  });
-
-  return (
-    <Breadcrumbs
-      {...restProps}
-      className={clsxName}
-    />
-  );
+  return <Breadcrumbs {...restProps} className={clsxName} />;
 }
 
 DryBreadcrumbs.defaultProps = {
-  className: "",
-
+  className: ""
 };
 
 DryBreadcrumbs.propTypes = {
-  className: PropTypes.string,
-
+  className: PropTypes.string
 };
 
-const StyledBreadcrumbs = styled(DryBreadcrumbs)`
- 
-`;
+const StyledBreadcrumbs = styled(DryBreadcrumbs)``;
 
 const ThemedDryBreadcrumbs = withTheme(StyledBreadcrumbs);
 
-setPropTypes("DryBreadcrumbs", [Breadcrumbs, DryBreadcrumbs], ThemedDryBreadcrumbs);
+setPropTypes(
+  "DryBreadcrumbs",
+  [Breadcrumbs, DryBreadcrumbs],
+  ThemedDryBreadcrumbs
+);
 
 export default ThemedDryBreadcrumbs;

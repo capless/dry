@@ -1,3 +1,3 @@
-import { CssBaseline } from "@material-ui/core";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 export default CssBaseline;

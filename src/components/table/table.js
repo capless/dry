@@ -2,44 +2,34 @@ import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import styled from "styled-components";
-import { Table } from "@material-ui/core";
+import Table from "@material-ui/core/Table";
 import { withTheme } from "dry/theme";
 import setPropTypes from "dry/utils/setPropTypes";
 
 function DryTable(props) {
-  const {
-    className,
-    ...restProps
-  } = props;
-  const clsxName = clsx(className, {
+  const { className, ...restProps } = props;
+  const clsxName = clsx(className, {});
 
-  });
-
-  return (
-    <Table
-      {...restProps}
-      className={clsxName}
-    />
-  );
+  return <Table {...restProps} className={clsxName} />;
 }
 
 DryTable.defaultProps = {
-  className: "",
-
+  className: ""
 };
 
 DryTable.propTypes = {
-  className: PropTypes.string,
-
+  className: PropTypes.string
 };
 
 const StyledTable = styled(DryTable)`
-  tr th:first-child, tr td:first-child {
+  tr th:first-child,
+  tr td:first-child {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
   }
 
-  tr th:last-child, tr td:last-child {
+  tr th:last-child,
+  tr td:last-child {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
   }
@@ -54,7 +44,7 @@ const StyledTable = styled(DryTable)`
           font-size: 13px;
           line-height: 15px;
           letter-spacing: 0.01em;
-          color: #334D6E;
+          color: #334d6e;
           opacity: 0.5;
         }
       }
@@ -63,10 +53,10 @@ const StyledTable = styled(DryTable)`
         flex-direction: row;
       }
     }
-    
+
     /* Table Row (tr) */
     .MuiTableRow-root {
-      background: #FFFFFF;
+      background: #ffffff;
     }
 
     /* Table Cell (td) */
@@ -77,14 +67,15 @@ const StyledTable = styled(DryTable)`
         font-size: 14px;
         line-height: 16px;
         letter-spacing: 0.01em;
-        color: #334D6E;
+        color: #334d6e;
       }
     }
 
     /* Table Body (tbody) */
     .MuiTableBody-root {
-      .MuiTableRow-root.selected, .MuiTableRow-root:hover {
-        background: #EBEFF2;
+      .MuiTableRow-root.selected,
+      .MuiTableRow-root:hover {
+        background: #ebeff2;
       }
     }
   }
