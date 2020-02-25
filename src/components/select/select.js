@@ -6,6 +6,7 @@ import Select from "@material-ui/core/Select";
 import { withTheme } from "dry/theme";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
+import FormHelperText from "@material-ui/core/FormHelperText";
 import { makeStyles } from "@material-ui/core/styles";
 import setPropTypes from "dry/utils/setPropTypes";
 
@@ -14,17 +15,19 @@ const useStyles = makeStyles(() => ({
     borderRadius: 0,
     border: "1px solid #EBEFF2",
     overflowX: "inherit",
-    overflowY: "auto !important"
+    overflowY: "auto !important",
   },
 
   list: {
     width: ({ width = "100%" }) => `${width} !important`,
-    padding: "0 !important"
-  }
+    padding: "0 !important",
+  },
 }));
 
 function DrySelect(props) {
-  const { className, label, textVariant, fullWidth, ...restProps } = props;
+  const {
+    className, required, label, textVariant, fullWidth, helperText, ...restProps
+  } = props;
 
   const classes = useStyles();
   const selectRef = useRef();
@@ -38,9 +41,9 @@ function DrySelect(props) {
     anchorReference: "anchorEl",
     anchorOrigin: {
       vertical: "bottom",
-      horizontal: "left"
+      horizontal: "left",
     },
-    getContentAnchorEl: null
+    getContentAnchorEl: null,
   };
 
   useEffect(() => {
@@ -49,13 +52,14 @@ function DrySelect(props) {
 
   const clsxName = clsx(className, {
     [`MuiSelect-select--${textVariant}`]: textVariant,
-    [`MuiSelect-select--fullWidth`]: fullWidth
+    [`MuiSelect-select--fullWidth`]: fullWidth,
   });
 
   return (
-    <FormControl className={clsxName}>
+    <FormControl className={clsxName} required={required}>
       <InputLabel>{label}</InputLabel>
       <Select {...restProps} ref={selectRef} MenuProps={menuProps} />
+      {helperText && <FormHelperText error={restProps.error}>{helperText}</FormHelperText>}
     </FormControl>
   );
 }
@@ -63,15 +67,20 @@ function DrySelect(props) {
 DrySelect.defaultProps = {
   className: "",
   label: "",
+  helperText: "",
   textVariant: "normal",
-  fullWidth: false
+  fullWidth: false,
+  required: false,
+
 };
 
 DrySelect.propTypes = {
   className: PropTypes.string,
   label: PropTypes.string,
+  helperText: PropTypes.string,
   fullWidth: PropTypes.bool,
-  textVariant: PropTypes.oneOf(["normal", "naked"])
+  required: PropTypes.bool,
+  textVariant: PropTypes.oneOf(["normal", "naked"]),
 };
 
 const StyledSelect = styled(DrySelect)`
