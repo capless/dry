@@ -1,10 +1,10 @@
-# DRY-UI
+# Dry-UI
 
-Material-UI based design system.
+React components for faster and easier web development. This is a design system based on Material-UI.
 
-## DMS
+## Demo
 
-[Dealer Management System](https://sprint.dms.autogy.dev)
+For demonstration purposes, check out the storybook [here](https://capless-dry.netlify.com).
 
 ## Available Scripts
 
