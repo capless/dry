@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="https://avatars2.githubusercontent.com/u/22257840?s=200&v=4" alt="Project logo"></a>
+ <img width=200px height=200px src="./troll_dry.png" alt="Project logo"></a>
 </p>
 
 <h3 align="center">Welcome to DRY-UI</h3>
