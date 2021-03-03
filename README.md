@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="https://avatars2.githubusercontent.com/u/22257840?s=200&v=4" alt="Project logo"></a>
+ <img width=200px height=200px src="./troll_dry.png" alt="Project logo"></a>
 </p>
 
 <h3 align="center">Welcome to DRY-UI</h3>
@@ -30,8 +30,6 @@ See our [documentation](https://capless-dry.netlify.app/?path=/story/library-ava
 
 ##### Prerequisites
 
-What things you need to install the software and how to install them.
-
 
 ```
 react
@@ -39,9 +37,6 @@ react-dom
 ```
 
 ##### Installing
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
 
 ```
 npm install dry-ui

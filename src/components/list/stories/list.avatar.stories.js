@@ -12,6 +12,7 @@ import ListItemAvatar from "dry/components/list-item-avatar";
 
 export default {
   title: "Library|Lists/Avatars",
+  component: Avatar
 };
 
 const useStyles = makeStyles(() => ({
