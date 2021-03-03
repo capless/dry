@@ -30,8 +30,6 @@ See our [documentation](https://capless-dry.netlify.app/?path=/story/library-ava
 
 ##### Prerequisites
 
-What things you need to install the software and how to install them.
-
 
 ```
 react
@@ -39,9 +37,6 @@ react-dom
 ```
 
 ##### Installing
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
 
 ```
 npm install dry-ui
