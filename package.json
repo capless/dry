@@ -34,7 +34,7 @@
     "react-draft-wysiwyg": "^1.13.2",
     "react-image": "^2.2.1",
     "react-slick": "^0.25.2",
-    "recharts": "^1.8.5",
+    "recharts": "^2.1.14",
     "slick-carousel": "^1.8.1",
     "styled-components": "^4.4.0"
   },
